@@ -1,15 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Shop</h1>
-<div class="product-list">
-    {% for product in products %}
-    <div class="product">
-        <h2><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></h2>
-        <p>{{ product.description|truncatewords:20 }}</p>
-        <p>${{ product.price }}</p>
+<section class="shop-page py-5">
+  <div class="container">
+    <h1 class="mb-4 text-center">Shop</h1>
+    <div class="row">
+      {% for product in products %}
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card h-100">
+          {% if product.image %}
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+          {% else %}
+            <img src="{% static 'images/new-arrivals.png' %}" class="card-img-top" alt="Placeholder">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">${{ product.price }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="{% url 'product_detail' product.pk %}" class="btn btn-custom w-100">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-center">No products available at the moment.</p>
+      {% endfor %}
     </div>
-    {% empty %}
-    <p>No products available.</p>
-    {% endfor %}
-</div>
+  </div>
+</section>
 {% endblock %}
+

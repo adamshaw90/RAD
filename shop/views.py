@@ -4,6 +4,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import Product, Order, OrderItem
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 
 
 def shop(request):
@@ -72,9 +74,6 @@ def checkout(request):
         cancel_url=request.build_absolute_uri('/shop/cart/'),
     )
     return redirect(session.url, code=303)
-
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
 
 
 @csrf_exempt
