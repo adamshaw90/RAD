@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from shop.models import Product
 
 
 def home(request):
-    return render(request, 'core/home.html')
+    favourite_products = Product.objects.filter(is_favourite=True)
+    return render(request, 'core/home.html', {'favourite_products': favourite_products})
 
 
 def about(request):

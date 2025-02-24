@@ -136,4 +136,16 @@
   section {
     margin-bottom: 2rem;
   }
+
+
   
+  .favourites-carousel .card {
+    margin: 0 auto;
+    border: none;
+    padding: 10px;
+  }
+  
+  .favourites-carousel .card-img-top {
+    max-height: 250px;
+    object-fit: cover;
+  }
