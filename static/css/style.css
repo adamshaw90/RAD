@@ -179,4 +179,38 @@
     max-height: 250px;
     object-fit: cover;
   }
+
+
+/* Footer */
+  .footer {
+    padding: 1rem 0;
+  }
   
+  .footer p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .footer a {
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    margin-right: 20px; /* Adjust the value as needed */
+  }
+  
+
+  .footer a i {
+    transition: all 0.3s ease;
+  }
+  
+  .footer a:hover i {
+    color: #D2691E; /* Change icon color on hover */
+    text-shadow: 0 0 8px #D2691E; /* Add a glow effect */
+  }
+
+  .footer a {
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: none;
+  }
