@@ -4,9 +4,6 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import Product, Order, OrderItem
-import stripe
-
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def shop(request):

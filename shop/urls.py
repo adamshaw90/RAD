@@ -10,5 +10,5 @@ urlpatterns = [
     path('product/<int:pk>/delete/', views.ProductDeleteView.as_view(), name='product_delete'),
     path('cart/', views.cart, name='cart'),
     path('checkout/', views.checkout, name='checkout'),
-    path('stripe-webhook/', views.stripe_webhook, name='stripe_webhook'),
+    # path('stripe-webhook/', views.stripe_webhook, name='stripe_webhook'),
 ]
