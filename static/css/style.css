@@ -148,6 +148,53 @@
     object-fit: cover;
   }
 
+  /* Adjust the carousel control icon sizes */
+.small-carousel-icon {
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+  }
+  
+  /* Optional: If you want to further tweak the position of the controls */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+  }
+  
+/* Custom carousel buttons styling */
+.custom-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    z-index: 2;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+  
+  /* Optional: Style the text inside the buttons */
+  .btn-text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
 
 /* Shop Page */
 /* Custom button style to match the site's branding */

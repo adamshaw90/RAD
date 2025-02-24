@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load shop_tags %}
 {% block content %}
 <!-- Hero Section -->
 <section class="hero-section" style="background-image: url('{% static 'images/hero.png' %}');">
@@ -36,23 +37,38 @@
     <div class="container">
       <h2 class="text-center mb-4">Check Out the Favourites</h2>
       {% if favourite_products %}
-        <div class="favourites-carousel">
-          {% for product in favourite_products %}
-            <div class="product-card">
-              <div class="card">
-                {% if product.image %}
-                  <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                {% else %}
-                  <img src="{% static 'images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder">
-                {% endif %}
-                <div class="card-body text-center">
-                  <h5 class="card-title">{{ product.name }}</h5>
-                  <p class="card-text">${{ product.price }}</p>
-                </div>
+      <div id="favouritesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for product_chunk in favourite_products|chunker:3 %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <div class="row">
+                {% for product in product_chunk %}
+                  <div class="col-md-4">
+                    <div class="card">
+                      {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                      {% else %}
+                        <img src="{% static 'images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder">
+                      {% endif %}
+                      <div class="card-body text-center">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">${{ product.price }}</p>
+                        <a href="{% url 'product_detail' product.pk %}" class="btn btn-custom mt-3">Shop Now</a>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
               </div>
             </div>
           {% endfor %}
         </div>
+        <button class="custom-carousel-btn prev-btn" type="button" data-bs-target="#favouritesCarousel" data-bs-slide="prev">
+          <span class="btn-text">Previous</span>
+        </button>
+        <button class="custom-carousel-btn next-btn" type="button" data-bs-target="#favouritesCarousel" data-bs-slide="next">
+          <span class="btn-text">Next</span>
+        </button>
+      </div>
       {% else %}
         <p class="text-center">No favourite products to display at the moment.</p>
       {% endif %}
