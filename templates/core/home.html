@@ -1,5 +1,118 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Welcome to Rad Coffee</h1>
-<p>Your one-stop shop for premium coffee and coffee products.</p>
+<!-- Hero Section -->
+<section class="hero-section" style="background-image: url('{% static 'images/hero.png' %}');">
+  <div class="hero-overlay">
+    <div class="hero-content text-center">
+      <h1 class="display-4 text-white">Welcome to Rad Coffee</h1>
+      <p class="lead text-white">Discover the finest coffee and accessories.</p>
+      <a href="{% url 'shop' %}" class="btn btn-custom mt-3">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- New Arrivals Section -->
+<section class="new-arrivals py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Image on right -->
+      <div class="col-md-6 order-md-2">
+        <img src="{% static 'images/new-arrivals.png' %}" alt="New Arrivals" class="img-fluid">
+      </div>
+      <div class="col-md-6 order-md-1">
+        <div class="p-4">
+          <h2>New Arrivals</h2>
+          <p>Check out our latest coffee and accessories curated just for you.</p>
+          <a href="{% url 'shop' %}?filter=new" class="btn btn-custom">Shop New Arrivals</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Favourites Section -->
+<section class="favourites py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Check Out the Favourites</h2>
+    <div id="favouritesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Single slide with 4 cards; you can create additional slides if needed -->
+        <div class="carousel-item active">
+          <div class="row">
+            <!-- Product Card 1 -->
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <img src="{% static 'images/new-arrivals.png' %}" class="card-img-top" alt="Product 1">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Product 1</h5>
+                  <p class="card-text">$10.99</p>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <img src="{% static 'images/new-arrivals.png' %}" class="card-img-top" alt="Product 2">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Product 2</h5>
+                  <p class="card-text">$12.99</p>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <img src="{% static 'images/new-arrivals.png' %}" class="card-img-top" alt="Product 3">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Product 3</h5>
+                  <p class="card-text">$9.99</p>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <img src="{% static 'images/new-arrivals.png' %}" class="card-img-top" alt="Product 4">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Product 4</h5>
+                  <p class="card-text">$11.99</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#favouritesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#favouritesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Wholesale Section -->
+<section class="wholesale py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Image on left -->
+      <div class="col-md-6">
+        <img src="{% static 'images/new-arrivals.png' %}" alt="Wholesale" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <div class="p-4">
+          <h2>Wholesale</h2>
+          <p>Discover our wholesale options and get the best deals for your business.</p>
+          <a href="{% url 'shop' %}?filter=wholesale" class="btn btn-custom">Shop Wholesale</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
+

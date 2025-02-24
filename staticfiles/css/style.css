@@ -1,0 +1,139 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background-color: #333;
+    padding: 1rem;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .nav-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-item {
+    margin-left: 1rem;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Hamburger Toggle */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .nav-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-menu {
+      flex-direction: column;
+      position: absolute;
+      top: 70px; /* Adjust based on navbar height */
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      display: none;
+    }
+    
+    .nav-menu.active {
+      display: flex;
+    }
+    
+    .nav-item {
+      text-align: center;
+      padding: 1rem;
+      margin: 0;
+      border-bottom: 1px solid #444;
+    }
+    
+    .nav-toggle {
+      display: flex;
+    }
+  }
+  
+  /* Button styling */
+.btn-custom {
+    background-color: #D2691E;  /* Example color; adjust as needed */
+    border: none;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-custom:hover {
+    background-color: #a55715;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  /* Section spacing (optional tweaks) */
+  section {
+    margin-bottom: 2rem;
+  }
+  
