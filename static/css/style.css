@@ -286,4 +286,7 @@
   .contact-button .btn:hover {
     background-color: #a55715;
   }
-  
+
+  .details {
+    padding-left: 100px;
+  }

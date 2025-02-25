@@ -1,6 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<!-- Contact Information Section -->
+<section class="contact-info py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Google Map on the Left -->
+      <div class="col-md-6">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d590.774396135622!2d-75.4986354548796!3d5.064712165011538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sau!4v1740463875155!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <!-- Business Contact Details on the Right -->
+      <div class="col-md-6 details">
+        <h2>Our Contact Details</h2>
+        <p><strong>Address:</strong> 123 Coffee Street, Brew City, Country</p>
+        <p><strong>Phone:</strong> +1 234 567 890</p>
+        <p><strong>Email:</strong> info@radcoffee.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
 <section class="contact-form py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-4">Send Us a Message</h2>
@@ -13,4 +36,6 @@
     </form>
   </div>
 </section>
+
 {% endblock %}
+
