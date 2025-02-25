@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 if os.path.isfile('env.py'):
     import env
@@ -50,6 +53,8 @@ INSTALLED_APPS = [
     'core',
     'shop',
     'accounts',
+    'cloudinary_storage',
+    'cloudinary',
 
 ]
 
@@ -149,6 +154,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if DEBUG:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'your_cloudinary_name',
+    'API_KEY': 'your_cloudinary_api_key',
+    'API_SECRET': 'your_cloudinary_api_secret'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
