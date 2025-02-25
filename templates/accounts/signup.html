@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Your Profile</h2>
+<h2>Sign Up</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-custom">Update Profile</button>
+    <button type="submit" class="btn btn-custom">Sign Up</button>
 </form>
 {% endblock %}

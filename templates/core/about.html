@@ -1,5 +1,41 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Welcome to Rad Coffee About page</h1>
-<p>Your one-stop shop for premium coffee and coffee products.</p>
+
+<!-- Top Images Section -->
+<section class="about-images py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Left Column: One Vertical Image -->
+      <div class="col-md-4">
+        <img src="{% static 'images/about_left.jpg' %}" class="img-fluid" alt="Our Story">
+      </div>
+      <!-- Right Column: Two Images Side by Side -->
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-6">
+            <img src="{% static 'images/about_right1.jpg' %}" class="img-fluid mb-3" alt="Team Photo">
+          </div>
+          <div class="col-6">
+            <img src="{% static 'images/about_right2.jpg' %}" class="img-fluid mb-3" alt="Our Workspace">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Text Section -->
+<section class="about-text py-5">
+  <div class="container">
+    <h2>About Our Business</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+    </p>
+    <p>
+      Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
+    </p>
+  </div>
+</section>
+
 {% endblock %}
