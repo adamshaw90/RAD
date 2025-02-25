@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
   }
+
   
   body {
     font-family: Arial, sans-serif;
@@ -252,5 +253,37 @@
   .btn-text {
     display: inline-block;
     vertical-align: middle;
+  }
+  
+
+  /* Wholesale sections */
+.wholesale-section {
+    /* Optional: add custom padding or background colors */
+  }
+  
+  .section-image-left img,
+  .section-image-right img {
+    border-radius: 5px;
+  }
+  
+  /* For a bit of contrast between sections */
+  .section-image-right {
+    background-color: #f8f9fa; /* light gray background */
+  }
+  
+  /* Contact Us Button Styling */
+  .contact-button .btn {
+    background-color: #D2691E; /* Example: a coffee-inspired brown color */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-button .btn:hover {
+    background-color: #a55715;
   }
   
