@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <h1>{{ object.name }}</h1>
 {% if object.image %}
-<img src="{{ object.image.url }}" alt="{{ object.name }}">
+  <img src="{{ object.image.url }}" alt="{{ object.name }}">
+{% else %}
+  <img src="{% static 'images/placeholder.jpg' %}" alt="Placeholder">
 {% endif %}
 <p>{{ object.description }}</p>
 <p>${{ object.price }}</p>
