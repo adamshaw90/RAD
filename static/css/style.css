@@ -148,53 +148,47 @@
     object-fit: cover;
   }
 
-  /* Adjust the carousel control icon sizes */
-.small-carousel-icon {
-    width: 30px;
-    height: 30px;
-    background-size: 30px 30px;
+  /* Ensure the carousel container is relatively positioned */
+    #favouritesCarousel {
+    position: relative;
   }
+
   
-  /* Optional: If you want to further tweak the position of the controls */
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 5%;
-  }
-  
-/* Custom carousel buttons styling */
-.custom-carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
-    border: none;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    z-index: 2;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  /* Custom carousel buttons styling */
+    .custom-carousel-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background-color: rgba(0, 0, 0, 0.6) !important; /* Semi-transparent dark background */
+    border: none !important;
+    padding: 10px 20px !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    border-radius: 5px !important;
+    z-index: 2 !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    /* Temporary border for debugging */
+    border: 2px solid red !important;
   }
   
   .custom-carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8) !important;
   }
   
   .prev-btn {
-    left: 10px;
+    left: 10px !important;
   }
   
   .next-btn {
-    right: 10px;
+    right: 10px !important;
   }
   
-  /* Optional: Style the text inside the buttons */
+  /* Style the text inside the buttons */
   .btn-text {
-    display: inline-block;
-    vertical-align: middle;
+    display: inline-block !important;
+    vertical-align: middle !important;
   }
-  
 
 /* Shop Page */
 /* Custom button style to match the site's branding */
