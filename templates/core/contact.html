@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Welcome to Rad Coffee Contact page</h1>
-<p>Your one-stop shop for premium coffee and coffee products.</p>
+<section class="contact-form py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Send Us a Message</h2>
+    <form method="post" action="{% url 'contact' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="text-center">
+        <button type="submit" class="btn btn-custom">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
 {% endblock %}
