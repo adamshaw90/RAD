@@ -137,3 +137,80 @@
     margin-bottom: 2rem;
   }
   
+  .favourites-carousel .card {
+    margin: 0 auto;
+    border: none;
+    padding: 10px;
+  }
+  
+  .favourites-carousel .card-img-top {
+    max-height: 250px;
+    object-fit: cover;
+  }
+
+ 
+/* Shop Page */
+/* Custom button style to match the site's branding */
+.btn-custom {
+    background-color: #D2691E;  /* Adjust the color as needed */
+    border: none;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-custom:hover {
+    background-color: #a55715;
+  }
+  
+  /* Add a hover effect on product cards */
+  .shop-page .card {
+    transition: transform 0.3s ease;
+  }
+  .shop-page .card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Optional: Adjust spacing for product images */
+  .shop-page .card-img-top {
+    max-height: 250px;
+    object-fit: cover;
+  }
+
+
+/* Footer */
+  .footer {
+    padding: 1rem 0;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .footer a {
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    margin-right: 20px; /* Adjust the value as needed */
+  }
+  
+
+  .footer a i {
+    transition: all 0.3s ease;
+  }
+  
+  .footer a:hover i {
+    color: #D2691E; /* Change icon color on hover */
+    text-shadow: 0 0 8px #D2691E; /* Add a glow effect */
+  }
+
+  .footer a {
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: none;
+  }
