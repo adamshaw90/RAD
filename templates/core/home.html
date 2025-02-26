@@ -33,46 +33,53 @@
 </section>
 
 <!-- Favourites Section -->
+<!-- Favourites Section -->
 <section class="favourites py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Check Out the Favourites</h2>
-      {% if favourite_products %}
-      <div id="favouritesCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          {% for product_chunk in favourite_products|chunker:3 %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-              <div class="row">
-                {% for product in product_chunk %}
-                  <div class="col-md-4">
-                    <div class="card">
-                      {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                      {% else %}
-                        <img src="{% static 'images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder">
-                      {% endif %}
-                      <div class="card-body text-center">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">${{ product.price }}</p>
-                        <a href="{% url 'product_detail' product.pk %}" class="btn btn-custom mt-3">Shop Now</a>
-                      </div>
+  <div class="container">
+    <h2 class="text-center mb-4">Check Out the Favourites</h2>
+    {% if favourite_products %}
+    <div id="favouritesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {% for product_chunk in favourite_products|chunker:3 %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="row">
+              {% for product in product_chunk %}
+                <div class="col-md-4">
+                  <div class="card position-relative"> <!-- Added position-relative to position the star -->
+
+                    <!-- Favourite Star Icon (Only if product is marked as favourite) -->
+                    {% if product.is_favourite %}
+                    <span class="favourite-icon"><i class="fas fa-star"></i></span>
+                    {% endif %}
+
+                    {% if product.image %}
+                      <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    {% else %}
+                      <img src="{% static 'images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder">
+                    {% endif %}
+                    <div class="card-body text-center">
+                      <h5 class="card-title">{{ product.name }}</h5>
+                      <p class="card-text">${{ product.price }}</p>
+                      <a href="{% url 'product_detail' product.pk %}" class="btn btn-custom mt-3">Shop Now</a>
                     </div>
                   </div>
-                {% endfor %}
-              </div>
-              <!-- Custom controls -->
-              <button class="custom-carousel-btn prev-btn" type="button" data-target="#favouritesCarousel" data-slide="prev">
-                <span class="btn-text">Previous</span>
-              </button>
-              <button class="custom-carousel-btn next-btn" type="button" data-target="#favouritesCarousel" data-slide="next">
-                <span class="btn-text">Next</span>
-              </button>
+                </div>
+              {% endfor %}
             </div>
-          {% endfor %}
-      {% else %}
-        <p class="text-center">No favourite products to display at the moment.</p>
-      {% endif %}
-    </div>
-  </section>
+            <!-- Custom controls -->
+            <button class="custom-carousel-btn prev-btn" type="button" data-target="#favouritesCarousel" data-slide="prev">
+              <span class="btn-text">Previous</span>
+            </button>
+            <button class="custom-carousel-btn next-btn" type="button" data-target="#favouritesCarousel" data-slide="next">
+              <span class="btn-text">Next</span>
+            </button>
+          </div>
+        {% endfor %}
+    {% else %}
+      <p class="text-center">No favourite products to display at the moment.</p>
+    {% endif %}
+  </div>
+</section>
 
 <!-- Wholesale Section -->
 <section class="wholesale py-5">
@@ -86,7 +93,7 @@
         <div class="p-4">
           <h2>Wholesale</h2>
           <p>Discover our wholesale options and get the best deals for your business.</p>
-          <a href="{% url 'shop' %}?filter=wholesale" class="btn btn-custom">Shop Wholesale</a>
+          <a href="{% url 'wholesale' %}?filter=wholesale" class="btn btn-custom">Shop Wholesale</a>
         </div>
       </div>
     </div>

@@ -7,12 +7,19 @@
     <div class="row">
       {% for product in products %}
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <div class="card h-100">
+        <div class="card h-100 position-relative"> <!-- Added position-relative to position the star -->
+
+          <!-- Favorite Star Icon (Only if is_favourite is True) -->
+          {% if product.is_favourite %}
+          <span class="favourite-icon"><i class="fas fa-star"></i></span>
+          {% endif %}
+
           {% if product.image %}
             <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
           {% else %}
             <img src="{% static 'images/new-arrivals.png' %}" class="card-img-top" alt="Placeholder">
           {% endif %}
+          
           <div class="card-body">
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text">${{ product.price }}</p>
@@ -29,4 +36,3 @@
   </div>
 </section>
 {% endblock %}
-
