@@ -36,6 +36,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['rad-47d779d14a28.herokuapp.com', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com"]
 
 # Application definition
 
@@ -166,6 +167,8 @@ LOGIN_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),

@@ -290,3 +290,37 @@
   .details {
     padding-left: 100px;
   }
+
+/* Center the logout message */
+.logout-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the buttons */
+.logout-container .btn-custom {
+  background-color: #D2691E;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin: 10px;
+}
+
+.logout-container .btn-custom:hover {
+  background-color: #a55715;
+}
+
+.logout-container .btn-outline-secondary {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}

@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
   }
+
   
   body {
     font-family: Arial, sans-serif;
@@ -214,3 +215,112 @@
   .footer a:hover {
     text-decoration: none;
   }
+
+  /* Ensure the carousel container is positioned relatively */
+#favouritesCarousel {
+    position: relative;
+  }
+  
+  /* Custom carousel buttons styling */
+  .custom-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    z-index: 2;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+  
+  /* Style the text inside the buttons */
+  .btn-text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+
+  /* Wholesale sections */
+.wholesale-section {
+    /* Optional: add custom padding or background colors */
+  }
+  
+  .section-image-left img,
+  .section-image-right img {
+    border-radius: 5px;
+  }
+  
+  /* For a bit of contrast between sections */
+  .section-image-right {
+    background-color: #f8f9fa; /* light gray background */
+  }
+  
+  /* Contact Us Button Styling */
+  .contact-button .btn {
+    background-color: #D2691E; /* Example: a coffee-inspired brown color */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-button .btn:hover {
+    background-color: #a55715;
+  }
+
+  .details {
+    padding-left: 100px;
+  }
+
+/* Center the logout message */
+.logout-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the buttons */
+.logout-container .btn-custom {
+  background-color: #D2691E;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin: 10px;
+}
+
+.logout-container .btn-custom:hover {
+  background-color: #a55715;
+}
+
+.logout-container .btn-outline-secondary {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
