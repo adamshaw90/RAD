@@ -24,6 +24,5 @@ urlpatterns = [
     path('', include('core.urls')),
     path('shop/', include('shop.urls')),
     path('accounts/', include('accounts.urls')),
-    path('accounts/', include('allauth.urls')),  # allauth routes for login, signup, etc.
+    path('accounts/', include('allauth.urls')),
 ]
-

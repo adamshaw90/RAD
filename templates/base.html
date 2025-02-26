@@ -10,45 +10,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
-    {% block extra_meta %}
-    {% endblock %}
+    {% block extra_meta %}{% endblock %}
 
     {% block corecss %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+              crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
         <script src="https://kit.fontawesome.com/e31f5a7661.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
     {% endblock %}
 
-    {% block extra_css %}
-    {% endblock %}
-
-    {% block corejs %}
-        <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-        
-        <!-- Stripe -->
-        <!-- <script src="https://js.stripe.com/v3/"></script> -->
-    {% endblock %}
-
-    {% block extra_js %}
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    // Find all toast messages
-    $('.toast').toast({ autohide: true, delay: 3000 });  // Auto-hide after 3 seconds
-    $('.toast').toast('show');  // Show the toast messages
-});
-</script>
-    {% endblock %}
+    {% block extra_css %}{% endblock %}
 
     <title> R.A.D {% block extra_title %} Really Addictive Decaf {% endblock %}</title>
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">R.A.D</a>
@@ -58,45 +36,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'shop' %}">Shop</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'wholesale' %}">Wholesale</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'wholesale' %}">Wholesale</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
             {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout_confirm' %}">Logout</a>
-            </li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'logout_confirm' %}">Logout</a></li>
             {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_login' %}">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Sign In</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
             {% endif %}
-            </ul>
-          </div>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
   
     <main class="container mt-4">
       {% block content %}{% endblock %}
     </main>
 
+    <!-- Footer -->
     <footer class="footer bg-dark text-white mt-5">
         <div class="container py-4">
           <div class="row">
@@ -104,44 +65,22 @@
               <p>&copy; R.A.D 2025</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
-              <a href="https://facebook.com" target="_blank" class="text-white me-3">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://twitter.com" target="_blank" class="text-white me-3">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://instagram.com" target="_blank" class="text-white me-3">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="https://linkedin.com" target="_blank" class="text-white">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
+              <a href="https://facebook.com" target="_blank" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com" target="_blank" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+              <a href="https://linkedin.com" target="_blank" class="text-white"><i class="fab fa-linkedin-in"></i></a>
             </div>
           </div>
         </div>
-      </footer>
-      {% if messages %}
-<div aria-live="polite" aria-atomic="true" class="position-relative">
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    {% for message in messages %}
-      <div id="toastMessage" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="true">
-        <div class="d-flex">
-          <div class="toast-body">
-            {{ message }}
-          </div>
-          <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</div>
-{% endif %}
-    
+    </footer>
+
+    <!-- jQuery & Bootstrap (Ensuring Correct Order) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <!-- Your custom JS -->
     <script src="{% static 'js/app.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
   </body>
 </html>

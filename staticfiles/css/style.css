@@ -324,3 +324,32 @@
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
+
+/* Style for login card */
+.login-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style form fields */
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style form labels */
+form label {
+  font-weight: bold;
+}
+
+/* Centering the form */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
