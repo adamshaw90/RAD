@@ -3,9 +3,11 @@ from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from .models import Product, Order, OrderItem
+from .models import Product, Order, OrderItem, Review
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from .forms import ReviewForm
+from django.contrib import messages
 
 
 def shop(request):
@@ -16,6 +18,21 @@ def shop(request):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'shop/product_detail.html'
+
+
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    
+    # ✅ Ensure reviews are fetched correctly
+    reviews = Review.objects.filter(product=product).order_by('-created_at')  
+
+    form = ReviewForm()
+
+    return render(request, 'shop/product_detail.html', {
+        'product': product,
+        'reviews': reviews,  # ✅ Ensure reviews are passed to the template
+        'form': form,
+    })
 
 
 class ProductCreateView(CreateView):
@@ -90,3 +107,21 @@ def stripe_webhook(request):
         session = event['data']['object']
         # Process the order: create Order and OrderItems, mark as paid, etc.
     return HttpResponse(status=200)
+
+
+@login_required
+def submit_review(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.product = product
+            review.save()
+            messages.success(request, "Review submitted successfully!")
+            return redirect('product_detail', pk=product.pk)
+
+    messages.error(request, "There was an issue submitting your review.")
+    return redirect('product_detail', pk=product.pk)
