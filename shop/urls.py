@@ -1,4 +1,5 @@
 from django.urls import path
+from . import views
 from .views import (
     shop, ProductDetailView, ProductCreateView, ProductUpdateView,
     ProductDeleteView, cart, checkout, submit_review
@@ -14,3 +15,4 @@ urlpatterns = [
     path('checkout/', checkout, name='checkout'),
     path('product/<int:pk>/review/', submit_review, name='submit_review'),
 ]
+

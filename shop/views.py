@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from .forms import ReviewForm
 from django.contrib import messages
+from django.urls import reverse
 
 
 def shop(request):
@@ -19,20 +20,11 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = 'shop/product_detail.html'
 
-
-def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    
-    # ✅ Ensure reviews are fetched correctly
-    reviews = Review.objects.filter(product=product).order_by('-created_at')  
-
-    form = ReviewForm()
-
-    return render(request, 'shop/product_detail.html', {
-        'product': product,
-        'reviews': reviews,  # ✅ Ensure reviews are passed to the template
-        'form': form,
-    })
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reviews'] = self.object.reviews.all().order_by('-created_at')  # ✅ Fetch reviews
+        context['form'] = ReviewForm()  # ✅ Add review form
+        return context
 
 
 class ProductCreateView(CreateView):
@@ -112,7 +104,7 @@ def stripe_webhook(request):
 @login_required
 def submit_review(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    
+
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -121,7 +113,7 @@ def submit_review(request, pk):
             review.product = product
             review.save()
             messages.success(request, "Review submitted successfully!")
-            return redirect('product_detail', pk=product.pk)
+            return redirect(reverse('product_detail', kwargs={'pk': product.pk}))  # ✅ Redirect correctly
 
     messages.error(request, "There was an issue submitting your review.")
-    return redirect('product_detail', pk=product.pk)
+    return redirect(reverse('product_detail', kwargs={'pk': product.pk}))  # ✅ Redirect even if there's an error
