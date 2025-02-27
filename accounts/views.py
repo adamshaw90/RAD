@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, ProfileForm
 from django.contrib.auth import logout
+from django.contrib import messages
 
 
 def signup(request):
@@ -36,3 +37,20 @@ def custom_logout(request):
     logout(request)
     request.session.flush()
     return redirect('home')
+
+
+@login_required
+def confirm_delete_account(request):
+    return render(request, 'accounts/confirm_delete.html')
+
+
+@login_required
+def delete_account(request):
+    if request.method == "POST":
+        user = request.user
+        user.delete()
+        logout(request)
+        messages.success(request, "Your account has been successfully deleted.")
+        return redirect('home')
+
+    return redirect('confirm_delete_account')

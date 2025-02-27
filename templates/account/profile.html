@@ -4,6 +4,11 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-custom">Update Profile</button>
+
+    <!-- Buttons in a single line under the form -->
+    <div class="d-flex justify-content-start gap-3 mt-3">
+        <button type="submit" class="btn btn-custom btn-sm">Update Profile</button>
+        <a href="{% url 'confirm_delete_account' %}" class="btn btn-danger btn-sm">Delete My Account</a>
+    </div>
 </form>
 {% endblock %}

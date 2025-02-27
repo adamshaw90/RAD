@@ -394,3 +394,10 @@ form label {
   padding: 5px 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+.btn-custom, .btn-danger {
+  padding: 6px 12px;
+  font-size: 0.9rem; 
+  border-radius: 4px;
+}
+
