@@ -4,12 +4,50 @@
 <section class="shop-page py-5">
   <div class="container">
     <h1 class="mb-4 text-center">Shop</h1>
+
+    <!-- ✅ Display search query if one exists -->
+    {% if query %}
+      <h4 class="text-center">Search results for: <strong>{{ query }}</strong></h4>
+    {% endif %}
+
+    <!-- ✅ Filter & Search Section -->
+    <form method="GET" action="{% url 'shop' %}" class="mb-4">
+      <div class="row">
+        <!-- Search Bar -->
+        <div class="col-md-4">
+          <input type="text" name="q" class="form-control" placeholder="Search products..." value="{{ request.GET.q }}">
+        </div>
+
+        <!-- Price Filter -->
+        <div class="col-md-3">
+          <select name="price_order" class="form-control">
+            <option value="">Sort by Price</option>
+            <option value="low" {% if request.GET.price_order == "low" %}selected{% endif %}>Lowest to Highest</option>
+            <option value="high" {% if request.GET.price_order == "high" %}selected{% endif %}>Highest to Lowest</option>
+          </select>
+        </div>
+
+        <!-- Favourite Products Filter -->
+        <div class="col-md-3">
+          <select name="favourite_filter" class="form-control">
+            <option value="">Show All</option>
+            <option value="favourites" {% if request.GET.favourite_filter == "favourites" %}selected{% endif %}>Favourites Only</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-dark w-100">Apply Filters</button>
+        </div>
+      </div>
+    </form>
+
     <div class="row">
       {% for product in products %}
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <div class="card h-100 position-relative"> <!-- Added position-relative to position the star -->
+        <div class="card h-100 position-relative"> <!-- Keeps the star positioned correctly -->
 
-          <!-- Favorite Star Icon (Only if is_favourite is True) -->
+          <!-- Favourite Star Icon -->
           {% if product.is_favourite %}
           <span class="favourite-icon"><i class="fas fa-star"></i></span>
           {% endif %}
@@ -30,9 +68,11 @@
         </div>
       </div>
       {% empty %}
-      <p class="text-center">No products available at the moment.</p>
+      <p class="text-center">No products found.</p>
       {% endfor %}
     </div>
+
   </div>
 </section>
+
 {% endblock %}

@@ -29,13 +29,18 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container-fluid">
+        <!-- ✅ Logo on the Left -->
         <a class="navbar-brand" href="{% url 'home' %}">R.A.D</a>
+    
+        <!-- ✅ Navbar Toggler for Mobile -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
                 aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+    
+        <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+          <!-- ✅ Centered Navigation Links -->
+          <ul class="navbar-nav text-center">
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'wholesale' %}">Wholesale</a></li>
@@ -50,6 +55,12 @@
             {% endif %}
           </ul>
         </div>
+    
+        <!-- ✅ Search Bar on the Right -->
+        <form class="d-flex ms-auto" action="{% url 'shop' %}" method="GET">
+          <input class="form-control me-2" type="search" name="q" placeholder="Search for coffee..." aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
       </div>
     </nav>
   

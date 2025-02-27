@@ -12,8 +12,32 @@ from django.urls import reverse
 
 
 def shop(request):
+    """ Displays the shop page with search and filters """
     products = Product.objects.all()
-    return render(request, 'shop/shop.html', {'products': products})
+    
+    # ✅ Handle search queries
+    query = request.GET.get('q')
+    if query:
+        products = products.filter(name__icontains=query)
+
+    # ✅ Handle price sorting
+    price_order = request.GET.get('price_order')
+    if price_order == 'low':
+        products = products.order_by('price')
+    elif price_order == 'high':
+        products = products.order_by('-price')
+
+    # ✅ Handle favourite products filter
+    favourite_filter = request.GET.get('favourite_filter')
+    if favourite_filter == 'favourites':
+        products = products.filter(is_favourite=True)
+
+    return render(request, 'shop/shop.html', {
+        'products': products,
+        'query': query,
+        'price_order': price_order,
+        'favourite_filter': favourite_filter,
+    })
 
 
 class ProductDetailView(DetailView):
