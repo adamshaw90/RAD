@@ -29,17 +29,17 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container-fluid">
-        <!-- Logo -->
+        <!-- ✅ Logo on the Left -->
         <a class="navbar-brand" href="{% url 'home' %}">R.A.D</a>
     
-        <!-- Navbar Toggler for Mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
-                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <!-- ✅ Navbar Toggler (for Mobile/Tablets) -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
         </button>
     
         <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
-          <!-- Navigation Links -->
+          <!-- ✅ Centered Navigation Links -->
           <ul class="navbar-nav text-center">
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
@@ -54,16 +54,26 @@
               <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
             {% endif %}
           </ul>
+    
+          <!-- ✅ Search Bar (Inside Toggle Menu for Small Screens) -->
+          <form class="d-md-none w-100 mt-2" action="{% url 'shop' %}" method="GET">
+            <div class="input-group">
+              <input class="form-control" type="search" name="q" placeholder="Search..." aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Go</button>
+            </div>
+          </form>
         </div>
     
-        <!-- Search Bar on the Right -->
-        <form class="d-flex ms-auto" action="{% url 'shop' %}" method="GET">
-          <input class="form-control me-2" type="search" name="q" placeholder="Search for coffee..." aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Search</button>
+        <!-- ✅ Search Bar (Aligned Right for Larger Screens) -->
+        <form class="d-none d-md-flex ms-auto" action="{% url 'shop' %}" method="GET">
+          <div class="input-group">
+            <input class="form-control" type="search" name="q" placeholder="Search..." aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Go</button>
+          </div>
         </form>
       </div>
     </nav>
-  
+    
     <main class="container mt-4">
       {% block content %}{% endblock %}
     </main>
@@ -85,12 +95,12 @@
         </div>
     </footer>
 
-    <!-- jQuery & Bootstrap (Ensuring Correct Order) -->
+    <!-- jQuery & Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <!-- Your custom JS -->
+    <!-- custom JS -->
     <script src="{% static 'js/app.js' %}"></script>
 
   </body>

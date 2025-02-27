@@ -67,7 +67,20 @@
     text-decoration: none;
     padding: 0.5rem 1rem;
   }
-  
+ /* Ensure search bar takes full width inside the collapsed navbar */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+  .navbar-collapse form {
+    width: 100%;
+    padding: 10px 15px;
+  }
+  .navbar-collapse input {
+    width: 100%;
+  }
+}
+
   /* Hamburger Toggle */
   .nav-toggle {
     display: none;
