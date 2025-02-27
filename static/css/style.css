@@ -14,12 +14,12 @@
 
   .navbar-nav {
     flex-direction: row;
-    justify-content: center; /* Center the links */
+    justify-content: center;
     width: 100%;
   }
   
   .navbar .form-control {
-    width: 200px; /* Adjust the width of the search bar */
+    width: 200px;
   }
   
   @media (max-width: 768px) {
@@ -28,7 +28,7 @@
   }
   
   .navbar .form-control {
-    width: 100%; /* Full width search bar on smaller screens */
+    width: 100%;
   }
   }
   
@@ -90,7 +90,7 @@
     .nav-menu {
       flex-direction: column;
       position: absolute;
-      top: 70px; /* Adjust based on navbar height */
+      top: 70px;
       left: 0;
       width: 100%;
       background-color: #333;
@@ -133,7 +133,7 @@
   .hero-section {
     position: relative;
     width: 100%;
-    height: 60vh; /* Adjust height as needed */
+    height: 60vh;
     background-size: cover;
     background-position: center;
   }
@@ -154,7 +154,7 @@
     text-align: center;
   }
   
-  /* Section spacing (optional tweaks) */
+ 
   section {
     margin-bottom: 2rem;
   }
@@ -172,9 +172,8 @@
 
  
 /* Shop Page */
-/* Custom button style to match the site's branding */
 .btn-custom {
-    background-color: #D2691E;  /* Adjust the color as needed */
+    background-color: #D2691E;
     border: none;
     color: #fff;
     padding: 0.75rem 1.5rem;
@@ -188,7 +187,7 @@
     background-color: #a55715;
   }
   
-  /* Add a hover effect on product cards */
+  
   .shop-page .card {
     transition: transform 0.3s ease;
   }
@@ -196,7 +195,7 @@
     transform: scale(1.03);
   }
   
-  /* Optional: Adjust spacing for product images */
+  
   .shop-page .card-img-top {
     max-height: 250px;
     object-fit: cover;
@@ -216,7 +215,7 @@
   .footer a {
     font-size: 1.2rem;
     transition: color 0.3s ease;
-    margin-right: 20px; /* Adjust the value as needed */
+    margin-right: 20px;
   }
   
 
@@ -225,8 +224,8 @@
   }
   
   .footer a:hover i {
-    color: #D2691E; /* Change icon color on hover */
-    text-shadow: 0 0 8px #D2691E; /* Add a glow effect */
+    color: #D2691E;
+    text-shadow: 0 0 8px #D2691E;
   }
 
   .footer a {
@@ -237,7 +236,7 @@
     text-decoration: none;
   }
 
-  /* Ensure the carousel container is positioned relatively */
+ 
 #favouritesCarousel {
     position: relative;
   }
@@ -278,23 +277,19 @@
   
 
   /* Wholesale sections */
-.wholesale-section {
-    /* Optional: add custom padding or background colors */
-  }
-  
+
   .section-image-left img,
   .section-image-right img {
     border-radius: 5px;
   }
   
-  /* For a bit of contrast between sections */
   .section-image-right {
-    background-color: #f8f9fa; /* light gray background */
+    background-color: #f8f9fa;
   }
   
   /* Contact Us Button Styling */
   .contact-button .btn {
-    background-color: #D2691E; /* Example: a coffee-inspired brown color */
+    background-color: #D2691E;
     color: #fff;
     padding: 10px 20px;
     font-size: 1.1rem;

@@ -15,19 +15,19 @@ def shop(request):
     """ Displays the shop page with search and filters """
     products = Product.objects.all()
     
-    # ✅ Handle search queries
+    # Handle search queries
     query = request.GET.get('q')
     if query:
         products = products.filter(name__icontains=query)
 
-    # ✅ Handle price sorting
+    # Handle price sorting
     price_order = request.GET.get('price_order')
     if price_order == 'low':
         products = products.order_by('price')
     elif price_order == 'high':
         products = products.order_by('-price')
 
-    # ✅ Handle favourite products filter
+    # Handle favourite products filter
     favourite_filter = request.GET.get('favourite_filter')
     if favourite_filter == 'favourites':
         products = products.filter(is_favourite=True)
@@ -46,8 +46,8 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['reviews'] = self.object.reviews.all().order_by('-created_at')  # ✅ Fetch reviews
-        context['form'] = ReviewForm()  # ✅ Add review form
+        context['reviews'] = self.object.reviews.all().order_by('-created_at')
+        context['form'] = ReviewForm()
         return context
 
 
@@ -73,7 +73,7 @@ class ProductDeleteView(DeleteView):
 
 @login_required
 def cart(request):
-    # For demonstration, using a session-based cart
+    
     cart = request.session.get('cart', {})
     return render(request, 'shop/cart.html', {'cart': cart})
 
@@ -85,13 +85,13 @@ def checkout(request):
         return redirect('shop')
 
     line_items = []
-    # Build Stripe line items from cart data
+    
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
         line_items.append({
             'price_data': {
                 'currency': 'usd',
-                'unit_amount': int(product.price * 100),  # Stripe expects amounts in cents
+                'unit_amount': int(product.price * 100),
                 'product_data': {
                     'name': product.name,
                 },
@@ -137,15 +137,15 @@ def submit_review(request, pk):
             review.product = product
             review.save()
             messages.success(request, "Review submitted successfully!")
-            return redirect(reverse('product_detail', kwargs={'pk': product.pk}))  # ✅ Redirect correctly
+            return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
 
     messages.error(request, "There was an issue submitting your review.")
-    return redirect(reverse('product_detail', kwargs={'pk': product.pk}))  # ✅ Redirect even if there's an error
+    return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
 
 
 @login_required
 def edit_review(request, product_pk, review_pk):
-    review = get_object_or_404(Review, pk=review_pk, user=request.user)  # ✅ Only allow the owner to edit
+    review = get_object_or_404(Review, pk=review_pk, user=request.user)
     product = get_object_or_404(Product, pk=product_pk)
 
     if request.method == "POST":
@@ -163,7 +163,7 @@ def edit_review(request, product_pk, review_pk):
 
 @login_required
 def delete_review(request, product_pk, review_pk):
-    review = get_object_or_404(Review, pk=review_pk, user=request.user)  # ✅ Only allow the owner to delete
+    review = get_object_or_404(Review, pk=review_pk, user=request.user)
     product = get_object_or_404(Product, pk=product_pk)
 
     if request.method == "POST":

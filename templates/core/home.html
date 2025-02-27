@@ -33,7 +33,6 @@
 </section>
 
 <!-- Favourites Section -->
-<!-- Favourites Section -->
 <section class="favourites py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-4">Check Out the Favourites</h2>
@@ -45,7 +44,7 @@
             <div class="row">
               {% for product in product_chunk %}
                 <div class="col-md-4">
-                  <div class="card position-relative"> <!-- Added position-relative to position the star -->
+                  <div class="card position-relative">
 
                     <!-- Favourite Star Icon (Only if product is marked as favourite) -->
                     {% if product.is_favourite %}

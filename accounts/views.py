@@ -8,9 +8,9 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()  # Creates the user
-            # Optionally, log the user in or display a success message
-            return redirect('home')  # Or wherever you want to redirect after signup
+            form.save()
+            
+            return redirect('home')
     else:
         form = SignUpForm()
     return render(request, 'account/signup.html', {'form': form})
@@ -22,7 +22,7 @@ def profile(request):
         form = ProfileForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('profile')  # Refresh the profile page or redirect as needed
+            return redirect('profile')
     else:
         form = ProfileForm(instance=request.user)
     return render(request, 'account/profile.html', {'form': form})
@@ -33,6 +33,6 @@ def logout_confirm(request):
 
 
 def custom_logout(request):
-    logout(request)  # Manually log out the user
-    request.session.flush()  # Clear the session completely
-    return redirect('home')  # Redirect to homepage
+    logout(request)
+    request.session.flush()
+    return redirect('home')

@@ -5,12 +5,12 @@
   <div class="container">
     <h1 class="mb-4 text-center">Shop</h1>
 
-    <!-- ✅ Display search query if one exists -->
+    <!-- Display search query if one exists -->
     {% if query %}
       <h4 class="text-center">Search results for: <strong>{{ query }}</strong></h4>
     {% endif %}
 
-    <!-- ✅ Filter & Search Section -->
+    <!-- Filter & Search Section -->
     <form method="GET" action="{% url 'shop' %}" class="mb-4">
       <div class="row">
         <!-- Search Bar -->
@@ -74,5 +74,4 @@
 
   </div>
 </section>
-
 {% endblock %}
