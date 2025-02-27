@@ -85,20 +85,20 @@ def checkout(request):
     return redirect(session.url, code=303)
 
 
-@csrf_exempt
-def stripe_webhook(request):
-    payload = request.body
-    sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
-    endpoint_secret = os.environ.get('STRIPE_WEBHOOK_SECRET', 'your_webhook_secret')
-    try:
-        event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
-    except (ValueError, stripe.error.SignatureVerificationError):
-        return HttpResponse(status=400)
+# @csrf_exempt
+# def stripe_webhook(request):
+#     payload = request.body
+#     sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
+#     endpoint_secret = os.environ.get('STRIPE_WEBHOOK_SECRET', 'your_webhook_secret')
+#     try:
+#         event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
+#     except (ValueError, stripe.error.SignatureVerificationError):
+#         return HttpResponse(status=400)
 
-    if event['type'] == 'checkout.session.completed':
-        session = event['data']['object']
-        # Process the order: create Order and OrderItems, mark as paid, etc.
-    return HttpResponse(status=200)
+#     if event['type'] == 'checkout.session.completed':
+#         session = event['data']['object']
+#         # Process the order: create Order and OrderItems, mark as paid, etc.
+#     return HttpResponse(status=200)
 
 
 @login_required
@@ -117,3 +117,34 @@ def submit_review(request, pk):
 
     messages.error(request, "There was an issue submitting your review.")
     return redirect(reverse('product_detail', kwargs={'pk': product.pk}))  # ✅ Redirect even if there's an error
+
+
+@login_required
+def edit_review(request, product_pk, review_pk):
+    review = get_object_or_404(Review, pk=review_pk, user=request.user)  # ✅ Only allow the owner to edit
+    product = get_object_or_404(Product, pk=product_pk)
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your review has been updated!")
+            return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
+
+    else:
+        form = ReviewForm(instance=review)
+
+    return render(request, 'shop/edit_review.html', {'form': form, 'product': product})
+
+
+@login_required
+def delete_review(request, product_pk, review_pk):
+    review = get_object_or_404(Review, pk=review_pk, user=request.user)  # ✅ Only allow the owner to delete
+    product = get_object_or_404(Product, pk=product_pk)
+
+    if request.method == "POST":
+        review.delete()
+        messages.success(request, "Your review has been deleted!")
+        return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
+
+    return render(request, 'shop/delete_review.html', {'review': review, 'product': product})

@@ -11,19 +11,24 @@
 <p>${{ object.price }}</p>
 <h3>Customer Reviews</h3>
 
-{% if reviews %}
-    {% for review in reviews %}
-        <div class="review border p-3 mb-3 rounded shadow-sm">
-            <p><strong>{{ review.user.username }}</strong> rated: 
-                <span class="text-warning">{% for _ in "x"|rjust:review.rating %}⭐{% endfor %}</span>
-            </p>
-            <p class="mb-0">{{ review.comment }}</p>
-            <small class="text-muted">{{ review.created_at|date:"M d, Y" }}</small>
-        </div>
-    {% endfor %}
-{% else %}
+{% for review in reviews %}
+    <div class="review border p-3 mb-3 rounded shadow-sm">
+        <p><strong>{{ review.user.username }}</strong> rated: 
+            <span class="text-warning">{% for _ in "x"|rjust:review.rating %}⭐{% endfor %}</span>
+        </p>
+        <p class="mb-0">{{ review.comment }}</p>
+        <small class="text-muted">{{ review.created_at|date:"M d, Y" }}</small>
+
+        {% if request.user == review.user %}  <!-- ✅ Only show edit/delete for the review's author -->
+            <div class="mt-2">
+                <a href="{% url 'edit_review' product.pk review.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'delete_review' product.pk review.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </div>
+        {% endif %}
+    </div>
+{% empty %}
     <p class="text-muted">No reviews yet. Be the first to review this product!</p>
-{% endif %}
+{% endfor %}
 
 {% if user.is_authenticated %}
     <h3>Leave a Review</h3>
