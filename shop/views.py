@@ -71,11 +71,57 @@ class ProductDeleteView(DeleteView):
     success_url = reverse_lazy('shop')
 
 
-@login_required
 def cart(request):
-    
     cart = request.session.get('cart', {})
-    return render(request, 'shop/cart.html', {'cart': cart})
+    cart_items = []
+
+    for product_id, quantity in cart.items():
+        product = Product.objects.get(pk=product_id)
+        cart_items.append({'product': product, 'quantity': quantity})
+
+    return render(request, 'shop/cart.html', {'cart_items': cart_items})
+
+
+@login_required
+# ✅ View the cart
+def cart_view(request):
+    cart = request.session.get('cart', {})  # Retrieve cart from session
+    cart_items = []
+
+    total_price = 0
+    for product_id, quantity in cart.items():
+        product = get_object_or_404(Product, pk=product_id)
+        total_price += product.price * quantity
+        cart_items.append({'product': product, 'quantity': quantity})
+
+    return render(request, 'shop/cart.html', {'cart_items': cart_items, 'total_price': total_price})
+
+
+# ✅ Add product to cart
+def add_to_cart(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    cart = request.session.get('cart', {})
+
+    if str(pk) in cart:
+        cart[str(pk)] += 1  # Increase quantity
+    else:
+        cart[str(pk)] = 1  # Add new product with quantity 1
+
+    request.session['cart'] = cart  # Save cart in session
+    messages.success(request, f"{product.name} added to your cart.")
+    return redirect('cart')
+
+
+# ✅ Remove product from cart
+def remove_from_cart(request, product_id):
+    cart = request.session.get('cart', {})
+
+    if str(product_id) in cart:
+        del cart[str(product_id)]  # Remove item
+        request.session['cart'] = cart
+        messages.success(request, "Item removed from cart.")
+
+    return redirect('cart')
 
 
 @login_required
@@ -85,7 +131,7 @@ def checkout(request):
         return redirect('shop')
 
     line_items = []
-    
+
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
         line_items.append({

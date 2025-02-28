@@ -63,6 +63,9 @@
             </div>
           </form>
         </div>
+        <a href="{% url 'cart' %}" class="btn btn-light position-relative">
+          🛒 Cart <span class="badge bg-danger">{{ request.session.cart|length }}</span>
+      </a>
     
         <!-- ✅ Search Bar (Aligned Right for Larger Screens) -->
         <form class="d-none d-md-flex ms-auto" action="{% url 'shop' %}" method="GET">

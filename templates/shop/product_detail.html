@@ -8,9 +8,34 @@
   <img src="{% static 'images/placeholder.jpg' %}" alt="Placeholder">
 {% endif %}
 <p>{{ object.description }}</p>
-<p>${{ object.price }}</p>
-<h3>Customer Reviews</h3>
+<p><strong>Price:</strong> ${{ object.price }}</p>
 
+<!-- Add to Cart Section -->
+<form action="{% url 'add_to_cart' object.pk %}" method="POST" class="mt-3">
+    {% csrf_token %}
+    <label for="quantity"><strong>Quantity:</strong></label>
+    <div class="input-group mb-3" style="max-width: 150px;">
+        <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control text-center">
+        <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity()">+</button>
+    </div>
+    <button type="submit" class="btn btn-custom w-100">Add to Cart</button>
+</form>
+
+<script>
+    function decreaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        if (quantityInput.value > 1) {
+            quantityInput.value--;
+        }
+    }
+    function increaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        quantityInput.value++;
+    }
+</script>
+
+<h3 class="mt-5">Customer Reviews</h3>
 {% for review in reviews %}
     <div class="review border p-3 mb-3 rounded shadow-sm">
         <p><strong>{{ review.user.username }}</strong> rated: 
@@ -21,8 +46,8 @@
 
         {% if request.user == review.user %}
             <div class="mt-2">
-                <a href="{% url 'edit_review' product.pk review.pk %}" class="btn btn-sm btn-warning">Edit</a>
-                <a href="{% url 'delete_review' product.pk review.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                <a href="{% url 'edit_review' object.pk review.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'delete_review' object.pk review.pk %}" class="btn btn-sm btn-danger">Delete</a>
             </div>
         {% endif %}
     </div>
@@ -34,7 +59,6 @@
     <h3>Leave a Review</h3>
     <form method="post" action="{% url 'submit_review' object.pk %}" class="mt-4">
         {% csrf_token %}
-        
         <label for="id_rating">Rating:</label>
         <select name="rating" id="id_rating" class="form-control mb-3">
             <option value="5">⭐️⭐️⭐️⭐️⭐️ (Excellent)</option>
@@ -52,4 +76,6 @@
 {% else %}
     <p><a href="{% url 'account_login' %}">Log in</a> to leave a review.</p>
 {% endif %}
+
+<a href="{% url 'shop' %}" class="btn btn-secondary mt-3">Back to Shop</a>
 {% endblock %}
