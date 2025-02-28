@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Your Profile</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+<div class="profile-details">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <!-- Add more profile details here -->
+</div>
 
-    <!-- Buttons in a single line under the form -->
-    <div class="d-flex justify-content-start gap-3 mt-3">
-        <button type="submit" class="btn btn-custom btn-sm">Update Profile</button>
-        <a href="{% url 'confirm_delete_account' %}" class="btn btn-danger btn-sm">Delete My Account</a>
-    </div>
-</form>
+<div class="d-flex justify-content-start gap-3 mt-3">
+    <a href="{% url 'edit_profile' %}" class="btn btn-custom btn-sm">Update Profile</a>
+    <a href="{% url 'confirm_delete_account' %}" class="btn btn-danger btn-sm">Delete My Account</a>
+</div>
 {% endblock %}
+

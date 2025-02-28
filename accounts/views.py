@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, ProfileForm
+from .forms import SignUpForm, ProfileForm, ProfileUpdateForm
 from django.contrib.auth import logout
 from django.contrib import messages
 
@@ -54,3 +54,16 @@ def delete_account(request):
         return redirect('home')
 
     return redirect('confirm_delete_account')
+
+
+@login_required
+def edit_profile(request):
+    if request.method == "POST":
+        form = ProfileUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileUpdateForm(instance=request.user)
+
+    return render(request, 'account/edit_profile.html', {'form': form})
