@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from .forms import ReviewForm
 from django.contrib import messages
 from django.urls import reverse
+from django.http import JsonResponse
 
 
 def shop(request):
@@ -248,3 +249,9 @@ def delete_review(request, product_pk, review_pk):
         return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
 
     return render(request, 'shop/delete_review.html', {'review': review, 'product': product})
+
+
+def cart_total_api(request):
+    cart = request.session.get('cart', {})
+    total_price = sum(Product.objects.get(id=pid).price * quantity for pid, quantity in cart.items())
+    return JsonResponse({'cart_total': round(total_price, 2)})

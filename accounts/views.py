@@ -41,7 +41,7 @@ def custom_logout(request):
 
 @login_required
 def confirm_delete_account(request):
-    return render(request, 'accounts/confirm_delete.html')
+    return render(request, 'account/confirm_delete.html')
 
 
 @login_required

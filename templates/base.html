@@ -70,9 +70,12 @@
             <button class="btn btn-outline-light" type="submit">Go</button>
           </div>
         </form>
-        <a href="{% url 'cart' %}" class="btn btn-light position-relative">
-          🛒 Cart <span class="badge bg-danger">{{ request.session.cart|length }}</span>
-      </a>
+        <li class="nav-item d-flex flex-column align-items-center ms-3">
+          <a class="nav-link position-relative" href="{% url 'cart' %}">
+              <i class="fas fa-shopping-basket fa-2x text-white"></i> <!-- Basket Icon -->
+          </a>
+          <small class="text-white" id="cart-total">${{ cart_total|default:"0.00" }}</small> <!-- Total Price -->
+      </li>
       </div>
     </nav>
     
@@ -104,6 +107,7 @@
 
     <!-- custom JS -->
     <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
 
   </body>
 </html>
