@@ -1,8 +1,11 @@
 from django.urls import path
-from .views import signup, profile, logout_confirm, custom_logout, delete_account, confirm_delete_account, edit_profile
+from .views import (
+    profile, logout_confirm, custom_logout, delete_account,
+    confirm_delete_account, edit_profile, CustomSignupView
+)
 
 urlpatterns = [
-    path('signup/', signup, name='signup'),
+    path('signup/', CustomSignupView.as_view(), name='account_signup'),  # ✅ Use class-based signup view
     path('profile/', profile, name='profile'),
     path('logout/', custom_logout, name='logout'),
     path('logout/confirm/', logout_confirm, name='logout_confirm'),

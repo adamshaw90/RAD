@@ -1,20 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, ProfileForm, ProfileUpdateForm
-from django.contrib.auth import logout
+from .forms import ProfileForm, ProfileUpdateForm
+from django.contrib.auth import logout, login
 from django.contrib import messages
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            
-            return redirect('home')
-    else:
-        form = SignUpForm()
-    return render(request, 'account/signup.html', {'form': form})
+from allauth.account.views import SignupView
 
 
 @login_required
@@ -67,3 +56,10 @@ def edit_profile(request):
         form = ProfileUpdateForm(instance=request.user)
 
     return render(request, 'account/edit_profile.html', {'form': form})
+
+
+class CustomSignupView(SignupView):
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        login(self.request, self.user)  # ✅ Log in the user after successful signup
+        return response
