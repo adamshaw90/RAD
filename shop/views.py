@@ -14,7 +14,7 @@ from django.urls import reverse
 def shop(request):
     """ Displays the shop page with search and filters """
     products = Product.objects.all()
-    
+
     # Handle search queries
     query = request.GET.get('q')
     if query:
@@ -85,32 +85,44 @@ def cart(request):
 @login_required
 # ✅ View the cart
 def cart_view(request):
+    """View the cart"""
     cart = request.session.get('cart', {})
-
-    # Retrieve products from the cart and add quantity
     cart_items = []
+    total_price = 0  # ✅ Initialize total price
+
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
+        subtotal = product.price * quantity  # ✅ Ensure subtotal calculation
+        total_price += subtotal  # ✅ Accumulate total price
+
         cart_items.append({
             'product': product,
-            'quantity': quantity
+            'quantity': quantity,
+            'subtotal': subtotal,  # ✅ Include subtotal for each product
+            'price': product.price  # ✅ Ensure product price is passed
         })
 
-    return render(request, 'shop/cart.html', {'cart_items': cart_items})
+    return render(request, 'shop/cart.html', {
+        'cart_items': cart_items,
+        'total_price': total_price  # ✅ Ensure total price is available in the template
+    })
 
 
 # ✅ Add product to cart
-def add_to_cart(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def add_to_cart(request, product_id):
+    """Add a product to the shopping cart"""
+    product = get_object_or_404(Product, pk=product_id)
     cart = request.session.get('cart', {})
 
-    if str(pk) in cart:
-        cart[str(pk)] += 1  # Increase quantity
-    else:
-        cart[str(pk)] = 1  # Add new product with quantity 1
+    quantity = int(request.POST.get("quantity", 1))  # Get quantity from form
 
-    request.session['cart'] = cart  # Save cart in session
-    messages.success(request, f"{product.name} added to your cart.")
+    if str(product_id) in cart:
+        cart[str(product_id)] += quantity  # Update quantity
+    else:
+        cart[str(product_id)] = quantity  # Add product with quantity
+
+    request.session['cart'] = cart  # Save session
+    messages.success(request, f"{product.name} added to cart!")
     return redirect('cart')
 
 
