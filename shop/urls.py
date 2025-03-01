@@ -16,7 +16,8 @@ urlpatterns = [
     path('product/<int:pk>/review/', submit_review, name='submit_review'),
     path('product/<int:product_pk>/review/<int:review_pk>/edit/', views.edit_review, name='edit_review'),
     path('product/<int:product_pk>/review/<int:review_pk>/delete/', views.delete_review, name='delete_review'),
-    path('cart/', cart_view, name='cart'),  # Shopping Cart Page
-    path('cart/add/<int:product_id>/', add_to_cart, name='add_to_cart'),  # Add to Cart
-    path('cart/remove/<int:product_id>/', remove_from_cart, name='remove_from_cart'),  # Remove from Cart
+    path('cart/', cart_view, name='cart'),
+    path('cart/add/<int:product_id>/', add_to_cart, name='add_to_cart'),
+    path('cart/remove/<int:product_id>/', remove_from_cart, name='remove_from_cart'),
+    path('cart/update/<int:product_id>/', views.update_cart, name='update_cart'),
 ]

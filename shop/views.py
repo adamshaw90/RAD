@@ -85,16 +85,18 @@ def cart(request):
 @login_required
 # ✅ View the cart
 def cart_view(request):
-    cart = request.session.get('cart', {})  # Retrieve cart from session
-    cart_items = []
+    cart = request.session.get('cart', {})
 
-    total_price = 0
+    # Retrieve products from the cart and add quantity
+    cart_items = []
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
-        total_price += product.price * quantity
-        cart_items.append({'product': product, 'quantity': quantity})
+        cart_items.append({
+            'product': product,
+            'quantity': quantity
+        })
 
-    return render(request, 'shop/cart.html', {'cart_items': cart_items, 'total_price': total_price})
+    return render(request, 'shop/cart.html', {'cart_items': cart_items})
 
 
 # ✅ Add product to cart
@@ -120,6 +122,22 @@ def remove_from_cart(request, product_id):
         del cart[str(product_id)]  # Remove item
         request.session['cart'] = cart
         messages.success(request, "Item removed from cart.")
+
+    return redirect('cart')
+
+
+def update_cart(request, product_id):
+    if request.method == "POST":
+        quantity = int(request.POST.get("quantity", 1))  # Get new quantity from form
+        cart = request.session.get('cart', {})
+
+        if quantity > 0:
+            cart[str(product_id)] = quantity  # Update quantity
+        else:
+            cart.pop(str(product_id), None)  # Remove item if quantity is 0
+
+        request.session['cart'] = cart  # Save cart session
+        return redirect('cart')
 
     return redirect('cart')
 
