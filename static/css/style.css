@@ -218,6 +218,8 @@
 /* Footer */
   .footer {
     padding: 1rem 0;
+    position: relative;
+    z-index: 1;
   }
   
   .footer p {
@@ -229,6 +231,7 @@
     font-size: 1.2rem;
     transition: color 0.3s ease;
     margin-right: 20px;
+    text-decoration: none;
   }
   
 
@@ -239,13 +242,6 @@
   .footer a:hover i {
     color: #D2691E;
     text-shadow: 0 0 8px #D2691E;
-  }
-
-  .footer a {
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
     text-decoration: none;
   }
 
@@ -401,3 +397,17 @@ form label {
   border-radius: 4px;
 }
 
+.message-container {
+  position: fixed;
+  top: 72px;
+  right: 15px;
+  z-index: 99999999999;
+}
+
+.custom-toast {
+  overflow: visible;
+}
+
+.toast-capper {
+  height: 2px;
+}
