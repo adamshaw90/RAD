@@ -1,7 +1,10 @@
 from .models import Product
+from decimal import Decimal
 
 
 def cart_total(request):
     cart = request.session.get('cart', {})
-    total_price = sum(Product.objects.get(id=pid).price * quantity for pid, quantity in cart.items())
-    return {'cart_total': round(total_price, 2)}
+    
+    total = sum(Decimal(item['price']) * item['quantity'] for item in cart.values())
+
+    return {'cart_total': total}

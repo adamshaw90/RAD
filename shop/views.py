@@ -6,10 +6,11 @@ from django.conf import settings
 from .models import Product, Order, OrderItem, Review
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.http import JsonResponse
 from .forms import ReviewForm
 from django.contrib import messages
 from django.urls import reverse
-from django.http import JsonResponse
+from decimal import Decimal
 
 
 def shop(request):
@@ -72,58 +73,57 @@ class ProductDeleteView(DeleteView):
     success_url = reverse_lazy('shop')
 
 
-def cart(request):
-    cart = request.session.get('cart', {})
-    cart_items = []
-
-    for product_id, quantity in cart.items():
-        product = Product.objects.get(pk=product_id)
-        cart_items.append({'product': product, 'quantity': quantity})
-
-    return render(request, 'shop/cart.html', {'cart_items': cart_items})
-
-
 @login_required
-# ✅ View the cart
 def cart_view(request):
-    """View the cart"""
+    """ Displays the shopping cart with accurate total calculations. """
     cart = request.session.get('cart', {})
-    cart_items = []
-    total_price = 0  # ✅ Initialize total price
 
-    for product_id, quantity in cart.items():
+    cart_items = []
+    total_price = Decimal('0.00')
+
+    for product_id, item in cart.items():
         product = get_object_or_404(Product, pk=product_id)
-        subtotal = product.price * quantity  # ✅ Ensure subtotal calculation
-        total_price += subtotal  # ✅ Accumulate total price
+
+        # Ensure quantity is correctly extracted from the stored dictionary
+        quantity = item.get('quantity', 1)
+        subtotal = product.price * Decimal(quantity)
 
         cart_items.append({
             'product': product,
             'quantity': quantity,
-            'subtotal': subtotal,  # ✅ Include subtotal for each product
-            'price': product.price  # ✅ Ensure product price is passed
+            'subtotal': round(subtotal, 2),  # ✅ Ensures proper decimal formatting
+            'price': round(product.price, 2),
         })
+
+        total_price += subtotal
 
     return render(request, 'shop/cart.html', {
         'cart_items': cart_items,
-        'total_price': total_price  # ✅ Ensure total price is available in the template
+        'total_price': round(total_price, 2)  # ✅ Rounds final total price
     })
 
 
 # ✅ Add product to cart
 def add_to_cart(request, product_id):
-    """Add a product to the shopping cart"""
+    """ Adds a product to the cart with correct quantity handling. """
     product = get_object_or_404(Product, pk=product_id)
     cart = request.session.get('cart', {})
 
-    quantity = int(request.POST.get("quantity", 1))  # Get quantity from form
+    # Get quantity from form (default to 1)
+    quantity = int(request.POST.get('quantity', 1))
+    product_key = str(product_id)  # Ensure product_id is stored as a string key
 
-    if str(product_id) in cart:
-        cart[str(product_id)] += quantity  # Update quantity
+    if product_key in cart:
+        cart[product_key]['quantity'] += quantity  # ✅ Correctly increment quantity
     else:
-        cart[str(product_id)] = quantity  # Add product with quantity
+        cart[product_key] = {
+            'name': product.name,
+            'price': float(product.price),
+            'quantity': quantity
+        }
 
-    request.session['cart'] = cart  # Save session
-    messages.success(request, f"{product.name} added to cart!")
+    request.session['cart'] = cart  # ✅ Save the cart
+    messages.success(request, f"{quantity}x {product.name} added to cart.")
     return redirect('cart')
 
 
@@ -140,18 +140,22 @@ def remove_from_cart(request, product_id):
 
 
 def update_cart(request, product_id):
+    """ Updates the cart when the user changes quantity in cart page. """
     if request.method == "POST":
-        quantity = int(request.POST.get("quantity", 1))  # Get new quantity from form
         cart = request.session.get('cart', {})
+        quantity = int(request.POST.get("quantity", 1))
 
-        if quantity > 0:
-            cart[str(product_id)] = quantity  # Update quantity
-        else:
-            cart.pop(str(product_id), None)  # Remove item if quantity is 0
+        product_key = str(product_id)
 
-        request.session['cart'] = cart  # Save cart session
-        return redirect('cart')
+        if product_key in cart:
+            if quantity > 0:
+                cart[product_key]['quantity'] = quantity  # ✅ Correctly update quantity
+            else:
+                del cart[product_key]  # ✅ Remove item if quantity is 0
 
+        request.session['cart'] = cart  # ✅ Save cart session
+        messages.success(request, "Cart updated successfully.")
+    
     return redirect('cart')
 
 
@@ -252,6 +256,13 @@ def delete_review(request, product_pk, review_pk):
 
 
 def cart_total_api(request):
+    """ Returns the total cart price for AJAX updates. """
     cart = request.session.get('cart', {})
-    total_price = sum(Product.objects.get(id=pid).price * quantity for pid, quantity in cart.items())
+    total_price = Decimal('0.00')
+
+    for product_id, item in cart.items():
+        product = get_object_or_404(Product, pk=product_id)
+        quantity = item.get('quantity', 1)
+        total_price += product.price * Decimal(quantity)
+
     return JsonResponse({'cart_total': round(total_price, 2)})
