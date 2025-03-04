@@ -155,7 +155,7 @@ def update_cart(request, product_id):
 
         request.session['cart'] = cart  # ✅ Save cart session
         messages.success(request, "Cart updated successfully.")
-    
+
     return redirect('cart')
 
 

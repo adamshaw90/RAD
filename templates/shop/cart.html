@@ -19,7 +19,7 @@
             <td>{{ item.product.name }}</td>
             <td>${{ item.price }}</td> <!-- ✅ Show individual product price -->
             <td>
-                <form action="{% url 'add_to_cart' item.product.pk %}" method="POST">
+                <form action="{% url 'update_cart' item.product.pk %}" method="POST">
                     {% csrf_token %}
                     <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control d-inline-block w-25">
                     <button type="submit" class="btn btn-sm btn-primary">Update</button>
