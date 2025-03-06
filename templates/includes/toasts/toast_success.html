@@ -18,9 +18,12 @@
                 <h6>Your Cart:</h6>
                 <ul class="list-unstyled">
                     {% for item in cart_items|slice:":3" %}  <!-- Show up to 3 items -->
-                        <li>
-                            <strong>{{ item.product.name }}</strong> 
-                            (x{{ item.quantity }}) - ${{ item.subtotal }}
+                        <li class="d-flex align-items-center mb-2">
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="rounded" width="40" height="40" style="object-fit: cover;">
+                            <div class="ms-2">
+                                <strong>{{ item.product.name }}</strong> 
+                                (x{{ item.quantity }}) - ${{ item.subtotal }}
+                            </div>
                         </li>
                     {% endfor %}
                 </ul>

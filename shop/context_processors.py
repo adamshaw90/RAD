@@ -16,6 +16,7 @@ def cart_total(request):
                 'product': product,
                 'quantity': item['quantity'],
                 'subtotal': subtotal,
+                'image': product.image.url if product.image else '/static/images/placeholder.jpg'  # ✅ Ensure fallback image
             })
             total += subtotal
         except Product.DoesNotExist:
