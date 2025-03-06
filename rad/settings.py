@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'accounts',
     'cloudinary_storage',
     'cloudinary',
+    'checkout',
 
 ]
 
