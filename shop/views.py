@@ -3,7 +3,7 @@ from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from .models import Product, Order, OrderItem, Review
+from .models import Product, Review
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.http import JsonResponse
