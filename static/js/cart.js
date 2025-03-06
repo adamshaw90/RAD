@@ -13,3 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCartTotal();  // Run once when the page loads
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    let toastEl = document.querySelector('.toast');
+    if (toastEl) {
+        let toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    }
+});

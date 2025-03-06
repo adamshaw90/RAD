@@ -12,5 +12,26 @@
             <div class="col">
                 {{ message }}
                 <hr class="mt-1 mb-3">
+
+                <!-- ✅ Show Cart Preview -->
+                {% if cart_items %}
+                <h6>Your Cart:</h6>
+                <ul class="list-unstyled">
+                    {% for item in cart_items|slice:":3" %}  <!-- Show up to 3 items -->
+                        <li>
+                            <strong>{{ item.product.name }}</strong> 
+                            (x{{ item.quantity }}) - ${{ item.subtotal }}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <hr>
+                <p><strong>Total: ${{ cart_total }}</strong></p>
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'cart' %}" class="btn btn-sm btn-outline-dark">View Cart</a>
+                    <a href="{% url 'checkout' %}" class="btn btn-sm btn-success">Checkout</a>
+                </div>
+                {% endif %}
             </div>
         </div>
+    </div>
+</div>
