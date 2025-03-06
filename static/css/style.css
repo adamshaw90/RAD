@@ -5,10 +5,20 @@
     box-sizing: border-box;
   }
 
+  html, body {
+    height: 100%;
+}
+
   
   body {
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
   }
+
+  main {
+    flex-grow: 1;
+}
   
   /* Navbar Styling */
 

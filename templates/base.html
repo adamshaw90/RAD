@@ -25,7 +25,7 @@
 
     <title> R.A.D {% block extra_title %} Really Addictive Decaf {% endblock %}</title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -80,7 +80,7 @@
       </div>
     </nav>
 
-    <main class="container mt-4">
+    <main class="container mt-4 flex-grow-1">
       {% block content %}{% endblock %}
     </main>
 
