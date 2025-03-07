@@ -1,5 +1,6 @@
 from .models import Product
 from decimal import Decimal
+from django.conf import settings
 
 
 def cart_total(request):
@@ -36,3 +37,7 @@ def cart_total(request):
     request.session['cart'] = cart
 
     return {'cart_total': round(total, 2), 'cart_items': cart_items}
+
+
+def media_url(request):
+    return {'MEDIA_URL': settings.MEDIA_URL}
