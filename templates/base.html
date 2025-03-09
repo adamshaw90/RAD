@@ -23,6 +23,10 @@
 
     {% block extra_css %}{% endblock %}
 
+    {% block corejs %}
+    <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
+
     <title> R.A.D {% block extra_title %} Really Addictive Decaf {% endblock %}</title>
   </head>
   <body class="d-flex flex-column min-vh-100">

@@ -36,6 +36,8 @@ def checkout(request):
         'delivery': delivery,
         'grand_total': grand_total,
         'product_count': len(cart_items),
+        'stripe_public_key': 'pk_test_51QqT2S07X5gc8qF8lYuwUIjV4CZIqfIiaJH0ZdfDdkjG5v2JEDUd0DqRjqhhHaYKNC9GPOklaj8NCxkPRDs9pBMY00EmjEzApq',
+        'client_secret': 'test client secret',
     }
 
     return render(request, 'checkout/checkout.html', context)
