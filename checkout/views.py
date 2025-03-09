@@ -17,11 +17,27 @@ def checkout(request):
     cart = request.session.get('cart', {})  # Ensure consistency with other views
     if not cart:
         messages.error(request, "There's nothing in your cart at the moment")
-        return redirect(reverse('shop'))  # Redirect to the shop if cart is empty
+        return redirect(reverse('shop'))  # Redirect to shop if cart is empty
 
-    current_cart = cart_total(request)
-    total = current_cart['cart_total']
-    stripe_total = round(total * 100)
+    # Calculate totals
+    total = Decimal('0.00')
+    cart_items = []
+
+    for product_id, item in cart.items():
+        product = get_object_or_404(Product, id=product_id)
+        subtotal = product.price * Decimal(item['quantity'])
+
+        cart_items.append({
+            'product': product,
+            'quantity': item['quantity'],
+            'subtotal': subtotal,
+        })
+        total += subtotal
+
+    delivery = Decimal('5.00')  # Fixed delivery fee
+    grand_total = total + delivery
+
+    stripe_total = round(grand_total * 100)  # Convert to cents
     stripe.api_key = stripe_secret_key
 
     if request.method == 'POST':
@@ -44,37 +60,25 @@ def checkout(request):
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, dict) and 'items_by_size' in item_data:
-                        for size, quantity in item_data['items_by_size'].items():
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
-                            order_line_item.save()
-                    else:
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=item_data,
-                        )
-                        order_line_item.save()
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=item_data['quantity'],
+                    )
+                    order_line_item.save()
                 except Product.DoesNotExist:
-                    messages.error(request, (
-                        "One of the products in your cart wasn't found in our database. "
-                        "Please contact us for assistance."
-                    ))
+                    messages.error(request, "One of the products in your cart wasn't found. Please try again.")
                     order.delete()
                     return redirect(reverse('cart'))  # Redirect back to cart
 
             request.session['save_info'] = 'save-info' in request.POST
+            request.session['cart'] = {}  # Clear cart after successful checkout
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. Please double-check your information.')
 
     else:
-        # Generate Stripe Payment Intent
+        # Create Stripe Payment Intent
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
@@ -88,6 +92,11 @@ def checkout(request):
 
         context = {
             'order_form': order_form,
+            'cart_items': cart_items,
+            'total': total,
+            'delivery': delivery,
+            'grand_total': grand_total,
+            'product_count': len(cart_items),
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
         }

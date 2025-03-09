@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+from decimal import Decimal
 
 from django_countries.fields import CountryField
 
@@ -43,15 +44,15 @@ class Order(models.Model):
     def update_total(self):
         """
         Update grand total each time a line item is added,
-        accounting for delivery costs.
+        using a fixed delivery cost.
         """
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            sdp = settings.STANDARD_DELIVERY_PERCENTAGE
-            self.delivery_cost = self.order_total * sdp / 100
-        else:
-            self.delivery_cost = 0
+
+        # Set a flat delivery cost (e.g., $5.00)
+        self.delivery_cost = Decimal('5.00')
+
+        # Calculate grand total
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
