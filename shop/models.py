@@ -9,6 +9,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_favourite = models.BooleanField(default=False)
+    sku = models.CharField(max_length=32, blank=True, null=True)
 
     def __str__(self):
         return self.name
