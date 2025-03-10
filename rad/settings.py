@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rad-47d779d14a28.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['rad-47d779d14a28.herokuapp.com', '127.0.0.1', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com"]
 
@@ -194,3 +194,4 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
