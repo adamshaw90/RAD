@@ -195,3 +195,9 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://api.stripe.com",
+    "https://hooks.stripe.com",
+    "https://rad-47d779d14a28.herokuapp.com/",
+]
