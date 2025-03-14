@@ -36,7 +36,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['rad-47d779d14a28.herokuapp.com', '127.0.0.1', 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com"]
+# CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://api.stripe.com",
+    "https://hooks.stripe.com",
+    "https://rad-47d779d14a28.herokuapp.com/",
+]
 
 # Application definition
 
