@@ -24,6 +24,7 @@ def logout_confirm(request):
 
 def custom_logout(request):
     logout(request)
+    messages.success(request, "You have been successfully logged out.")
     request.session.flush()
     return redirect('home')
 
