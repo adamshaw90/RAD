@@ -61,5 +61,6 @@ def edit_profile(request):
 class CustomSignupView(SignupView):
     def form_valid(self, form):
         response = super().form_valid(form)
-        login(self.request, self.user)  # ✅ Log in the user after successful signup
-        return response
+        logout(self.request)
+        messages.info(self.request, "Please check your email and confirm your account before logging in.")
+        return redirect("/accounts/confirm-email/")
