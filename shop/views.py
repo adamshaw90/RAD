@@ -84,14 +84,13 @@ def cart_view(request):
     for product_id, item in cart.items():
         product = get_object_or_404(Product, pk=product_id)
 
-        # Ensure quantity is correctly extracted from the stored dictionary
         quantity = item.get('quantity', 1)
         subtotal = product.price * Decimal(quantity)
 
         cart_items.append({
             'product': product,
             'quantity': quantity,
-            'subtotal': round(subtotal, 2),  # ✅ Ensures proper decimal formatting
+            'subtotal': round(subtotal, 2),
             'price': round(product.price, 2),
         })
 
@@ -99,40 +98,39 @@ def cart_view(request):
 
     return render(request, 'shop/cart.html', {
         'cart_items': cart_items,
-        'total_price': round(total_price, 2)  # ✅ Rounds final total price
+        'total_price': round(total_price, 2)
     })
 
 
-# ✅ Add product to cart
 def add_to_cart(request, product_id):
     """ Adds a product to the cart with correct quantity handling. """
     product = get_object_or_404(Product, pk=product_id)
     cart = request.session.get('cart', {})
 
-    # Get quantity from form (default to 1)
     quantity = int(request.POST.get('quantity', 1))
-    product_key = str(product_id)  # Ensure product_id is stored as a string key
+    product_key = str(product_id)
 
     if product_key in cart:
-        cart[product_key]['quantity'] += quantity  # ✅ Correctly increment quantity
+        cart[product_key]['quantity'] += quantity
     else:
         cart[product_key] = {
             'name': product.name,
-            'price': float(product.price),
+            'price': f"{product.price:.2f}",
             'quantity': quantity
         }
 
-    request.session['cart'] = cart  # ✅ Save the cart
-    messages.success(request, f"{quantity}x {product.name} added to cart.")
-    return redirect('cart')
+    request.session['cart'] = cart
+    messages.success(request, f"{quantity}x {product.name} added to cart (${product.price:.2f}).")
+    
+    return redirect('shop')
 
 
-# ✅ Remove product from cart
+# Remove product from cart
 def remove_from_cart(request, product_id):
     cart = request.session.get('cart', {})
 
     if str(product_id) in cart:
-        del cart[str(product_id)]  # Remove item
+        del cart[str(product_id)]
         request.session['cart'] = cart
         messages.success(request, "Item removed from cart.")
 
@@ -149,11 +147,11 @@ def update_cart(request, product_id):
 
         if product_key in cart:
             if quantity > 0:
-                cart[product_key]['quantity'] = quantity  # ✅ Correctly update quantity
+                cart[product_key]['quantity'] = quantity
             else:
-                del cart[product_key]  # ✅ Remove item if quantity is 0
+                del cart[product_key]
 
-        request.session['cart'] = cart  # ✅ Save cart session
+        request.session['cart'] = cart
         messages.success(request, "Cart updated successfully.")
 
     return redirect('cart')
