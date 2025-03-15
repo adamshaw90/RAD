@@ -5,7 +5,7 @@ from .views import (
 )
 
 urlpatterns = [
-    path('signup/', CustomSignupView.as_view(), name='account_signup'),  # ✅ Use class-based signup view
+    path('signup/', CustomSignupView.as_view(), name='account_signup'),
     path('profile/', profile, name='profile'),
     path('logout/', custom_logout, name='logout'),
     path('logout/confirm/', logout_confirm, name='logout_confirm'),

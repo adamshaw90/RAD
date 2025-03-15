@@ -104,9 +104,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rad.wsgi.application'
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
@@ -176,7 +180,6 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_LOGIN_ON_SIGNUP = False
@@ -184,7 +187,9 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False
 ACCOUNT_SIGNUP_REDIRECT_URL = "/accounts/confirm-email/"
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_REDIRECT_URL = '/'
-
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
