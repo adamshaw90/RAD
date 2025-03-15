@@ -5,12 +5,42 @@
     box-sizing: border-box;
   }
 
-  
+  html, body {
+    height: 100%;
+}
+
   body {
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
   }
+
+  main {
+    flex-grow: 1;
+}
   
   /* Navbar Styling */
+
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .navbar .form-control {
+    width: 200px;
+  }
+  
+  @media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+  }
+  
+  .navbar .form-control {
+    width: 100%;
+  }
+  }
+  
   .navbar {
     background-color: #333;
     padding: 1rem;
@@ -46,7 +76,20 @@
     text-decoration: none;
     padding: 0.5rem 1rem;
   }
-  
+ /* Ensure search bar takes full width inside the collapsed navbar */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+  .navbar-collapse form {
+    width: 100%;
+    padding: 10px 15px;
+  }
+  .navbar-collapse input {
+    width: 100%;
+  }
+}
+
   /* Hamburger Toggle */
   .nav-toggle {
     display: none;
@@ -69,7 +112,7 @@
     .nav-menu {
       flex-direction: column;
       position: absolute;
-      top: 70px; /* Adjust based on navbar height */
+      top: 70px;
       left: 0;
       width: 100%;
       background-color: #333;
@@ -112,7 +155,7 @@
   .hero-section {
     position: relative;
     width: 100%;
-    height: 60vh; /* Adjust height as needed */
+    height: 60vh;
     background-size: cover;
     background-position: center;
   }
@@ -133,7 +176,7 @@
     text-align: center;
   }
   
-  /* Section spacing (optional tweaks) */
+ 
   section {
     margin-bottom: 2rem;
   }
@@ -151,9 +194,8 @@
 
  
 /* Shop Page */
-/* Custom button style to match the site's branding */
 .btn-custom {
-    background-color: #D2691E;  /* Adjust the color as needed */
+    background-color: #D2691E;
     border: none;
     color: #fff;
     padding: 0.75rem 1.5rem;
@@ -167,7 +209,7 @@
     background-color: #a55715;
   }
   
-  /* Add a hover effect on product cards */
+  
   .shop-page .card {
     transition: transform 0.3s ease;
   }
@@ -175,7 +217,7 @@
     transform: scale(1.03);
   }
   
-  /* Optional: Adjust spacing for product images */
+  
   .shop-page .card-img-top {
     max-height: 250px;
     object-fit: cover;
@@ -185,6 +227,8 @@
 /* Footer */
   .footer {
     padding: 1rem 0;
+    position: relative;
+    z-index: 1;
   }
   
   .footer p {
@@ -195,7 +239,8 @@
   .footer a {
     font-size: 1.2rem;
     transition: color 0.3s ease;
-    margin-right: 20px; /* Adjust the value as needed */
+    margin-right: 20px;
+    text-decoration: none;
   }
   
 
@@ -204,19 +249,12 @@
   }
   
   .footer a:hover i {
-    color: #D2691E; /* Change icon color on hover */
-    text-shadow: 0 0 8px #D2691E; /* Add a glow effect */
-  }
-
-  .footer a {
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
+    color: #D2691E;
+    text-shadow: 0 0 8px #D2691E;
     text-decoration: none;
   }
 
-  /* Ensure the carousel container is positioned relatively */
+ 
 #favouritesCarousel {
     position: relative;
   }
@@ -257,23 +295,19 @@
   
 
   /* Wholesale sections */
-.wholesale-section {
-    /* Optional: add custom padding or background colors */
-  }
-  
+
   .section-image-left img,
   .section-image-right img {
     border-radius: 5px;
   }
   
-  /* For a bit of contrast between sections */
   .section-image-right {
-    background-color: #f8f9fa; /* light gray background */
+    background-color: #f8f9fa;
   }
   
   /* Contact Us Button Styling */
   .contact-button .btn {
-    background-color: #D2691E; /* Example: a coffee-inspired brown color */
+    background-color: #D2691E;
     color: #fff;
     padding: 10px 20px;
     font-size: 1.1rem;
@@ -352,4 +386,37 @@ form label {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.favourite-icon {
+  color: gold;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-custom, .btn-danger {
+  padding: 6px 12px;
+  font-size: 0.9rem; 
+  border-radius: 4px;
+}
+
+.message-container {
+  position: fixed;
+  top: 72px;
+  right: 15px;
+  z-index: 99999999999;
+}
+
+.custom-toast {
+  overflow: visible;
+}
+
+.toast-capper {
+  height: 2px;
 }

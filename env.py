@@ -12,3 +12,6 @@ os.environ.setdefault('STRIPE_PUBLIC_KEY', 'pk_test_51QqT2S07X5gc8qF8lYuwUIjV4CZ
 os.environ.setdefault('STRIPE_SECRET_KEY', 'sk_test_51QqT2S07X5gc8qF8DVvH7gK7BpgWePCsyvkS8Cc72ZoADSSwcBtJuMwasjNuqcOj62ppnFzlnS2QOgBu4BwvKfAY00s728lL4h')
 
 os.environ.setdefault('STRIPE_WH_SECRET', 'whsec_7ecXNusS91GANJen8VOORP3j3K3oUdCp')
+
+os.environ['EMAIL_HOST_USER'] = 'adamoshaw90@gmail.com'
+os.environ['EMAIL_HOST_PASS'] = 'owpcnhlpkcszzrew'
