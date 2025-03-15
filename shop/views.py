@@ -190,22 +190,6 @@ def checkout(request):
     return redirect(session.url, code=303)
 
 
-# @csrf_exempt
-# def stripe_webhook(request):
-#     payload = request.body
-#     sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
-#     endpoint_secret = os.environ.get('STRIPE_WEBHOOK_SECRET', 'your_webhook_secret')
-#     try:
-#         event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
-#     except (ValueError, stripe.error.SignatureVerificationError):
-#         return HttpResponse(status=400)
-
-#     if event['type'] == 'checkout.session.completed':
-#         session = event['data']['object']
-#         # Process the order: create Order and OrderItems, mark as paid, etc.
-#     return HttpResponse(status=200)
-
-
 @login_required
 def submit_review(request, pk):
     product = get_object_or_404(Product, pk=pk)
