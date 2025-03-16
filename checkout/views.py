@@ -9,6 +9,9 @@ import stripe
 import json
 from django.conf import settings
 from django.views.decorators.http import require_POST
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 @require_POST
 def cache_checkout_data(request):
@@ -63,12 +66,12 @@ def checkout(request):
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
-            'country': request.POST['country'],
-            'postcode': request.POST['postcode'],
-            'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
+            'town_or_city': request.POST['town_or_city'],
             'county': request.POST['county'],
+            'postcode': request.POST['postcode'],
+            'country': request.POST['country'],
         }
 
         order_form = OrderForm(form_data)
@@ -128,18 +131,27 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """ Handle successful checkouts """
-    save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    save_info = request.session.get('save_info')
 
-    messages.success(request, f'Order successfully processed! '
-                              f'Your order number is {order_number}. '
-                              f'A confirmation email will be sent to {order.email}.')
+    # Send confirmation email
+    subject = f"Order Confirmation - {order_number}"
+    from_email = settings.DEFAULT_FROM_EMAIL
+    recipient_list = [order.email]
 
+    # Render email template
+    context = {'order': order}
+    html_message = render_to_string('checkout/order_confirmation_email.html', context)
+    plain_message = strip_tags(html_message)
+
+    try:
+        send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message)
+        messages.success(request, f'Order successfully processed! A confirmation email has been sent to {order.email}.')
+    except Exception as e:
+        messages.error(request, 'Your order was placed, but we could not send a confirmation email.')
+
+    # Clear cart
     if 'cart' in request.session:
         del request.session['cart']
 
-    context = {
-        'order': order,
-    }
-
-    return render(request, 'checkout/checkout_success.html', context)
+    return render(request, 'checkout/checkout_success.html', {'order': order})
