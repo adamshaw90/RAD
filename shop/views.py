@@ -102,6 +102,7 @@ def cart_view(request):
     })
 
 
+
 def add_to_cart(request, product_id):
     """ Adds a product to the cart with correct quantity handling. """
     product = get_object_or_404(Product, pk=product_id)
