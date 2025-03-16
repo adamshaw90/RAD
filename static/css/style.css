@@ -393,3 +393,13 @@ form label {
 .toast-capper {
   height: 2px;
 }
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer .btn {
+  flex: 1;
+  margin: 2px;
+}

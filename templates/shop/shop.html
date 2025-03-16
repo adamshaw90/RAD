@@ -62,9 +62,17 @@
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text">${{ product.price }}</p>
           </div>
-          <div class="card-footer bg-transparent border-top-0">
-            <a href="{% url 'product_detail' product.pk %}" class="btn btn-custom w-100">Shop Now</a>
-          </div>
+          <div class="card-footer bg-transparent border-top-0 d-flex gap-2">
+            <!-- "Shop Now" Button -->
+            <a href="{% url 'product_detail' product.pk %}" class="btn btn-custom flex-fill">Shop Now</a>
+        
+            <!-- "Add to Cart" Button (Inline Form) -->
+            <form method="POST" action="{% url 'add_to_cart' product.id %}" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="btn btn-dark flex-fill">Add to Cart</button>
+            </form>
+        </div>
         </div>
       </div>
       {% empty %}
