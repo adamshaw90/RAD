@@ -13,6 +13,7 @@
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
+    background-color: #d5a29d;
   }
 
   main {
@@ -42,7 +43,7 @@
   }
   
   .navbar {
-    background-color: #333;
+    background-color: #152c44;
     padding: 1rem;
     position: relative;
     z-index: 1000;
@@ -72,7 +73,7 @@
   }
   
   .nav-link {
-    color: #fff;
+    color: #e3ebf2;
     text-decoration: none;
     padding: 0.5rem 1rem;
   }
@@ -135,21 +136,6 @@
     }
   }
   
-  /* Button styling */
-.btn-custom {
-    background-color: #D2691E;  /* Example color; adjust as needed */
-    border: none;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-custom:hover {
-    background-color: #a55715;
-  }
   
   /* Hero Section */
   .hero-section {
@@ -166,7 +152,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,10 +161,7 @@
     text-align: center;
   }
   
- 
-  section {
-    margin-bottom: 2rem;
-  }
+
   
   .favourites-carousel .card {
     margin: 0 auto;
@@ -195,9 +177,9 @@
  
 /* Shop Page */
 .btn-custom {
-    background-color: #D2691E;
+    background-color: #26e5d3;
     border: none;
-    color: #fff;
+    color: #02485a;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     text-transform: uppercase;
@@ -206,7 +188,7 @@
   }
   
   .btn-custom:hover {
-    background-color: #a55715;
+    background-color: #b66878;
   }
   
   
@@ -223,12 +205,21 @@
     object-fit: cover;
   }
 
+  .shop-bar {
+    background-color: #d5a29d;
+  }
+
+  .shop-page {
+    background-color: white;
+  }
 
 /* Footer */
   .footer {
     padding: 1rem 0;
     position: relative;
     z-index: 1;
+    background-color: #152c44;
+    color: #fff;
   }
   
   .footer p {
@@ -259,33 +250,6 @@
     position: relative;
   }
   
-  /* Custom carousel buttons styling */
-  .custom-carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    border: none;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    z-index: 2;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .custom-carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .prev-btn {
-    left: 10px;
-  }
-  
-  .next-btn {
-    right: 10px;
-  }
   
   /* Style the text inside the buttons */
   .btn-text {
@@ -419,4 +383,14 @@ form label {
 
 .toast-capper {
   height: 2px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer .btn {
+  flex: 1;
+  margin: 2px;
 }
