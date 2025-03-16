@@ -39,7 +39,7 @@
   <body class="d-flex flex-column min-vh-100">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md">
       <div class="container-fluid">
         <!-- ✅ Logo on the Left -->
         <a class="navbar-brand" href="{% url 'home' %}">R.A.D</a>
@@ -91,12 +91,12 @@
       </div>
     </nav>
 
-    <main class="container mt-4 flex-grow-1">
+    <main class="flex-grow-1">
       {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer class="footer bg-dark text-white mt-5">
+    <footer class="footer">
         <div class="container py-4">
           <div class="row">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">

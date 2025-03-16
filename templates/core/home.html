@@ -3,7 +3,7 @@
 {% load shop_tags %}
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section" style="background-image: url('{% static 'images/hero.png' %}');">
+<section class="hero-section container-fluid" style="background-image: url('{% static 'images/hero.png' %}');">
   <div class="hero-overlay">
     <div class="hero-content text-center">
       <h1 class="display-4 text-white">Really Addictive Decaf</h1>
@@ -35,7 +35,7 @@
 <!-- Favourites Section -->
 <section class="favourites py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4">Check Out the Favourites</h2>
+    <h2 class="text-center mb-4">Staff Picks</h2>
     {% if favourite_products %}
     <div id="favouritesCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
