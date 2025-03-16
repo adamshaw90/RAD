@@ -16,13 +16,21 @@
     <!-- Add to Cart Section -->
     <form action="{% url 'add_to_cart' object.pk %}" method="POST" class="mt-3">
         {% csrf_token %}
+        
+        <label for="coffee_type"><strong>Type:</strong></label>
+        <select name="coffee_type" id="coffee_type" class="form-control mb-3">
+            <option value="Whole Bean">Whole Bean</option>
+            <option value="Ground">Ground</option>
+        </select>
+    
         <label for="quantity"><strong>Quantity:</strong></label>
         <div class="input-group mb-3" style="max-width: 150px;">
-            <button type="button" id="decreaseQuantity" class="btn btn-outline-secondary">-</button>
-            <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control text-center no-arrows">
-            <button type="button" id="increaseQuantity" class="btn btn-outline-secondary">+</button>
-        </div>        
-        <button type="submit" class="btn-add-to-cart">Add to Cart</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control text-center">
+            <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity()">+</button>
+        </div>
+    
+        <button type="submit" class="btn btn-custom w-100">Add to Cart</button>
     </form>
 
     <h3 class="mt-5">Customer Reviews</h3>

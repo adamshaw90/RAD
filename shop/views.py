@@ -109,21 +109,25 @@ def add_to_cart(request, product_id):
     cart = request.session.get('cart', {})
 
     quantity = int(request.POST.get('quantity', 1))
-    product_key = str(product_id)
+    coffee_type = request.POST.get('coffee_type', 'Whole Bean')  # Capture coffee type
+
+    product_key = str(product_id)  # ✅ Store product_id separately
+
 
     if product_key in cart:
         cart[product_key]['quantity'] += quantity
     else:
         cart[product_key] = {
             'name': product.name,
-            'price': f"{product.price:.2f}",
-            'quantity': quantity
+            'price': float(product.price),
+            'quantity': quantity,
+            'type': coffee_type  # ✅ Save type separately
         }
 
     request.session['cart'] = cart
-    messages.success(request, f"{quantity}x {product.name} added to cart (${product.price:.2f}).")
-    
-    return redirect('shop')
+
+    messages.success(request, f"{quantity}x {product.name} ({coffee_type}) added to cart.")
+    return redirect('shop')  # Redirect back to shop
 
 
 # Remove product from cart
