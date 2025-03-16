@@ -4,6 +4,13 @@
 <html lang="en">
   <head>
 
+    <!-- Favicon links -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon.ico/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon.ico/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon.ico/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon.ico/site.webmanifest' %}">
+
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
@@ -26,11 +33,6 @@
     {% block corejs %}
         <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
 
     <title> R.A.D {% block extra_title %} Really Addictive Decaf {% endblock %}</title>
   </head>
