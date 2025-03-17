@@ -15,7 +15,6 @@ def cart_total(request):
             
             product = Product.objects.get(id=int(product_id))  # ✅ Convert to integer
 
-            coffee_type = item.get('type', 'Whole Bean')  # ✅ Retrieve coffee type safely
 
             if isinstance(item, dict) and 'price' in item and 'quantity' in item:
                 subtotal = Decimal(item['price']) * item['quantity']
@@ -23,7 +22,6 @@ def cart_total(request):
                     'product': product,
                     'quantity': item['quantity'],
                     'subtotal': subtotal,
-                    'type': coffee_type,  
                     'image': product.image.url if product.image else '/static/images/placeholder.jpg'
                 })
                 total += subtotal

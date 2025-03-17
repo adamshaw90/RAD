@@ -16,12 +16,7 @@
     <tbody>
         {% for item in cart_items %}
         <tr>
-            <td>
-                {{ item.product.name }}
-                {% if item.type %}
-                    <br><small><em>({{ item.type }})</em></small>  <!-- ✅ Show type -->
-                {% endif %}
-            </td>
+            <td>{{ item.product.name }}</td> 
             <td>${{ item.product.price }}</td> <!-- ✅ Show individual product price -->
             <td>
                 <form action="{% url 'update_cart' item.product.pk %}" method="POST">
@@ -36,6 +31,7 @@
             </td>
         </tr>
         {% endfor %}
+        
     </tbody>
 </table>
 
