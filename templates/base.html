@@ -26,6 +26,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
         <script src="https://kit.fontawesome.com/e31f5a7661.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     {% endblock %}
 
     {% block extra_css %}{% endblock %}
@@ -47,7 +50,7 @@
         <!-- ✅ Navbar Toggler (for Mobile/Tablets) -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
         aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span><i class="fas fa-bars text-white fa-2x"></i></span>
         </button>
     
         <div class="collapse navbar-collapse justify-content-center" id="navbarContent">

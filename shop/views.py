@@ -102,7 +102,6 @@ def cart_view(request):
     })
 
 
-
 def add_to_cart(request, product_id):
     """ Adds a product to the cart with correct quantity handling. """
     product = get_object_or_404(Product, pk=product_id)
@@ -111,7 +110,6 @@ def add_to_cart(request, product_id):
     quantity = int(request.POST.get('quantity', 1))
 
     product_key = str(product_id)  # ✅ Store product_id separately
-
 
     if product_key in cart:
         cart[product_key]['quantity'] += quantity

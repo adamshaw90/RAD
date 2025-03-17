@@ -6,7 +6,7 @@
 <section class="hero-section container-fluid" style="background-image: url('{% static 'images/hero.png' %}');">
   <div class="hero-overlay">
     <div class="hero-content text-center">
-      <h1 class="display-4 text-white">Really Addictive Decaf</h1>
+      <h1 class="display-4 text-white">Really.Addictive.Decaf</h1>
       <p class="lead text-white">Decaf Coffee that's out of this world!</p>
       <a href="{% url 'shop' %}" class="btn btn-custom mt-3">Shop Now</a>
     </div>
@@ -23,9 +23,9 @@
       </div>
       <div class="col-md-6 order-md-1">
         <div class="p-4">
-          <h2>New Arrivals</h2>
-          <p>Check out our latest coffee and accessories curated just for you.</p>
-          <a href="{% url 'shop' %}?filter=new" class="btn btn-custom">Shop New Arrivals</a>
+          <h2 class="bubble-title">Coffee From Across The Planet</h2>
+          <p>Check out our decaf blends, sourced ethically, from all over the world!</p>
+          <a href="{% url 'shop' %}?filter=new" class="btn btn-custom">Show Me</a>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
 <!-- Favourites Section -->
 <section class="favourites py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4">Staff Picks</h2>
+    <h2 class="text-center mb-4 bubble-title">Staff Picks</h2>
     {% if favourite_products %}
     <div id="favouritesCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -81,7 +81,7 @@
       </div>
       <div class="col-md-6">
         <div class="p-4">
-          <h2>Wholesale</h2>
+          <h2 class="bubble-title">Wholesale</h2>
           <p>Discover our wholesale options and get the best deals for your business.</p>
           <a href="{% url 'wholesale' %}?filter=wholesale" class="btn btn-custom">Shop Wholesale</a>
         </div>

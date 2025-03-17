@@ -14,7 +14,7 @@
       </div>
       <!-- Business Contact Details on the Right -->
       <div class="col-md-6 details">
-        <h2>Our Contact Details</h2>
+        <h2 class="bubble-title">Our Contact Details</h2>
         <p><strong>Address:</strong> 123 Coffee Street, Brew City, Country</p>
         <p><strong>Phone:</strong> +1 234 567 890</p>
         <p><strong>Email:</strong> info@radcoffee.com</p>
@@ -26,7 +26,7 @@
 <!-- Contact Form Section -->
 <section class="contact-form py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4">Send Us a Message</h2>
+    <h2 class="text-center mb-4 bubble-title">Send Us a Message</h2>
     <form method="post" action="{% url 'contact' %}">
       {% csrf_token %}
       {{ form.as_p }}

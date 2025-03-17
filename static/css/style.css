@@ -48,6 +48,13 @@
     position: relative;
     z-index: 1000;
   }
+
+  .navbar-brand {
+    color: #fff;
+    font-family: 'bubblegum sans', sans-serif;
+    font-size: 3rem;
+  }
+
   
   .nav-container {
     display: flex;
@@ -73,10 +80,11 @@
   }
   
   .nav-link {
-    color: #e3ebf2;
+    color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
   }
+
  /* Ensure search bar takes full width inside the collapsed navbar */
 @media (max-width: 768px) {
   .navbar-collapse {
@@ -98,6 +106,7 @@
     background: none;
     border: none;
     cursor: pointer;
+    background-color: #fff;
   }
   
   .nav-toggle .bar {
@@ -128,13 +137,22 @@
       text-align: center;
       padding: 1rem;
       margin: 0;
-      border-bottom: 1px solid #444;
     }
     
     .nav-toggle {
       display: flex;
     }
   }
+
+  .navbar-toggler-icon {
+    background-color: white; /* Makes it visible */
+    width: 30px;
+    height: 3px;
+    display: block;
+    margin: 5px 0;
+}
+
+
   
   
   /* Hero Section */
@@ -161,6 +179,11 @@
     text-align: center;
   }
   
+  .hero-content h1 {
+    font-family: 'bubblegum sans', sans-serif;
+    font-size: 5rem;  /* Adjust as needed */
+    font-weight: 600;
+}
 
   
   .favourites-carousel .card {
@@ -207,10 +230,17 @@
 
   .shop-bar {
     background-color: #d5a29d;
+    padding-top: 1rem;
   }
 
   .shop-page {
     background-color: white;
+  }
+
+  .bubble-title {
+    color: black;
+    font-family: 'bubblegum sans', sans-serif;
+    font-size: 3rem;
   }
 
 /* Footer */
@@ -446,7 +476,6 @@ form label {
 .input-group .btn {
   background-color: #152c44;
   color: #fff;
-  border: none;
   width: 40px;
   height: 40px;
   font-size: 1.2rem;
@@ -532,4 +561,19 @@ form label {
 
 .no-arrows {
     -moz-appearance: textfield;
+}
+
+/* ✅ Fix Desktop Navbar */
+@media (min-width: 769px) {
+  .navbar {
+    background-color: #152c44; /* ✅ Ensures navbar keeps its color */
+  }
+
+  .navbar-nav .nav-link {
+    color: white !important;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #26e5d3 !important; /* ✅ Subtle highlight effect */
+  }
 }
