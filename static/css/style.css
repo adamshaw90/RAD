@@ -150,11 +150,8 @@
     height: 3px;
     display: block;
     margin: 5px 0;
-}
+  }
 
-
-  
-  
   /* Hero Section */
   .hero-section {
     position: relative;
@@ -183,6 +180,10 @@
     font-family: 'bubblegum sans', sans-serif;
     font-size: 5rem;  /* Adjust as needed */
     font-weight: 600;
+}
+
+.paratext {
+  color: #fff;
 }
 
   
@@ -238,7 +239,7 @@
   }
 
   .bubble-title {
-    color: black;
+    color: #f73d18;
     font-family: 'bubblegum sans', sans-serif;
     font-size: 3rem;
   }

@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
   $(document).ready(function(){
     $('.favourites-carousel').slick({
       infinite: true,
-      slidesToShow: 4,      // Show 4 slides on large screens
+      slidesToShow: 3,      // Show 3 slides on large screens
       slidesToScroll: 1,
       responsive: [
         {
           breakpoint: 992, // For tablets
           settings: {
-            slidesToShow: 3
+            slidesToShow: 2
           }
         },
         {
@@ -28,4 +28,5 @@ document.addEventListener('DOMContentLoaded', function() {
       ]
     });
   });
+
   

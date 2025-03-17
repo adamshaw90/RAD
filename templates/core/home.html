@@ -18,13 +18,13 @@
   <div class="container">
     <div class="row align-items-center">
       <!-- Image on right -->
-      <div class="col-md-6 order-md-2">
-        <img src="{% static 'images/new-arrivals.png' %}" alt="New Arrivals" class="img-fluid">
-      </div>
+      <!-- <div class="col-md-6 order-md-2">
+        <img src="{% static 'images/coffeebag.jpg' %}" alt="New Arrivals" class="img-fluid">
+      </div> -->
       <div class="col-md-6 order-md-1">
         <div class="p-4">
           <h2 class="bubble-title">Coffee From Across The Planet</h2>
-          <p>Check out our decaf blends, sourced ethically, from all over the world!</p>
+          <p class="paratext">Check out our decaf blends, sourced ethically, from all over the world!</p>
           <a href="{% url 'shop' %}?filter=new" class="btn btn-custom">Show Me</a>
         </div>
       </div>
@@ -77,12 +77,12 @@
     <div class="row align-items-center">
       <!-- Image on left -->
       <div class="col-md-6">
-        <img src="{% static 'images/new-arrivals.png' %}" alt="Wholesale" class="img-fluid">
+        <img src="{% static 'images/coffeebag.jpg' %}" alt="Wholesale" class="img-fluid">
       </div>
       <div class="col-md-6">
         <div class="p-4">
           <h2 class="bubble-title">Wholesale</h2>
-          <p>Discover our wholesale options and get the best deals for your business.</p>
+          <p class="paratext">Discover our wholesale options and get the best deals for your business.</p>
           <a href="{% url 'wholesale' %}?filter=wholesale" class="btn btn-custom">Shop Wholesale</a>
         </div>
       </div>

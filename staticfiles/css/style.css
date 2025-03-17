@@ -48,6 +48,13 @@
     position: relative;
     z-index: 1000;
   }
+
+  .navbar-brand {
+    color: #fff;
+    font-family: 'bubblegum sans', sans-serif;
+    font-size: 3rem;
+  }
+
   
   .nav-container {
     display: flex;
@@ -73,10 +80,11 @@
   }
   
   .nav-link {
-    color: #e3ebf2;
+    color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
   }
+
  /* Ensure search bar takes full width inside the collapsed navbar */
 @media (max-width: 768px) {
   .navbar-collapse {
@@ -98,6 +106,7 @@
     background: none;
     border: none;
     cursor: pointer;
+    background-color: #fff;
   }
   
   .nav-toggle .bar {
@@ -128,20 +137,26 @@
       text-align: center;
       padding: 1rem;
       margin: 0;
-      border-bottom: 1px solid #444;
     }
     
     .nav-toggle {
       display: flex;
     }
   }
-  
-  
+
+  .navbar-toggler-icon {
+    background-color: white; /* Makes it visible */
+    width: 30px;
+    height: 3px;
+    display: block;
+    margin: 5px 0;
+  }
+
   /* Hero Section */
   .hero-section {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 100vh;
     background-size: cover;
     background-position: center;
   }
@@ -161,6 +176,15 @@
     text-align: center;
   }
   
+  .hero-content h1 {
+    font-family: 'bubblegum sans', sans-serif;
+    font-size: 5rem;  /* Adjust as needed */
+    font-weight: 600;
+}
+
+.paratext {
+  color: #fff;
+}
 
   
   .favourites-carousel .card {
@@ -207,10 +231,17 @@
 
   .shop-bar {
     background-color: #d5a29d;
+    padding-top: 1rem;
   }
 
   .shop-page {
     background-color: white;
+  }
+
+  .bubble-title {
+    color: #f73d18;
+    font-family: 'bubblegum sans', sans-serif;
+    font-size: 3rem;
   }
 
 /* Footer */
@@ -393,4 +424,157 @@ form label {
 .card-footer .btn {
   flex: 1;
   margin: 2px;
+}
+
+/* Product Detail Page */
+.product-detail-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail-container img {
+  width: 100%;
+  max-width: 400px; /* Adjusted width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 20px; /* Centering the image */
+}
+
+.product-detail-container h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.product-detail-container p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.product-detail-container .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Quantity Buttons */
+.input-group {
+  display: flex;
+  align-items: center;
+  max-width: 200px;
+  margin: auto;
+}
+
+.input-group .btn {
+  background-color: #152c44;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+}
+
+.input-group .btn:hover {
+  background-color: #1b3c5a;
+}
+
+.input-group input {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Add to Cart Button */
+.btn-add-to-cart {
+  background-color: #26e5d3;
+  color: #02485a;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+  background-color: #b66878;
+}
+
+/* Reviews Section */
+.review {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review p {
+  margin-bottom: 5px;
+}
+
+.review strong {
+  color: #152c44;
+}
+
+/* Review Stars */
+.text-warning {
+  color: gold !important;
+}
+
+/* Submit Review Form */
+.submit-review {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.submit-review textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.submit-review select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Remove default number input arrows */
+.no-arrows::-webkit-inner-spin-button,
+.no-arrows::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.no-arrows {
+    -moz-appearance: textfield;
+}
+
+/* ✅ Fix Desktop Navbar */
+@media (min-width: 769px) {
+  .navbar {
+    background-color: #152c44; /* ✅ Ensures navbar keeps its color */
+  }
+
+  .navbar-nav .nav-link {
+    color: white !important;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #26e5d3 !important; /* ✅ Subtle highlight effect */
+  }
 }
