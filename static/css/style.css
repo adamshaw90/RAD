@@ -186,7 +186,7 @@
   color: #fff;
 }
 
-  
+
   .favourites-carousel .card {
     margin: 0 auto;
     border: none;
@@ -196,6 +196,14 @@
   .favourites-carousel .card-img-top {
     max-height: 250px;
     object-fit: cover;
+  }
+
+  .subheading {
+    color: #fff;
+  }
+
+  .subheading2 {
+    color: #152c44;
   }
 
  
