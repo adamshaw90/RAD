@@ -1,412 +1,226 @@
 /* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html, body {
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    background-color: #d5a29d;
-  }
-
-  main {
-    flex-grow: 1;
+html, body {
+  height: 100%;
 }
-  
-  /* Navbar Styling */
 
-  .navbar-nav {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .navbar .form-control {
-    width: 200px;
-  }
-  
-  @media (max-width: 768px) {
-  .navbar-nav {
-    flex-direction: column;
-  }
-  
-  .navbar .form-control {
-    width: 100%;
-  }
-  }
-  
-  .navbar {
-    background-color: #152c44;
-    padding: 1rem;
-    position: relative;
-    z-index: 1000;
-  }
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #d5a29d;
+}
 
-  .navbar-brand {
-    color: #fff;
-    font-family: 'bubblegum sans', sans-serif;
-    font-size: 3rem;
-  }
+main {
+  flex-grow: 1;
+}
 
-  
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  .nav-logo {
-    color: #fff;
-    font-size: 1.5rem;
-    text-decoration: none;
-  }
-  
-  .nav-menu {
-    list-style: none;
-    display: flex;
-  }
-  
-  .nav-item {
-    margin-left: 1rem;
-  }
-  
-  .nav-link {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-  }
+/* Navbar Styling */
+.navbar {
+  background-color: #152c44;
+  padding: 1rem;
+  position: relative;
+  z-index: 1000;
+}
 
- /* Ensure search bar takes full width inside the collapsed navbar */
+.navbar-brand {
+  color: #fff;
+  font-family: 'bubblegum sans', sans-serif;
+  font-size: 2.5rem;
+}
+
+.navbar-toggler {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-link {
+  color: white !important;
+  font-size: 1.2rem;
+  padding: 10px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #26e5d3 !important;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content h1 {
+  font-family: 'bubblegum sans', sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Buttons */
+.btn-custom {
+  background-color: #26e5d3;
+  border: none;
+  color: #02485a;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #b66878;
+  color: white;
+}
+
+/* Shop Page */
+.shop-page .card {
+  transition: transform 0.3s ease;
+}
+.shop-page .card:hover {
+  transform: scale(1.03);
+}
+
+.shop-page .card-img-top {
+  max-height: 250px;
+  object-fit: cover;
+}
+
+/* Footer */
+.footer {
+  background-color: #152c44;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
+  .hero-content h1 {
+      font-size: 3rem;
+  }
+  .hero-content p {
+      font-size: 1.2rem;
+  }
   .navbar-collapse {
-    text-align: center;
+      background-color: #152c44;
+      padding: 1rem;
+      position: absolute;
+      top: 100%;
+      width: 100%;
   }
-  .navbar-collapse form {
-    width: 100%;
-    padding: 10px 15px;
-  }
-  .navbar-collapse input {
-    width: 100%;
+  .btn-custom {
+      font-size: 0.9rem;
   }
 }
 
-  /* Hamburger Toggle */
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    background-color: #fff;
-  }
-  
-  .nav-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 4px 0;
-    transition: 0.4s;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .nav-menu {
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      display: none;
-    }
-    
-    .nav-menu.active {
-      display: flex;
-    }
-    
-    .nav-item {
-      text-align: center;
-      padding: 1rem;
-      margin: 0;
-    }
-    
-    .nav-toggle {
-      display: flex;
-    }
-  }
-
-  .navbar-toggler-icon {
-    background-color: white; /* Makes it visible */
-    width: 30px;
-    height: 3px;
-    display: block;
-    margin: 5px 0;
-  }
-
-  /* Hero Section */
-  .hero-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .hero-content {
-    text-align: center;
-  }
-  
+@media (max-width: 480px) {
   .hero-content h1 {
-    font-family: 'bubblegum sans', sans-serif;
-    font-size: 5rem;  /* Adjust as needed */
-    font-weight: 600;
+      font-size: 2.5rem;
+  }
+  .hero-content p {
+      font-size: 1rem;
+  }
+  .btn-custom {
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+  }
 }
 
 .paratext {
   color: #fff;
 }
 
-
-  .favourites-carousel .card {
-    margin: 0 auto;
-    border: none;
-    padding: 10px;
-  }
-  
-  .favourites-carousel .card-img-top {
-    max-height: 250px;
-    object-fit: cover;
-  }
-
-  .subheading {
-    color: #fff;
-  }
-
-  .subheading2 {
-    color: #152c44;
-  }
-
- 
-/* Shop Page */
-.btn-custom {
-    background-color: #26e5d3;
-    border: none;
-    color: #02485a;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-custom:hover {
-    background-color: #b66878;
-  }
-  
-  
-  .shop-page .card {
-    transition: transform 0.3s ease;
-  }
-  .shop-page .card:hover {
-    transform: scale(1.03);
-  }
-  
-  
-  .shop-page .card-img-top {
-    max-height: 250px;
-    object-fit: cover;
-  }
-
-  .shop-bar {
-    background-color: #d5a29d;
-    padding-top: 1rem;
-  }
-
-  .shop-page {
-    background-color: white;
-  }
-
-  .bubble-title {
-    color: #f73d18;
-    font-family: 'bubblegum sans', sans-serif;
-    font-size: 3rem;
-  }
-
-/* Footer */
-  .footer {
-    padding: 1rem 0;
-    position: relative;
-    z-index: 1;
-    background-color: #152c44;
-    color: #fff;
-  }
-  
-  .footer p {
-    margin: 0;
-    font-size: 1rem;
-  }
-  
-  .footer a {
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-    margin-right: 20px;
-    text-decoration: none;
-  }
-  
-
-  .footer a i {
-    transition: all 0.3s ease;
-  }
-  
-  .footer a:hover i {
-    color: #D2691E;
-    text-shadow: 0 0 8px #D2691E;
-    text-decoration: none;
-  }
-
- 
-#favouritesCarousel {
-    position: relative;
-  }
-  
-  
-  /* Style the text inside the buttons */
-  .btn-text {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  
-
-  /* Wholesale sections */
-
-  .section-image-left img,
-  .section-image-right img {
-    border-radius: 5px;
-  }
-  
-  .section-image-right {
-    background-color: #f8f9fa;
-  }
-  
-  /* Contact Us Button Styling */
-  .contact-button .btn {
-    background-color: #D2691E;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-  }
-  
-  .contact-button .btn:hover {
-    background-color: #a55715;
-  }
-
-  .details {
-    padding-left: 100px;
-  }
-
-/* Center the logout message */
-.logout-container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.subheading {
+  color: #fff;
 }
 
-/* Style the buttons */
-.logout-container .btn-custom {
-  background-color: #D2691E;
-  color: white;
-  padding: 10px 20px;
+.subheading2 {
+  color: #152c44;
+}
+
+.btn-custom {
+  background-color: #26e5d3;
+  border: none;
+  color: #02485a;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
   text-transform: uppercase;
-  border-radius: 5px;
+  letter-spacing: 0.05rem;
   transition: background-color 0.3s ease;
-  display: inline-block;
-  margin: 10px;
 }
 
-.logout-container .btn-custom:hover {
-  background-color: #a55715;
+.btn-custom:hover {
+  background-color: #b66878;
 }
 
-.logout-container .btn-outline-secondary {
-  padding: 10px 20px;
+
+.shop-page .card {
+  transition: transform 0.3s ease;
+}
+.shop-page .card:hover {
+  transform: scale(1.03);
+}
+
+
+.shop-page .card-img-top {
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.shop-bar {
+  background-color: #d5a29d;
+  padding-top: 1rem;
+}
+
+.shop-page {
+  background-color: white;
+}
+
+.bubble-title {
+  color: #f73d18;
+  font-family: 'bubblegum sans', sans-serif;
+  font-size: 3rem;
+}
+
+.footer a i {
+  transition: all 0.3s ease;
+}
+
+.footer a:hover i {
+  color: #D2691E;
+  text-shadow: 0 0 8px #D2691E;
+  text-decoration: none;
+}
+
+.footer p {
+  margin: 0;
   font-size: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-/* Style for login card */
-.login-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Style form fields */
-form input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-/* Style form labels */
-form label {
-  font-weight: bold;
-}
-
-/* Centering the form */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.favourite-icon {
-  color: gold;
-  font-size: 24px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  padding: 5px 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn-custom, .btn-danger {
-  padding: 6px 12px;
-  font-size: 0.9rem; 
-  border-radius: 4px;
 }
 
 .message-container {
@@ -572,17 +386,57 @@ form label {
     -moz-appearance: textfield;
 }
 
-/* ✅ Fix Desktop Navbar */
-@media (min-width: 769px) {
-  .navbar {
-    background-color: #152c44; /* ✅ Ensures navbar keeps its color */
-  }
+/* Center the logout message */
+.logout-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  .navbar-nav .nav-link {
-    color: white !important;
-  }
+/* Style for login card */
+.login-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .navbar-nav .nav-link:hover {
-    color: #26e5d3 !important; /* ✅ Subtle highlight effect */
-  }
+/* Style form fields */
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style form labels */
+form label {
+  font-weight: bold;
+}
+
+/* Centering the form */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favourite-icon {
+  color: gold;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.details {
+  padding-left: 100px;
 }
