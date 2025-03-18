@@ -19,12 +19,12 @@
     
 
     
-        <label for="quantity"><strong>Quantity:</strong></label>
-        <div class="input-group mb-3" style="max-width: 150px;">
-            <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
-            <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control text-center">
-            <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity()">+</button>
-        </div>
+    <label for="quantity"><strong>Quantity:</strong></label>
+    <div class="input-group mb-3" style="max-width: 150px;">
+        <button type="button" id="decreaseQuantity" class="btn btn-outline-secondary">−</button>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control text-center">
+        <button type="button" id="increaseQuantity" class="btn btn-outline-secondary">+</button>
+    </div>
     
         <button type="submit" class="btn btn-custom w-100">Add to Cart</button>
     </form>

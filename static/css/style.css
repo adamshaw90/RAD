@@ -242,7 +242,11 @@ main {
 .card-footer .btn {
   flex: 1;
   margin: 2px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
 }
+
 
 /* Product Detail Page */
 .product-detail-container {
@@ -576,3 +580,95 @@ form label {
   }
 }
 
+/* Remove number input spinners (Chrome, Safari, Edge, Opera) */
+#quantity::-webkit-outer-spin-button,
+#quantity::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove number input spinners (Firefox) */
+#quantity {
+    -moz-appearance: textfield;
+}
+
+/* Profile Page Styling */
+.profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-title {
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 2.5rem;
+  color: #152c44;
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Profile Actions */
+.profile-actions {
+  margin-top: 20px;
+}
+
+.profile-actions .btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.btn-custom {
+  background-color: #26e5d3;
+  color: #02485a;
+  border: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #b66878;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-container {
+      padding: 20px;
+  }
+  
+  .profile-title {
+      font-size: 2rem;
+  }
+  
+  .profile-card p {
+      font-size: 1rem;
+  }
+}
