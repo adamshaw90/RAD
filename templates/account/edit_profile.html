@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Edit Your Profile</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-custom btn-sm">Save Changes</button>
-    <a href="{% url 'profile' %}" class="btn btn-secondary btn-sm">Cancel</a>
-</form>
+<div class="profile-container">
+    <h2 class="profile-title">Edit Your Profile</h2>
+    
+    <form method="post" class="profile-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="profile-actions">
+            <button type="submit" class="btn btn-custom">Save Changes</button>
+            <a href="{% url 'profile' %}" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
+</div>
 {% endblock %}
