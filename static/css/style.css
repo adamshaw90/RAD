@@ -127,17 +127,13 @@ main {
   .hero-content p {
       font-size: 1.2rem;
   }
-  .navbar-collapse {
-      background-color: #152c44;
-      padding: 1rem;
-      position: absolute;
-      top: 100%;
-      width: 100%;
-  }
+
   .btn-custom {
       font-size: 0.9rem;
   }
 }
+
+
 
 @media (max-width: 480px) {
   .hero-content h1 {
@@ -496,3 +492,51 @@ form label {
   margin-right: 10px; /* Fine-tune spacing from the right edge */
 }
 
+/* Fix Search Bar Issue at 1100px */
+@media (max-width: 1100px) {
+  .custom-search-form {
+      max-width: 200px !important; /* Shrinks the search bar */
+  }
+  .custom-search-input {
+      font-size: 14px !important; /* Smaller text */
+      padding: 6px 10px !important;
+  }
+  .custom-search-button {
+      font-size: 14px !important;
+      padding: 6px 10px !important;
+  }
+}
+
+/* Move Search Bar into Collapsible Menu at 992px */
+@media (max-width: 1070px) {
+  .custom-search-form {
+      display: none !important; /* Hide in large navbar */
+  }
+  .navbar-collapse .custom-search-form {
+      display: block !important;
+      width: 100% !important;
+      margin-top: 10px;
+  }
+}
+
+/* Force Bootstrap Navbar to Collapse at 896px instead of 768px */
+@media (max-width: 896px) {
+  .navbar-expand-md .navbar-collapse {
+      display: none !important;
+  }
+  
+  .navbar-expand-md .navbar-toggler {
+      display: block !important;
+  }
+}
+
+/* Ensure Navbar Expands Again Above 896px */
+@media (min-width: 897px) {
+  .navbar-expand-md .navbar-collapse {
+      display: flex !important;
+  }
+
+  .navbar-expand-md .navbar-toggler {
+      display: none !important;
+  }
+}
