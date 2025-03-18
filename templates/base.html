@@ -2,10 +2,8 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-
+<head>
     <!-- Favicon links -->
-
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon.ico/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon.ico/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon.ico/favicon-16x16.png' %}">
@@ -16,8 +14,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
-
-    {% block extra_meta %}{% endblock %}
 
     {% block corecss %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
@@ -31,87 +27,79 @@
         <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     {% endblock %}
 
-    {% block extra_css %}{% endblock %}
-
-    {% block corejs %}
-        <script src="https://js.stripe.com/v3/"></script>
-    {% endblock %}
-
     <title> R.A.D {% block extra_title %} Really Addictive Decaf {% endblock %}</title>
-  </head>
-  <body class="d-flex flex-column min-vh-100">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md">
-      <div class="container-fluid">
-        <!-- ✅ Logo on the Left -->
-        <a class="navbar-brand" href="{% url 'home' %}">R.A.D</a>
-    
-        <!-- ✅ Navbar Toggler (for Mobile/Tablets) -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
-        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span><i class="fas fa-bars text-white fa-2x"></i></span>
-        </button>
-    
-        <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
-          <!-- ✅ Centered Navigation Links -->
-          <ul class="navbar-nav text-center">
-            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'wholesale' %}">Wholesale</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-            {% if user.is_authenticated %}
-              <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'logout_confirm' %}">Logout</a></li>
-            {% else %}
-              <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Sign In</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
-            {% endif %}
-          </ul>
-    
-          <!-- ✅ Search Bar (Inside Toggle Menu for Small Screens) -->
-          <form class="d-md-none w-100 mt-2" action="{% url 'shop' %}" method="GET">
-            <div class="input-group">
-              <input class="form-control" type="search" name="q" placeholder="Search..." aria-label="Search">
-              <button class="btn btn-outline-light" type="submit">Go</button>
+        <div class="container-fluid">
+            <!-- ✅ Logo on the Left -->
+            <a class="navbar-brand" href="{% url 'home' %}">R.A.D</a>
+
+            <!-- ✅ Navbar Toggler (for Mobile/Tablets) -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- ✅ Centered Navigation Links -->
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'wholesale' %}">Wholesale</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout_confirm' %}">Logout</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Sign In</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
+                    {% endif %}
+                </ul>
             </div>
-          </form>
+
+            <!-- ✅ Search Bar & Cart (RIGHT SIDE) -->
+            <div class="d-flex align-items-center ms-auto">
+                <!-- ✅ Search Bar -->
+                <form class="custom-search-form d-none d-md-flex" action="{% url 'shop' %}" method="GET">
+                    <div class="input-group">
+                        <input class="custom-search-input form-control" type="search" name="q" placeholder="Search..." aria-label="Search">
+                        <button class="custom-search-button btn btn-outline-light" type="submit">Go</button>
+                    </div>
+                </form>
+
+                <!-- ✅ Cart Icon -->
+                <a class="nav-link position-relative ms-3" href="{% url 'cart' %}">
+                    <i class="fas fa-shopping-basket fa-2x text-white"></i> <!-- Basket Icon -->
+                </a>
+                <small class="text-white" id="cart-total">${{ cart_total|default:"0.00" }}</small> <!-- Total Price -->
+            </div>
+
         </div>
-        <!-- ✅ Search Bar (Aligned Right for Larger Screens) -->
-        <form class="d-none d-md-flex ms-auto" action="{% url 'shop' %}" method="GET">
-          <div class="input-group">
-            <input class="form-control" type="search" name="q" placeholder="Search..." aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Go</button>
-          </div>
-        </form>
-        <li class="nav-item d-flex flex-column align-items-center ms-3">
-          <a class="nav-link position-relative" href="{% url 'cart' %}">
-              <i class="fas fa-shopping-basket fa-2x text-white"></i> <!-- Basket Icon -->
-          </a>
-          <small class="text-white" id="cart-total">${{ cart_total|default:"0.00" }}</small> <!-- Total Price -->
-      </li>
-      </div>
     </nav>
 
     <main class="flex-grow-1">
-      {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container py-4">
-          <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              <p>&copy; R.A.D 2025</p>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p>&copy; R.A.D 2025</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://facebook.com" target="_blank" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
-            <div class="col-md-6 text-center text-md-end">
-              <a href="https://facebook.com" target="_blank" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://twitter.com" target="_blank" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-              <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-              <a href="https://linkedin.com" target="_blank" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
         </div>
     </footer>
 
@@ -131,21 +119,19 @@
             {% endwith %}
         {% endfor %}
     </div>
-{% endif %}
+    {% endif %}
 
     <!-- jQuery & Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <!-- custom JS -->
+    <!-- Custom JS -->
     <script src="{% static 'js/app.js' %}"></script>
     <script src="{% static 'js/cart.js' %}"></script>
-    {% block postloadjs %}
+
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
-    {% endblock %}
 
-  </body>
+</body>
 </html>

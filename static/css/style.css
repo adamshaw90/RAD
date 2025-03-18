@@ -440,3 +440,59 @@ form label {
 .details {
   padding-left: 100px;
 }
+
+/* ✅ Ensure custom search bar styles override Bootstrap */
+.custom-search-form {
+  max-width: 300px !important; /* Adjust width */
+  margin-left: auto; /* Pushes search bar to the right */
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adds space before the cart */
+}
+
+/* ✅ Custom Input Styling */
+.custom-search-input {
+  border-radius: 25px !important;
+  border: 2px solid #ccc !important;
+  padding: 8px 15px !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease-in-out !important;
+  background-color: #f8f9fa !important;
+}
+
+/* ✅ Focus Effect */
+.custom-search-input:focus {
+  border-color: #26e5d3 !important;
+  outline: none !important;
+  box-shadow: 0 0 10px rgba(38, 229, 211, 0.5) !important;
+}
+
+/* ✅ Fix Button Alignment */
+.custom-search-button {
+  border-radius: 25px !important;
+  background-color: #26e5d3 !important;
+  color: #02485a !important;
+  border: none !important;
+  font-size: 16px !important; /* Ensure font is large enough */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important; /* Make it match input height */
+  text-align: center !important;
+  transition: background-color 0.3s ease !important;
+  font-weight: bold !important; /* Optional: Make text more prominent */
+}
+
+/* ✅ Ensure Hover Effect Still Works */
+.custom-search-button:hover {
+  background-color: #b66878 !important;
+  color: white !important;
+}
+
+.navbar .cart-container {
+  margin-left: auto; /* Pushes the cart icon further right */
+  display: flex;
+  align-items: center;
+  margin-right: 10px; /* Fine-tune spacing from the right edge */
+}
+
