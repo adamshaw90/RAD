@@ -126,7 +126,7 @@ def add_to_cart(request, product_id):
     return redirect('shop')  # Redirect back to shop
 
 
-# Remove product from cart
+
 def remove_from_cart(request, product_id):
     cart = request.session.get('cart', {})
 

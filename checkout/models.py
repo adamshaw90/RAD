@@ -49,7 +49,7 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
 
-        # Set a flat delivery cost (e.g., $5.00)
+        
         self.delivery_cost = Decimal('5.00')
 
         # Calculate grand total

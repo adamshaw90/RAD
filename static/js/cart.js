@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     function updateCartTotal() {
-        fetch("/shop/cart/total/")  // Make sure this URL matches your Django view
+        fetch("/shop/cart/total/")
             .then(response => response.json())
             .then(data => {
                 let cartTotalElement = document.getElementById("cart-total");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Error updating cart total:", error));
     }
 
-    updateCartTotal();  // Run once when the page loads
+    updateCartTotal();
 });
 
 

@@ -35,10 +35,10 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    cart = request.session.get('cart', {})  # Ensure consistency with other views
+    cart = request.session.get('cart', {})
     if not cart:
         messages.error(request, "There's nothing in your cart at the moment")
-        return redirect(reverse('shop'))  # Redirect to shop if cart is empty
+        return redirect(reverse('shop'))
 
     # Calculate totals
     total = Decimal('0.00')
@@ -55,10 +55,10 @@ def checkout(request):
         })
         total += subtotal
 
-    delivery = Decimal('5.00')  # Fixed delivery fee
+    delivery = Decimal('5.00')
     grand_total = total + delivery
 
-    stripe_total = round(grand_total * 100)  # Convert to cents
+    stripe_total = round(grand_total * 100)
     stripe.api_key = stripe_secret_key
 
     if request.method == 'POST':
@@ -94,7 +94,7 @@ def checkout(request):
                 except Product.DoesNotExist:
                     messages.error(request, "One of the products in your cart wasn't found. Please try again.")
                     order.delete()
-                    return redirect(reverse('cart'))  # Redirect back to cart
+                    return redirect(reverse('cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
             request.session['cart'] = {}  # Clear cart after successful checkout

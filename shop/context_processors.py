@@ -10,11 +10,11 @@ def cart_total(request):
 
     for product_id, item in cart.items():
         try:
-            # ✅ Ensure product_id is an integer
+            
             if not product_id.isdigit():
                 continue
 
-            product = Product.objects.get(id=int(product_id))  # ✅ Convert to integer
+            product = Product.objects.get(id=int(product_id))
 
             if isinstance(item, dict) and 'price' in item and 'quantity' in item:
                 subtotal = Decimal(item['price']) * item['quantity']
@@ -39,5 +39,5 @@ def cart_total(request):
             print(f"❌ ValueError: {e} for key {product_id}")
             continue
 
-    request.session['cart'] = cart  # Save fixed cart
+    request.session['cart'] = cart
     return {'cart_total': round(total, 2), 'cart_items': cart_items}

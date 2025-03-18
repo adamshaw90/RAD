@@ -35,10 +35,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md">
         <div class="container-fluid">
-            <!-- ✅ Logo on the Left -->
+            <!-- Logo on the Left -->
             <a class="navbar-brand" href="{% url 'home' %}">R.A.D</a>
 
-            <!-- ✅ Navbar Toggler (for Mobile/Tablets) -->
+            <!-- Navbar Toggler (for Mobile/Tablets) -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
                     aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
 
 
             <div class="collapse navbar-collapse" id="navbarContent">
-                <!-- ✅ Centered Navigation Links -->
+                <!-- Centered Navigation Links -->
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
@@ -64,7 +64,7 @@
                 </ul>
             </div>
 
-            <!-- ✅ Search Bar & Cart (RIGHT SIDE) -->
+            <!-- Search Bar & Cart (RIGHT SIDE) -->
             <div class="d-flex align-items-center ms-auto">
                 <!-- ✅ Search Bar -->
                 <form class="custom-search-form d-none d-md-flex" action="{% url 'shop' %}" method="GET">
@@ -74,7 +74,7 @@
                     </div>
                 </form>
 
-                <!-- ✅ Cart Icon -->
+                <!-- Cart Icon -->
                 <a class="nav-link position-relative ms-3" href="{% url 'cart' %}">
                     <i class="fas fa-shopping-basket fa-2x text-white"></i> <!-- Basket Icon -->
                 </a>
