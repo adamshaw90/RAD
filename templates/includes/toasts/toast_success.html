@@ -22,13 +22,13 @@
                             <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="rounded" width="40" height="40" style="object-fit: cover;">
                             <div class="ms-2">
                                 <strong>{{ item.product.name }}</strong> 
-                                (x{{ item.quantity }}) - ${{ item.subtotal }}
+                                (x{{ item.quantity }}) - £{{ item.subtotal }}
                             </div>
                         </li>
                     {% endfor %}
                 </ul>
                 <hr>
-                <p><strong>Total: ${{ cart_total }}</strong></p>
+                <p><strong>Total: £{{ cart_total }}</strong></p>
                 <div class="d-flex justify-content-between">
                     <a href="{% url 'cart' %}" class="btn btn-sm btn-outline-dark">View Cart</a>
                     <a href="{% url 'checkout' %}" class="btn btn-sm btn-success">Checkout</a>

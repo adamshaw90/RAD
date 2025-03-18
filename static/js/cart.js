@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 let cartTotalElement = document.getElementById("cart-total");
                 if (cartTotalElement) {
-                    cartTotalElement.textContent = `$${data.cart_total || "0.00"}`;
+                    cartTotalElement.textContent = `£${data.cart_total || "0.00"}`;
                 }
             })
             .catch(error => console.error("Error updating cart total:", error));

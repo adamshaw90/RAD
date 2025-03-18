@@ -58,7 +58,7 @@
                     {% endif %}
                     <div class="card-body text-center">
                       <h5 class="card-title">{{ product.name }}</h5>
-                      <p class="card-text">${{ product.price }}</p>
+                      <p class="card-text">£{{ product.price }}</p>
                       <a href="{% url 'product_detail' product.pk %}" class="btn btn-custom mt-3">Shop Now</a>
                     </div>
                   </div>

@@ -78,7 +78,7 @@
                 <a class="nav-link position-relative ms-3" href="{% url 'cart' %}">
                     <i class="fas fa-shopping-basket fa-2x text-white"></i> <!-- Basket Icon -->
                 </a>
-                <small class="text-white" id="cart-total">${{ cart_total|default:"0.00" }}</small> <!-- Total Price -->
+                <small class="text-white" id="cart-total">£{{ cart_total|default:"0.00" }}</small> <!-- Total Price -->
             </div>
 
         </div>
@@ -128,10 +128,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom JS -->
+
     <script src="{% static 'js/cart.js' %}"></script>
 
     <script type="text/javascript">
-        $('.toast').toast('show');
+        £('.toast').toast('show');
     </script>
 
 </body>

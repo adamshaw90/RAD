@@ -55,7 +55,7 @@
                             <p class="my-0">{{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0">${{ item.lineitem_total|floatformat:2 }}</p>
+                            <p class="my-0">£{{ item.lineitem_total|floatformat:2 }}</p>
                         </div>
                     </div>
                     <hr>
@@ -65,9 +65,9 @@
             <!-- ✅ Order Totals -->
             <div class="col-12 text-right">
                 <h4 class="mb-3">Order Total</h4>
-                <p>Subtotal: <strong>${{ order.order_total|floatformat:2 }}</strong></p>
-                <p>Delivery: <strong>${{ order.delivery_cost|floatformat:2 }}</strong></p>
-                <p>Grand Total: <strong>${{ order.grand_total|floatformat:2 }}</strong></p>
+                <p>Subtotal: <strong>£{{ order.order_total|floatformat:2 }}</strong></p>
+                <p>Delivery: <strong>£{{ order.delivery_cost|floatformat:2 }}</strong></p>
+                <p>Grand Total: <strong>£{{ order.grand_total|floatformat:2 }}</strong></p>
             </div>
         </div>
 

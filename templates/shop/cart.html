@@ -17,7 +17,7 @@
         {% for item in cart_items %}
         <tr>
             <td>{{ item.product.name }}</td> 
-            <td>${{ item.product.price }}</td> <!-- ✅ Show individual product price -->
+            <td>£{{ item.product.price }}</td> <!-- ✅ Show individual product price -->
             <td>
                 <form action="{% url 'update_cart' item.product.pk %}" method="POST">
                     {% csrf_token %}
@@ -25,7 +25,7 @@
                     <button type="submit" class="btn btn-sm btn-primary">Update</button>
                 </form>
             </td>
-            <td>${{ item.subtotal }}</td> <!-- ✅ Show subtotal -->
+            <td>£{{ item.subtotal }}</td> <!-- ✅ Show subtotal -->
             <td>
                 <a href="{% url 'remove_from_cart' item.product.pk %}" class="btn btn-danger btn-sm">Remove</a>
             </td>
@@ -36,7 +36,7 @@
 </table>
 
 <!-- ✅ Display Total Price -->
-<p><strong>Total: ${{ total_price }}</strong></p>
+<p><strong>Total: £{{ total_price }}</strong></p>
 <a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
 
 {% else %}
