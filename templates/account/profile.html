@@ -2,7 +2,8 @@
 {% block content %}
 <div class="profile-container">
     <h2 class="profile-title">Your Profile</h2>
-    <div class="profile-card">
+    
+    <div class="profile-details">
         <p><strong>Username:</strong> {{ user.username }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
     </div>
@@ -11,6 +12,35 @@
         <a href="{% url 'edit_profile' %}" class="btn btn-custom">Update Profile</a>
         <a href="{% url 'confirm_delete_account' %}" class="btn btn-danger">Delete My Account</a>
     </div>
+
+    <!-- 🛒 Orders Section -->
+<h3 class="orders-title">Your Orders</h3>
+{% if orders %}
+    <table class="orders-table">
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.created_at|date:"M d, Y" }}</td> 
+                <td>£{{ order.total|floatformat:2 }}</td>
+                <td>{% if order.paid %}Paid{% else %}Pending{% endif %}</td>
+                <td><a href="{% url 'order_detail' order.id %}" class="btn btn-sm btn-outline-primary">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="no-orders">You haven't placed any orders yet.</p>
+{% endif %}
 </div>
 {% endblock %}
 

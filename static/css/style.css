@@ -672,3 +672,46 @@ form label {
       font-size: 1rem;
   }
 }
+
+/* 🛒 Orders Section */
+.orders-title {
+  font-size: 1.8rem;
+  color: #152c44;
+  margin-top: 30px;
+  border-bottom: 2px solid #26e5d3;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.orders-table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.orders-table th {
+  background-color: #152c44;
+  color: white;
+}
+
+.orders-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.orders-table tr:hover {
+  background-color: #e3ebf2;
+}
+
+/* No Orders Message */
+.no-orders {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 15px;
+}

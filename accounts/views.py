@@ -4,6 +4,7 @@ from .forms import ProfileForm, ProfileUpdateForm
 from django.contrib.auth import logout, login
 from django.contrib import messages
 from allauth.account.views import SignupView
+from shop.models import Order
 
 
 @login_required
@@ -15,7 +16,11 @@ def profile(request):
             return redirect('profile')
     else:
         form = ProfileForm(instance=request.user)
-    return render(request, 'account/profile.html', {'form': form})
+
+    # Fetch orders for the logged-in user, sorted by most recent
+    orders = Order.objects.filter(user=request.user).order_by('-created_at')
+
+    return render(request, 'account/profile.html', {'form': form, 'orders': orders})
 
 
 def logout_confirm(request):
