@@ -519,24 +519,59 @@ form label {
   }
 }
 
-/* Force Bootstrap Navbar to Collapse at 896px instead of 768px */
+/* 🌟 Default Navbar: Show Full Menu Above 896px */
+.navbar-expand-md .navbar-collapse {
+  display: flex !important;
+}
+
+/* 📌 At 896px, Hide Menu & Show Toggler */
 @media (max-width: 896px) {
   .navbar-expand-md .navbar-collapse {
       display: none !important;
   }
-  
   .navbar-expand-md .navbar-toggler {
       display: block !important;
   }
 }
 
-/* Ensure Navbar Expands Again Above 896px */
-@media (min-width: 897px) {
-  .navbar-expand-md .navbar-collapse {
-      display: flex !important;
+/* 📌 Ensure Toggle Menu Appears */
+.navbar-collapse.show {
+  display: block !important;
+  background-color: #152c44;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  z-index: 1000;
+}
+
+/* 📌 Stack Menu Items in Toggle Mode */
+@media (max-width: 896px) {
+  .navbar-nav {
+      flex-direction: column;
+      text-align: center;
+  }
+  .navbar-nav .nav-item {
+      padding: 10px 0;
+  }
+}
+
+/* ✅ Force Navbar to Stack Items (Remove Flex Direction) from 768px - 896px */
+@media (max-width: 896px) {
+  .navbar-expand-md .navbar-nav {
+      flex-direction: column !important; /* ✅ Override Bootstrap's row direction */
+      width: 100%;
+      text-align: center;
   }
 
-  .navbar-expand-md .navbar-toggler {
-      display: none !important;
+  /* Ensure dropdown menu is visible properly */
+  .navbar-collapse.show {
+      display: block !important;
+      background-color: #152c44; /* Matches navbar */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
   }
 }
