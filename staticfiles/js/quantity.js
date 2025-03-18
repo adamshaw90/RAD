@@ -15,3 +15,4 @@ document.addEventListener("DOMContentLoaded", function () {
         quantityInput.value = currentValue + 1;
     });
 });
+

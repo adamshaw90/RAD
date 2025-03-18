@@ -8,7 +8,7 @@
 
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = stripe(stripePublicKey);
+var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
     base: {
@@ -26,9 +26,9 @@ var style = {
     }
 };
 var card = elements.create('card', {style: style});
-card.mount('#card-element');
+card.mount('#card-element');  // ✅ Ensure it mounts
 
-// Handle realtime validation errors on the card element
+// Handle real-time validation errors on the card element
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
@@ -44,7 +44,15 @@ card.addEventListener('change', function (event) {
     }
 });
 
-// // Handle form submit
+// Ensure card visibility
+$(document).ready(function () {
+    if (!$('#card-element').is(':visible')) {
+        console.warn("Card element is hidden. Forcing visibility.");
+        $('#card-element').show();
+    }
+});
+
+// Handle form submission
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
@@ -54,7 +62,6 @@ form.addEventListener('submit', function(ev) {
     $('#loading-overlay').fadeToggle(100);
 
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
-    // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
@@ -111,8 +118,6 @@ form.addEventListener('submit', function(ev) {
             }
         });
     }).fail(function () {
-        // just reload the page, the error will be in django messages
         location.reload();
     })
 });
-

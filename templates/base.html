@@ -27,6 +27,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     {% endblock %}
 
+    <script src="https://js.stripe.com/v3/"></script>
+
     <title> R.A.D {% block extra_title %} Really Addictive Decaf {% endblock %}</title>
 </head>
 
@@ -126,14 +128,14 @@
     <!-- jQuery & Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
+
 
     <!-- Custom JS -->
 
-
+    {% block postloadjs %}
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
-
+    {% endblock %}
 </body>
 </html>
