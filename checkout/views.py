@@ -162,7 +162,13 @@ def checkout_success(request, order_number):
     return render(request, 'checkout/checkout_success.html', {'order': order})
 
 @login_required
-def order_detail(request, order_id):
-    """ A view to display order details """
-    order = get_object_or_404(Order, id=order_id, user=request.user)
-    return render(request, 'checkout/order_details.html', {'order': order})
+def order_detail(request, order_number):  # Ensure order_number matches URL pattern
+    """Retrieve order details and display them"""
+    order = get_object_or_404(Order, order_number=order_number)
+    order_items = OrderLineItem.objects.filter(order=order)  # Fetch items for this order
+
+    context = {
+        'order': order,
+        'order_items': order_items,
+    }
+    return render(request, 'checkout/order_details.html', context)

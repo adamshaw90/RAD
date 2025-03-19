@@ -8,5 +8,5 @@ urlpatterns = [
     path('checkout_success/<order_number>', views.checkout_success, name='checkout_success'),
     path('cache_checkout_data/', views.cache_checkout_data, name='cache_checkout_data'),
     path('wh/', webhook, name='webhook'),
-    path('order/<int:order_id>/', order_detail, name='order_detail'),
+    path('order/<str:order_number>/', order_detail, name='order_detail'),
 ]
