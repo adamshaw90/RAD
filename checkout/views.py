@@ -165,4 +165,4 @@ def checkout_success(request, order_number):
 def order_detail(request, order_id):
     """ A view to display order details """
     order = get_object_or_404(Order, id=order_id, user=request.user)
-    return render(request, 'checkout/order_detail.html', {'order': order})
+    return render(request, 'checkout/order_details.html', {'order': order})

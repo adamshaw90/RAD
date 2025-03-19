@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2 class="mt-4">Order Details</h2>
+    <hr>
+
+    <div class="order-info mb-4">
+        <p><strong>Order Number:</strong> {{ order.order_number }}</p>
+        <p><strong>Date:</strong> {{ order.created_at|date:"F d, Y" }}</p>
+        <p><strong>Status:</strong> {% if order.paid %}Paid{% else %}Pending{% endif %}</p>
+        <p><strong>Total:</strong> £{{ order.grand_total|floatformat:2 }}</p>
+    </div>
+
+    <h4>Items in this Order:</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items.all %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>£{{ item.product.price|floatformat:2 }}</td>
+                <td>£{{ item.lineitem_total|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="mt-4">Shipping Information</h4>
+    <p><strong>Name:</strong> {{ order.full_name }}</p>
+    <p><strong>Email:</strong> {{ order.email }}</p>
+    <p><strong>Phone:</strong> {{ order.phone_number }}</p>
+    <p><strong>Address:</strong> {{ order.street_address1 }}, {% if order.street_address2 %}{{ order.street_address2 }}, {% endif %}{{ order.town_or_city }}, {{ order.county }}, {{ order.country }}</p>
+    <p><strong>Postcode:</strong> {{ order.postcode }}</p>
+
+    <a href="{% url 'profile' %}" class="btn btn-secondary mt-3">Back to Profile</a>
+</div>
+{% endblock %}
