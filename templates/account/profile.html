@@ -31,7 +31,7 @@
             <tr>
                 <td>{{ order.id }}</td>
                 <td>{{ order.created_at|date:"M d, Y" }}</td> 
-                <td>£{{ order.total|floatformat:2 }}</td>
+                <td>£{{ order.grand_total|floatformat:2 }}</td>
                 <td>{% if order.paid %}Paid{% else %}Pending{% endif %}</td>
                 <td><a href="{% url 'order_detail' order.id %}" class="btn btn-sm btn-outline-primary">View</a></td>
             </tr>

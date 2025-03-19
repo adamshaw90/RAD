@@ -12,6 +12,8 @@ from django.views.decorators.http import require_POST
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 @require_POST
 def cache_checkout_data(request):
@@ -78,6 +80,9 @@ def checkout(request):
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
+
+            order.user = request.user
+
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
@@ -155,3 +160,9 @@ def checkout_success(request, order_number):
         del request.session['cart']
 
     return render(request, 'checkout/checkout_success.html', {'order': order})
+
+@login_required
+def order_detail(request, order_id):
+    """ A view to display order details """
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    return render(request, 'checkout/order_detail.html', {'order': order})
