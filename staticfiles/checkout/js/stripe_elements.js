@@ -6,10 +6,6 @@
     https://stripe.com/docs/stripe-js
 */
 
-console.log("Stripe script loaded:", typeof Stripe !== "undefined");
-console.log("Stripe public key:", $('#id_stripe_public_key').text().slice(1, -1));
-console.log("Client Secret:", $('#id_client_secret').text().slice(1, -1));
-
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
