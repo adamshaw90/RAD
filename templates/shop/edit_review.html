@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
+<div class="cart-container submit-review">
     <h2>Edit Your Review for {{ product.name }}</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-dark">Update Review</button>
-        <a href="{% url 'product_detail' product.pk %}" class="btn btn-secondary">Cancel</a>
+        <a href="{% url 'product_detail' product.pk %}" class="btn btn-danger">Cancel</a>
     </form>
 </div>
 {% endblock %}

@@ -66,14 +66,14 @@
                 <label for="id_comment">Your Review:</label>
                 <textarea name="comment" id="id_comment" class="form-control mb-3" rows="4" placeholder="Write your review here..."></textarea>
             
-                <button type="submit" class="btn btn-dark w-100">Submit Review</button>
+                <button type="submit" class="btn btn-custom w-100">Submit Review</button>
             </form>
         </div>
     {% else %}
         <p><a href="{% url 'account_login' %}">Log in</a> to leave a review.</p>
     {% endif %}
 
-    <a href="{% url 'shop' %}" class="btn btn-secondary mt-3">Back to Shop</a>
+    <a href="{% url 'shop' %}" class="btn btn-dark mt-3">Back to Shop</a>
 </div>
 <script src="{% static 'js/quantity.js' %}"></script>
 {% endblock %}
