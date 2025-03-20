@@ -704,10 +704,11 @@ form label {
   text-align: center;
   margin-bottom: 20px;
   color: #02485a;
-  font-family: 'bubblegum sans', sans-serif;
+  font-family: 'Bubblegum Sans', sans-serif;
   font-size: 3rem;
 }
 
+/* === Table Styling === */
 .cart-table {
   width: 100%;
   border-collapse: collapse;
@@ -725,6 +726,7 @@ form label {
   font-weight: bold;
 }
 
+/* === Product Info === */
 .cart-item {
   display: flex;
   align-items: center;
@@ -738,6 +740,7 @@ form label {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* === Quantity Controls === */
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -758,6 +761,7 @@ form label {
   background: #444;
 }
 
+/* === Cart Total & Buttons === */
 .cart-total {
   font-size: 20px;
   font-weight: bold;
@@ -788,11 +792,31 @@ form label {
 /* === Responsive Design === */
 @media (max-width: 768px) {
   .cart-container {
-      width: 90%;
+      width: 95%;
+      padding: 15px;
+  }
+
+  .cart-title {
+      font-size: 2.5rem;
+  }
+
+  .cart-table th, .cart-table td {
+      padding: 10px;
+      font-size: 14px;
+  }
+
+  .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
   }
 
   .cart-item img {
       width: 60px;
+      margin-bottom: 5px;
+  }
+
+  .quantity-controls {
+      gap: 3px;
   }
 
   .quantity-controls button {
@@ -800,9 +824,50 @@ form label {
       font-size: 14px;
   }
 
+  .cart-total {
+      font-size: 18px;
+      text-align: center;
+  }
+
   .cart-buttons {
       flex-direction: column;
       gap: 10px;
+      text-align: center;
+  }
+
+  .cart-buttons a, .cart-buttons button {
+      font-size: 14px;
+      padding: 8px;
+  }
+}
+
+/* === Further Adjustments for Smaller Screens === */
+@media (max-width: 480px) {
+  .cart-title {
+      font-size: 2rem;
+  }
+
+  .cart-container {
+      padding: 10px;
+  }
+
+  .cart-table th, .cart-table td {
+      font-size: 12px;
+      padding: 8px;
+  }
+
+  .cart-item img {
+      width: 50px;
+  }
+
+  .quantity-controls button {
+      padding: 3px 6px;
+      font-size: 12px;
+  }
+
+  .cart-buttons a, .cart-buttons button {
+      font-size: 13px;
+      padding: 7px;
   }
 }
 
@@ -855,4 +920,10 @@ form label {
   height: 100%;
   border: 0;
   border-radius: 10px;
+}
+
+.cart-container input.form-control.d-inline-block.w-25 {
+  width: 60px !important;
+  min-width: 50px !important;
+  max-width: 80px !important;
 }
