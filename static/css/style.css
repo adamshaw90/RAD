@@ -872,7 +872,7 @@ form label {
 }
 
 .order-text {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 
 
@@ -926,4 +926,162 @@ form label {
   width: 60px !important;
   min-width: 50px !important;
   max-width: 80px !important;
+}
+
+/* === Checkout Success Page Styling === */
+
+/* === Checkout Success Page Styling === */
+
+.checkout-success-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* .bubble-title {
+  font-size: 2.5rem;
+  color: #02485a;
+  font-family: 'bubblegum sans', sans-serif;
+  margin-bottom: 20px;
+} */
+
+.checkout-success-message {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.order-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.order-summary h4 {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.order-summary p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.checkout-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.checkout-buttons a {
+  text-decoration: none;
+  background: #000;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.checkout-buttons a:hover {
+  background: #444;
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+  .checkout-success-container {
+      width: 90%;
+      padding: 15px;
+  }
+
+  .bubble-title {
+      font-size: 2.2rem;
+  }
+
+  .checkout-success-message {
+      font-size: 1rem;
+  }
+
+  .order-summary h4 {
+      font-size: 1.3rem;
+  }
+
+  .order-summary p {
+      font-size: 0.9rem;
+  }
+
+  .checkout-buttons {
+      flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-success-container {
+      width: 95%;
+      padding: 15px;
+  }
+
+  .bubble-title {
+      font-size: 2rem;
+  }
+
+  .checkout-success-message {
+      font-size: 0.95rem;
+  }
+
+  .order-summary {
+      padding: 10px;
+  }
+
+  .order-summary h4 {
+      font-size: 1.2rem;
+  }
+
+  .checkout-buttons {
+      flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .bubble-title {
+      font-size: 1.8rem;
+  }
+
+  .checkout-success-message {
+      font-size: 0.9rem;
+  }
+
+  .order-summary {
+      padding: 8px;
+  }
+
+  .order-summary h4 {
+      font-size: 1.1rem;
+  }
+
+  .checkout-buttons {
+      flex-direction: column;
+      gap: 5px;
+  }
+
+  .checkout-buttons a {
+      padding: 8px 12px;
+      font-size: 14px;
+  }
+}
+
+.custom-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -8px;
+  margin-left: -15px;
 }
