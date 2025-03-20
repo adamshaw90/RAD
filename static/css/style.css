@@ -98,6 +98,7 @@ main {
   color: white;
 }
 
+
 /* Shop Page */
 .shop-page .card {
   transition: transform 0.3s ease;
@@ -807,4 +808,42 @@ form label {
 
 .order-text {
   font-size: 1.2rem;
+}
+
+
+/* 404 Page Styling */
+.error-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure it looks good on all screen sizes */
+@media (max-width: 768px) {
+  .error-image {
+      width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-image {
+      width: 90%;
+  }
+}
+
+/* 404 Page Button */
+.btn-custom {
+  background-color: #222;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #444;
 }
