@@ -1085,3 +1085,11 @@ form label {
   margin-right: -8px;
   margin-left: -15px;
 }
+
+.full-height-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
