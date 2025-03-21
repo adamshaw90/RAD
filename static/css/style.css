@@ -1093,3 +1093,22 @@ form label {
   align-items: center;
   padding: 20px;
 }
+
+.custom-check {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #d5a29d;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* White background for checkout page */
+.checkout-page {
+  background-color: white !important;
+  min-height: 100vh;
+}
+
+.custom-img {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}

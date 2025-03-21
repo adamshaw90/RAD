@@ -109,7 +109,7 @@ def add_to_cart(request, product_id):
 
     quantity = int(request.POST.get('quantity', 1))
 
-    product_key = str(product_id)  # ✅ Store product_id separately
+    product_key = str(product_id)
 
     if product_key in cart:
         cart[product_key]['quantity'] += quantity
@@ -123,7 +123,7 @@ def add_to_cart(request, product_id):
     request.session['cart'] = cart
 
     messages.success(request, f"{quantity}x {product.name} added to cart.")
-    return redirect('shop')  # Redirect back to shop
+    return redirect('shop')
 
 
 

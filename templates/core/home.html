@@ -3,7 +3,7 @@
 {% load shop_tags %}
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section container-fluid" style="background-image: url('{% static 'images/hero.png' %}');">
+<section class="hero-section container-fluid" style="background-image: url('{% static 'images/hero.webp' %}');">
   <div class="hero-overlay">
     <div class="hero-content text-center">
       <h1 class="display-4 text-white">Really.Addictive.Decaf</h1>
@@ -19,7 +19,7 @@
     <div class="row align-items-center">
       <!-- Image on right -->
       <div class="col-md-6 order-md-2">
-        <img src="{% static 'images/ufocoffee.png' %}" alt="New Arrivals" class="img-fluid">
+        <img src="{% static 'images/ufocoffee.webp' %}" alt="New Arrivals" class="img-fluid">
       </div>
       <div class="col-md-6 order-md-1">
         <div class="p-4">
@@ -54,7 +54,7 @@
                     {% if product.image %}
                       <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     {% else %}
-                      <img src="{% static 'images/placeholder.jpg' %}" class="card-img-top" alt="Placeholder">
+                      <img src="{% static 'images/placeholder.webp' %}" class="card-img-top" alt="Placeholder">
                     {% endif %}
                     <div class="card-body text-center">
                       <h5 class="card-title">{{ product.name }}</h5>
@@ -77,7 +77,7 @@
     <div class="row align-items-center">
       <!-- Image on left -->
       <div class="col-md-6">
-        <img src="{% static 'images/coffeebag.jpg' %}" alt="Wholesale Sacks" class="img-fluid">
+        <img src="{% static 'images/coffeebag.webp' %}" alt="Wholesale Sacks" class="img-fluid custom-img">
       </div>
       <div class="col-md-6">
         <div class="p-4">

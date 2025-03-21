@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from shop.models import Product
 from .forms import ContactForm
 from .models import ContactMessage
+from django.contrib import messages
+
 
 
 def home(request):
@@ -23,7 +25,9 @@ def contact(request):
                 email=form.cleaned_data['email'],
                 enquiry=form.cleaned_data['enquiry']
             )
-            return redirect('home')
+            messages.success(request, "Your message has been received, we will respond to you shortly!")
+            return redirect('contact')
+
     else:
         form = ContactForm()
     return render(request, 'core/contact.html', {'form': form})

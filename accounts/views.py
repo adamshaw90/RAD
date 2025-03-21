@@ -4,7 +4,6 @@ from .forms import ProfileForm, ProfileUpdateForm
 from django.contrib.auth import logout, login
 from django.contrib import messages
 from allauth.account.views import SignupView
-# from shop.models import Order
 from checkout.models import Order
 
 
