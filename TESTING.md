@@ -10,39 +10,32 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Page | Screenshot | Notes |
 | --- | --- | --- |
-| 404 | ![screenshot](documentation/validation/html/) | Pass: No Errors |
-| Home | ![screenshot](documentation/validation/html/) | Pass: No Errors |
-| Shop | ![screenshot](documentation/validation/html/) | Pass: No Errors |
-| Wholesale | ![screenshot](documentation/validation/html/) |  |
-| About | ![screenshot](documentation/validation/html/) |  |
-| Contact | ![screenshot](documentation/validation/html/) |  |
-| Profile | ![screenshot](documentation/validation/html/) |  |
-| Register | ![screenshot](documentation/validation/html/) |  |
-| Login | ![screenshot](documentation/validation/html/) |  |
-| Product Details | ![screenshot](documentation/validation/html/) |  |
-| Edit Review | ![screenshot](documentation/validation/html/) |  |
-| Delete Review | ![screenshot](documentation/validation/html/) |  |
-| Edit Profile | ![screenshot](documentation/validation/html/) |  |
-| Delete Profile | ![screenshot](documentation/validation/html/) |  |
-| Order Details | ![screenshot](documentation/validation/html/) |  |
-| Logout | ![screenshot](documentation/validation/html/) |  |
-| Cart | ![screenshot](documentation/validation/html/) |  |
-| Checkout | ![screenshot](documentation/validation/html/) |  |
-| Checkout Success | ![screenshot](documentation/validation/html/) |  |
-| Base | ![screenshot](documentation/validation/html/) | Pass: No Errors, 1 Warning : HTML is compliant, external JS script warning. |
-| Account Base | ![screenshot](documentation/validation/html/) | Pass: No Errors, 1 Warning : HTML is compliant, external JS script warning. |
-| Email confirm | ![screenshot](documentation/validation/html/) |  |
-| Password Change | ![screenshot](documentation/validation/html/) |  |
-| Password Reset Done | ![screenshot](documentation/validation/html/) |  |
-| Password Reset From Key Done | ![screenshot](documentation/validation/html/) |  |
-| Password Reset From Key | ![screenshot](documentation/validation/html/) |  |
-| Password Reset | ![screenshot](documentation/validation/html/) |  |
-| Verification Sent | ![screenshot](documentation/validation/html/) |  |
-| Verified Email Required | ![screenshot](documentation/validation/html/) |  |
-| Toast Error | ![screenshot](documentation/validation/html/) |  |
-| Toast Info | ![screenshot](documentation/validation/html/) |  |
-| Toast Success | ![screenshot](documentation/validation/html/) |  |
-| Toast Warning | ![screenshot](documentation/validation/html/) |  |
+| 404 | ![screenshot](documentation/validation/html/html-val-404.png) | Pass: No Errors |
+| Home/Base | ![screenshot](documentation/validation/html/html-val-base.png) | Pass: No Errors, 1 Warning : HTML is compliant, external JS script warning. Inherited throughout site. |
+| Shop | ![screenshot](documentation/validation/html/html-val-shop.png) | Pass: No Errors |
+| Wholesale | ![screenshot](documentation/validation/html/html-val-wholesale.png) | Pass: No Errors |
+| About | ![screenshot](documentation/validation/html/html-val-about.png) | Pass: No Errors |
+| Contact | ![screenshot](documentation/validation/html/html-val-contact.png) | Pass: No Errors |
+| Profile | ![screenshot](documentation/validation/html/html-val-profile.png) | Pass: No Errors |
+| Register | ![screenshot](documentation/validation/html/html-val-register.png) | Pass: No Errors |
+| Login | ![screenshot](documentation/validation/html/html-val-login.png) | Pass: No Errors |
+| Product Details | ![screenshot](documentation/validation/html/html-val-productdetail.png) | Pass: No Errors |
+| Edit Review | ![screenshot](documentation/validation/html/html-val-reviewedit.png) | Pass: No Errors |
+| Delete Review | ![screenshot](documentation/validation/html/html-val-reviewdelete.png) | Pass: No Errors |
+| Edit Profile | ![screenshot](documentation/validation/html/html-val-profileedit.png) | Pass: No Errors |
+| Delete Profile | ![screenshot](documentation/validation/html/html-val-profiledelete.png) | Pass: No Errors |
+| Order Details | ![screenshot](documentation/validation/html/html-val-orderdetails.png) | Pass: No Errors |
+| Logout | ![screenshot](documentation/validation/html/html-val-logout.png) | Pass: No Errors |
+| Cart | ![screenshot](documentation/validation/html/html-val-cart.png) | Pass: No Errors |
+| Checkout | ![screenshot](documentation/validation/html/html-val-checkout.png) | Pass: No Errors |
+| Checkout Success | ![screenshot](documentation/validation/html/html-val-checkoutsuccess.png) | Pass: No Errors |
+| Email confirm | ![screenshot](documentation/validation/html/html-val-emailconfirm.png) | Pass: No Errors |
+| Password Change | ![screenshot](documentation/validation/html/html-val-password1.png) | Pass: No Errors |
+| Password Reset Done | ![screenshot](documentation/validation/html/html-val-password2.png) | Pass: No Errors |
+| Password Reset From Key Done | ![screenshot](documentation/validation/html/html-val-password3.png) | Pass: No Errors |
+| Password Reset From Key | ![screenshot](documentation/validation/html/html-val-password4.png) | Pass: No Errors |
+| Password Reset | ![screenshot](documentation/validation/html/) | Pass: No Errors |
+| Verification Sent | ![screenshot](documentation/validation/html/html-val-emailconfirmclick.png) | Pass: No Errors |
 
 
 ### CSS
