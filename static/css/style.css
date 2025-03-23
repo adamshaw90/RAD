@@ -427,7 +427,7 @@ form label {
   padding-left: 100px;
 }
 
-/* ✅ Ensure custom search bar styles override Bootstrap */
+/* Ensure custom search bar styles override Bootstrap */
 .custom-search-form {
   max-width: 300px !important; /* Adjust width */
   margin-left: auto; /* Pushes search bar to the right */
@@ -436,7 +436,7 @@ form label {
   margin-right: 20px; /* Adds space before the cart */
 }
 
-/* ✅ Custom Input Styling */
+/* Custom Input Styling */
 .custom-search-input {
   border-radius: 25px !important;
   border: 2px solid #ccc !important;
@@ -446,14 +446,14 @@ form label {
   background-color: #f8f9fa !important;
 }
 
-/* ✅ Focus Effect */
+/* Focus Effect */
 .custom-search-input:focus {
   border-color: #26e5d3 !important;
   outline: none !important;
   box-shadow: 0 0 10px rgba(38, 229, 211, 0.5) !important;
 }
 
-/* ✅ Fix Button Alignment */
+/* Fix Button Alignment */
 .custom-search-button {
   border-radius: 25px !important;
   background-color: #26e5d3 !important;
@@ -469,7 +469,7 @@ form label {
   font-weight: bold !important; /* Optional: Make text more prominent */
 }
 
-/* ✅ Ensure Hover Effect Still Works */
+/* Ensure Hover Effect Still Works */
 .custom-search-button:hover {
   background-color: #b66878 !important;
   color: white !important;
@@ -509,12 +509,12 @@ form label {
   }
 }
 
-/* 🌟 Default Navbar: Show Full Menu Above 896px */
+/* Default Navbar: Show Full Menu Above 896px */
 .navbar-expand-md .navbar-collapse {
   display: flex !important;
 }
 
-/* 📌 At 896px, Hide Menu & Show Toggler */
+/* At 896px, Hide Menu & Show Toggler */
 @media (max-width: 896px) {
   .navbar-expand-md .navbar-collapse {
       display: none !important;
@@ -524,7 +524,7 @@ form label {
   }
 }
 
-/* 📌 Ensure Toggle Menu Appears */
+/* Ensure Toggle Menu Appears */
 .navbar-collapse.show {
   display: block !important;
   background-color: #152c44;
@@ -535,7 +535,7 @@ form label {
   z-index: 1000;
 }
 
-/* 📌 Stack Menu Items in Toggle Mode */
+/* Stack Menu Items in Toggle Mode */
 @media (max-width: 896px) {
   .navbar-nav {
       flex-direction: column;
@@ -546,10 +546,10 @@ form label {
   }
 }
 
-/* ✅ Force Navbar to Stack Items (Remove Flex Direction) from 768px - 896px */
+/* Force Navbar to Stack Items (Remove Flex Direction) from 768px - 896px */
 @media (max-width: 896px) {
   .navbar-expand-md .navbar-nav {
-      flex-direction: column !important; /* ✅ Override Bootstrap's row direction */
+      flex-direction: column !important;
       width: 100%;
       text-align: center;
   }
@@ -557,7 +557,7 @@ form label {
   /* Ensure dropdown menu is visible properly */
   .navbar-collapse.show {
       display: block !important;
-      background-color: #152c44; /* Matches navbar */
+      background-color: #152c44;
       position: absolute;
       top: 100%;
       left: 0;
@@ -942,12 +942,6 @@ form label {
   text-align: center;
 }
 
-/* .bubble-title {
-  font-size: 2.5rem;
-  color: #02485a;
-  font-family: 'bubblegum sans', sans-serif;
-  margin-bottom: 20px;
-} */
 
 .checkout-success-message {
   font-size: 1.2rem;

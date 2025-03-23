@@ -40,13 +40,13 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 ### CSS
 
-I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files. Which passed with no errors.
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
 
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| style.css | ![screenshot](documentation/validation/css/) | |
-| checkout.css | ![screenshot](documentation/validation/css/) | |
-| order_details.css | ![screenshot](documentation/validation/css/) | |
+| style.css | ![screenshot](documentation/validation/css/css-val-style.png) | Pass: No Errors |
+| checkout.css | ![screenshot](documentation/validation/css/css-val-checkout.png) | Pass: No Errors |
+| order_details.css | ![screenshot](documentation/validation/css/css-val-order.png) | Pass: No Errors |
 
 
 ### JavaScript
@@ -58,7 +58,6 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | stripe_elements.js | ![screenshot](documentation//validation/javascript/) |  |
 | cart.js | ![screenshot](documentation//validation/javascript/) |  |
 | quantity.js | ![screenshot](documentation//validation/javascript/) |  |
-| toast.js | ![screenshot](documentation//validation/javascript/) |  |
 
 ### Python
 
