@@ -119,9 +119,9 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 | Browser | Screenshot | Notes |
 | --- | --- | --- |
-| Chrome | ![screenshot](documentation/browsers/browser_chrome.png) | Works as expected |
-| Firefox | ![screenshot](documentation/browsers/browser_firefox.png) | Works as expected |
-| Edge | ![screenshot](documentation/browsers/browser_edge.png) | Works as expected |
+| Chrome | ![screenshot](documentation/browsers/res-chrome.png) | Works as expected |
+| Firefox | ![screenshot](documentation/browsers/res-firefox.png) | Works as expected |
+| Edge | ![screenshot](documentation/browsers/res-edge.png) | Works as expected |
 
 ## Responsiveness
 
