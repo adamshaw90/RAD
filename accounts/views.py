@@ -1,11 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import ProfileForm, ProfileUpdateForm
-from django.contrib.auth import logout, login
+from django.contrib.auth import logout
 from django.contrib import messages
 from allauth.account.views import SignupView
 from checkout.models import Order
-
 
 
 @login_required
@@ -21,7 +20,8 @@ def profile(request):
     # Fetch orders for the logged-in user, sorted by most recent
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
 
-    return render(request, 'account/profile.html', {'form': form, 'orders': orders})
+    return render(request, 'account/profile.html',
+                  {'form': form, 'orders': orders})
 
 
 def logout_confirm(request):
@@ -46,7 +46,8 @@ def delete_account(request):
         user = request.user
         user.delete()
         logout(request)
-        messages.success(request, "Your account has been successfully deleted.")
+        messages.success(request,
+                         "Your account has been successfully deleted.")
         return redirect('home')
 
     return redirect('confirm_delete_account')
@@ -70,5 +71,7 @@ class CustomSignupView(SignupView):
     def form_valid(self, form):
         response = super().form_valid(form)
         logout(self.request)
-        messages.info(self.request, "Please check your email and confirm your account before logging in.")
+        messages.info(self.request,
+                      "Please check your email and confirm your account before"
+                      " logging in.")
         return redirect("/accounts/confirm-email/")

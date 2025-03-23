@@ -2,10 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
 from .models import Product, Review
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
 from django.http import JsonResponse
 from .forms import ReviewForm
 from django.contrib import messages
@@ -126,7 +123,6 @@ def add_to_cart(request, product_id):
     return redirect('shop')
 
 
-
 def remove_from_cart(request, product_id):
     cart = request.session.get('cart', {})
 
@@ -201,7 +197,8 @@ def submit_review(request, pk):
             review.product = product
             review.save()
             messages.success(request, "Review submitted successfully!")
-            return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
+            return redirect(reverse('product_detail',
+                                    kwargs={'pk': product.pk}))
 
     messages.error(request, "There was an issue submitting your review.")
     return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
@@ -217,12 +214,14 @@ def edit_review(request, product_pk, review_pk):
         if form.is_valid():
             form.save()
             messages.success(request, "Your review has been updated!")
-            return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
+            return redirect(reverse('product_detail',
+                                    kwargs={'pk': product.pk}))
 
     else:
         form = ReviewForm(instance=review)
 
-    return render(request, 'shop/edit_review.html', {'form': form, 'product': product})
+    return render(request, 'shop/edit_review.html',
+                  {'form': form, 'product': product})
 
 
 @login_required
@@ -235,7 +234,8 @@ def delete_review(request, product_pk, review_pk):
         messages.success(request, "Your review has been deleted!")
         return redirect(reverse('product_detail', kwargs={'pk': product.pk}))
 
-    return render(request, 'shop/delete_review.html', {'review': review, 'product': product})
+    return render(request, 'shop/delete_review.html',
+                  {'review': review, 'product': product})
 
 
 def cart_total_api(request):

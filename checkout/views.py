@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render, redirect,
+                              reverse, get_object_or_404, HttpResponse)
 from django.contrib import messages
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from shop.models import Product
 from decimal import Decimal
-from shop.context_processors import cart_total
 import stripe
 import json
 from django.conf import settings
@@ -12,8 +12,8 @@ from django.views.decorators.http import require_POST
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -97,15 +97,19 @@ def checkout(request):
                     )
                     order_line_item.save()
                 except Product.DoesNotExist:
-                    messages.error(request, "One of the products in your cart wasn't found. Please try again.")
+                    messages.error(request, "One of the products in your "
+                                   "cart wasn't found. Please try again.")
                     order.delete()
                     return redirect(reverse('cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            request.session['cart'] = {}  # Clear cart after successful checkout
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            request.session['cart'] = {}
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. Please double-check your information.')
+            messages.error(request,
+                           'There was an error with your form. '
+                           'Please double-check your information.')
 
     else:
         # Create Stripe Payment Intent
@@ -118,7 +122,8 @@ def checkout(request):
 
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. '
-                                      'Did you forget to set it in your environment?')
+                                      'Did you forget to set it in your '
+                                      'environment?')
 
         context = {
             'order_form': order_form,
@@ -146,14 +151,17 @@ def checkout_success(request, order_number):
 
     # Render email template
     context = {'order': order}
-    html_message = render_to_string('checkout/order_confirmation_email.html', context)
+    html_message = render_to_string('checkout/order_confirmation_email.html',
+                                    context)
     plain_message = strip_tags(html_message)
 
     try:
-        send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message)
+        send_mail(subject, plain_message, from_email, recipient_list,
+                  html_message=html_message)
         messages.success(request, f'Order successfully processed! A confirmation email has been sent to {order.email}.')
     except Exception as e:
-        messages.error(request, 'Your order was placed, but we could not send a confirmation email.')
+        messages.error(request, 'Your order was placed, but we could not send'
+                       'a confirmation email.')
 
     # Clear cart
     if 'cart' in request.session:
@@ -161,11 +169,12 @@ def checkout_success(request, order_number):
 
     return render(request, 'checkout/checkout_success.html', {'order': order})
 
+
 @login_required
-def order_detail(request, order_number):  # Ensure order_number matches URL pattern
+def order_detail(request, order_number):
     """Retrieve order details and display them"""
     order = get_object_or_404(Order, order_number=order_number)
-    order_items = OrderLineItem.objects.filter(order=order)  # Fetch items for this order
+    order_items = OrderLineItem.objects.filter(order=order)
 
     context = {
         'order': order,

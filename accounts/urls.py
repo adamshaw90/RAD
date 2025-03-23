@@ -11,5 +11,6 @@ urlpatterns = [
     path('logout/confirm/', logout_confirm, name='logout_confirm'),
     path('delete/confirm/', delete_account, name='delete_account'),
     path('profile/edit/', edit_profile, name='edit_profile'),
-    path('profile/delete/', confirm_delete_account, name='confirm_delete_account'),
+    path('profile/delete/', confirm_delete_account,
+         name='confirm_delete_account'),
 ]

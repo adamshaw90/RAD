@@ -5,10 +5,10 @@ from .models import ContactMessage
 from django.contrib import messages
 
 
-
 def home(request):
     favourite_products = Product.objects.filter(is_favourite=True)
-    return render(request, 'core/home.html', {'favourite_products': favourite_products})
+    return render(request, 'core/home.html',
+                  {'favourite_products': favourite_products})
 
 
 def about(request):
@@ -19,7 +19,7 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            
+
             ContactMessage.objects.create(
                 name=form.cleaned_data['name'],
                 email=form.cleaned_data['email'],

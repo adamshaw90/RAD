@@ -19,7 +19,8 @@ class Order(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     total = models.DecimalField(decimal_places=2, max_digits=10)
-    stripe_payment_intent = models.CharField(max_length=255, blank=True, null=True)
+    stripe_payment_intent = models.CharField(max_length=255,
+                                             blank=True, null=True)
     paid = models.BooleanField(default=False)
 
     def __str__(self):
@@ -27,7 +28,8 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, related_name='items',
+                              on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
@@ -36,9 +38,11 @@ class OrderItem(models.Model):
 
 
 class Review(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="reviews")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,
+                                related_name="reviews")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)], default=5)
+    rating = models.IntegerField(choices=[(i, i)
+                                          for i in range(1, 6)], default=5)
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 

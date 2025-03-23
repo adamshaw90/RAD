@@ -37,10 +37,7 @@
   <div class="container">
     <h2 class="text-center mb-4 bubble-title">Fan Favourites</h2>
     {% if favourite_products %}
-    <div id="favouritesCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
         {% for product_chunk in favourite_products|chunker:3 %}
-          <div class="carousel-item {% if forloop.first %}active{% endif %}">
             <div class="row">
               {% for product in product_chunk %}
                 <div class="col-md-4">
@@ -68,6 +65,7 @@
     {% else %}
       <p class="text-center">No favourite products to display at the moment.</p>
     {% endif %}
+    </div>
   </div>
 </section>
 
