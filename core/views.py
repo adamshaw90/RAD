@@ -25,7 +25,7 @@ def contact(request):
                 email=form.cleaned_data['email'],
                 enquiry=form.cleaned_data['enquiry']
             )
-            messages.success(request, "Your message has been received, we will respond to you shortly!")
+            messages.success(request, "Message received, we will be in touch")
             return redirect('contact')
 
     else:

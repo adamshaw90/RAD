@@ -158,7 +158,13 @@ def checkout_success(request, order_number):
     try:
         send_mail(subject, plain_message, from_email, recipient_list,
                   html_message=html_message)
-        messages.success(request, f'Order successfully processed! A confirmation email has been sent to {order.email}.')
+        messages.success(
+            request,
+            (
+                'Order Processed! '
+                f'A confirmation has been sent to {order.email}.'
+            )
+        )
     except Exception as e:
         messages.error(request, 'Your order was placed, but we could not send'
                        'a confirmation email.')

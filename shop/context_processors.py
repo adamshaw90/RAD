@@ -9,26 +9,33 @@ def cart_total(request):
 
     for product_id, item in cart.items():
         try:
-            
             if not product_id.isdigit():
                 continue
 
             product = Product.objects.get(id=int(product_id))
 
-            if isinstance(item, dict) and 'price' in item and 'quantity' in item:
+            if (
+                isinstance(item, dict)
+                and 'price' in item
+                and 'quantity' in item
+            ):
                 subtotal = Decimal(item['price']) * item['quantity']
                 cart_items.append({
                     'product': product,
                     'quantity': item['quantity'],
                     'subtotal': subtotal,
-                    'image': product.image.url if product.image else '/static/images/placeholder.jpg'
+                    'image': (
+                        product.image.url
+                        if product.image
+                        else '/static/images/placeholder.jpg'
+                    ),
                 })
                 total += subtotal
             else:
                 cart[product_id] = {
                     'name': product.name,
                     'price': float(product.price),
-                    'quantity': 1
+                    'quantity': 1,
                 }
 
         except Product.DoesNotExist:
@@ -39,4 +46,7 @@ def cart_total(request):
             continue
 
     request.session['cart'] = cart
-    return {'cart_total': round(total, 2), 'cart_items': cart_items}
+    return {
+        'cart_total': round(total, 2),
+        'cart_items': cart_items,
+    }

@@ -55,9 +55,9 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| stripe_elements.js | ![screenshot](documentation//validation/javascript/) |  |
-| cart.js | ![screenshot](documentation//validation/javascript/) |  |
-| quantity.js | ![screenshot](documentation//validation/javascript/) |  |
+| stripe_elements.js | ![screenshot](documentation//validation/javascript/js-val-stripe.png) | Pass: No Errors |
+| cart.js | ![screenshot](documentation//validation/javascript/js-val-cart.png) | Pass: No Errors |
+| quantity.js | ![screenshot](documentation//validation/javascript/js-val-quantity.png) | Pass: No Errors |
 
 ### Python
 
@@ -66,53 +66,52 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 #### Validation For rad App
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| settings.py | ![screenshot](documentation/validation/python/) |  |
-| urls.py | ![screenshot](documentation/validation/python/) |  |
+| settings.py | ![screenshot](documentation/validation/python/python-val-rad-settings.png) | AUTH_PASSWORD_VALIDATORS lines too long (django code) |
+| urls.py | ![screenshot](documentation/validation/python/python-val-rad-urls.png) | Pass: No Errors |
 
 #### Validation For Checkout App
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| init.py | ![screenshot](documentation/validation/python/) |  |
-| admin.py | ![screenshot](documentation/validation/python/) |  |
-| apps.py | ![screenshot](documentation/validation/python/) |  |
-| forms.py | ![screenshot](documentation/validation/python/) |  |
-| models.py | ![screenshot](documentation/validation/python/) |  |
-| signals.py | ![screenshot](documentation/validation/python/) |  |
-| urls.py | ![screenshot](documentation/validation/python/) |  |
-| views.py | ![screenshot](documentation/validation/python/) |  |
-| webhook_handler.py | ![screenshot](documentation/validation/python/) |  |
-| webhooks.py | ![screenshot](documentation/validation/python/) |  |
+| init.py | ![screenshot](documentation/validation/python/python-val-checkout-init.png) | Pass: No Errors |
+| admin.py | ![screenshot](documentation/validation/python/python-val-checkout-admin.png) | Pass: No Errors |
+| apps.py | ![screenshot](documentation/validation/python/python-val-checkout-apps.png) | Pass: No Errors |
+| forms.py | ![screenshot](documentation/validation/python/python-val-checkout-forms.png) | Pass: No Errors |
+| models.py | ![screenshot](documentation/validation/python/python-val-checkout-models.png) | Pass: No Errors |
+| signals.py | ![screenshot](documentation/validation/python/python-val-checkout-signals.png) | Pass: No Errors |
+| urls.py | ![screenshot](documentation/validation/python/python-val-checkout-urls.png) | Pass: No Errors |
+| views.py | ![screenshot](documentation/validation/python/python-val-checkout-views.png) | Pass: No Errors |
+| webhook_handler.py | ![screenshot](documentation/validation/python/python-val-checkout-whh.png) | Pass: No Errors |
+| webhooks.py | ![screenshot](documentation/validation/python/python-val-checkout-wh.png) | Pass: No Errors |
 
 #### Validation For Accounts App
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| forms.py | ![screenshot](documentation/validation/python/) |  |
-| models.py | ![screenshot](documentation/validation/python/) |  |
-| urls.py | ![screenshot](documentation/validation/python/) |  |
-| views.py | ![screenshot](documentation/validation/python/) |  |
+| forms.py | ![screenshot](documentation/validation/python/python-val-acc-forms.png) | Pass: No Errors |
+| urls.py | ![screenshot](documentation/validation/python/python-val-acc-urls.png) | Pass: No Errors |
+| views.py | ![screenshot](documentation/validation/python/python-val-acc-views.png) | Pass: No Errors |
 
 #### Validation For Core App
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| admin.py | ![screenshot](documentation/validation/python/) |  |
-| apps.py | ![screenshot](documentation/validation/python/) |  |
-| forms.py | ![screenshot](documentation/validation/python/) |  |
-| models.py | ![screenshot](documentation/validation/python/) |  |
-| urls.py | ![screenshot](documentation/validation/python/) |  |
-| views.py | ![screenshot](documentation/validation/python/) |  |
+| admin.py | ![screenshot](documentation/validation/python/python-val-core-admin.png) | Pass: No Errors |
+| apps.py | ![screenshot](documentation/validation/python/python-val-core-apps.png) | Pass: No Errors |
+| forms.py | ![screenshot](documentation/validation/python/python-val-core-forms.png) | Pass: No Errors |
+| models.py | ![screenshot](documentation/validation/python/python-val-core-models.png) | Pass: No Errors |
+| urls.py | ![screenshot](documentation/validation/python/python-val-core-urls.png) | Pass: No Errors |
+| views.py | ![screenshot](documentation/validation/python/python-val-core-views.png) | Pass: No Errors |
 
 #### Validation For Shop App
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| cart_tags.py | ![screenshot](documentation/validation/python/) |  |
-| shop_tags.py | ![screenshot](documentation/validation/python/) |  |
-| admin.py | ![screenshot](documentation/validation/python/) |  |
-| apps.py | ![screenshot](documentation/validation/python/) |  |
-| context_processors.py | ![screenshot](documentation/validation/python/) |  |
-| forms.py | ![screenshot](documentation/validation/python/) |  |
-| models.py | ![screenshot](documentation/validation/python/) |  |
-| urls.py | ![screenshot](documentation/validation/python/) |  |
-| views.py | ![screenshot](documentation/validation/python/) |  |
+| cart_tags.py | ![screenshot](documentation/validation/python/python-val-shop-carttags.png) | Pass: No Errors |
+| shop_tags.py | ![screenshot](documentation/validation/python/python-val-shop-shoptags.png) | Pass: No Errors |
+| admin.py | ![screenshot](documentation/validation/python/python-val-shop-admin.png) | Pass: No Errors |
+| apps.py | ![screenshot](documentation/validation/python/python-val-shop-apps.png) | Pass: No Errors |
+| context_processors.py | ![screenshot](documentation/validation/python/) | Pass: No Errors |
+| forms.py | ![screenshot](documentation/validation/python/python-val-shop-forms.png) | Pass: No Errors |
+| models.py | ![screenshot](documentation/validation/python/python-val-shop-models.png) | Pass: No Errors |
+| urls.py | ![screenshot](documentation/validation/python/python-val-shop-urls.png) | Pass: No Errors |
+| views.py | ![screenshot](documentation/validation/python/python-val-shop-views.png) | Pass: No Errors |
 
 ## Browser Compatibility
 

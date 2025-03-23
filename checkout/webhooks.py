@@ -25,7 +25,9 @@ def webhook(request):
         event = stripe.Webhook.construct_event(
             payload, sig_header, wh_secret
         )
-        logger.info(f"Stripe Event Type: {event['type']} received successfully.")
+        logger.info(
+            f"Stripe Event Type: {event['type']} received successfully."
+        )
     except ValueError:
         logger.error("Invalid payload received from Stripe")
         return HttpResponse(status=400)
