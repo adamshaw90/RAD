@@ -221,47 +221,80 @@ Defensive programming was manually tested with the below user acceptance testing
 | Nav links | | | | |
 | | Click on Logo | Redirection to Home page | Pass | |
 | | Click on Home link in navbar | Redirection to Home page | Pass | |
+| | Click on Shop link in navbar | Redirection to Shop page | Pass | |
+| | Click on Wholesale link in navbar | Redirection to Wholesale page | Pass | |
 | | Click on About link in navbar | Redirection to About page | Pass | |
-| | Click on Itineraries link in navbar | Redirection to Itineraries page | Pass | |
+| | Click on Shop link in navbar | Redirection to Shop page | Pass | |
 | | Click on Contact link in navbar | Redirection to Contact page | Pass | |
 | | Click on Profile link in navbar | Redirection to Profile page | Pass | |
 | | Click on Login link in navbar | Redirection to Login page | Pass | |
 | | Click on Sign Up link in navbar | Redirection to Sign Up page | Pass | |
 | | Click on Log Out link in navbar | Log out and Redirection to Home page | Pass | |
+| | Enter product in Search Bar | Redirects to Products in the Shop page | Pass | |
+| | Click on Cart link in navbar | Redirects to Cart page | Pass | |
 | | Click on Social links in Footer | Redirection to corresponding social page | Pass | |
 | Home page | | | | |
-| | Click on Explore Itineraries button on hero image | Redirection to Itineraries page | Pass | |
-| | Click on Featured Itineraries View Details button | Redirection to that itinerary's details page | Pass | |
-| Itineraries page | | | | |
-| | Click on any itinerary's View Details button | Redirection to that itinerary's details page | Pass | |
-| Itinerary Details Page | | | | |
-| | Click on Book Now button | Redirect to booking confirmation page | Pass | |
-| | Click on back button | Redirect to reservation list page | Pass | |
-| Booking Confirmation Page | | | | |
-| | Click on Confirm Booking button | Redirect to Profile confirmation page | Pass | |
-| | Click on Cancel button | Redirect to itinerary page | Pass | |
+| | Click on Sho Now button on hero image | Redirection to Shop page | Pass | |
+| | Click on Show Me button | Redirection to Shop page | Pass | |
+| | Click on product Shop Now button | Redirection to that products detail page | Pass | |
+| | Click on Shop Wholesale button | Redirection to Wholesale page | Pass | |
+| Shop | | | | |
+| | Click on any products View Details button | Redirection to that products details page | Pass | |
+| | Select filter preferences and click Apply Filters | Filters products based on search | Pass | |
+| | Click on any products Image | Redirection to that products details page | Pass | |
+| | Click on any products Add To Cart button | Adds product to cart and toast displays | Pass | |
+| Product Details Details Page | | | | |
+| | Click on quantity selector buttons | Increases or decreases quantity | Pass | |
+| | Click on Add To Cart button | Adds product to cart and toast displays | Pass | |
+| | Click on any products Add To Cart button | Adds product to cart and toast displays | Pass | |
+| | Click on star rating box | Dropdown bow with star ratings appears | Pass | |
+| | Enter text in review box and click Submit Review | Adds review to page and toast confirmation | Pass | |
+| | Click Edit button on own review | Redirects to Edit Review page | Pass | |
+| | Click Delete button on own review | Redirects to Delete Review page | Pass | |
+| | Click Back To Shop button | Redirects to Shop page | Pass | |
+| Edit Review Page | | | | |
+| | Click on star rating box | Dropdown bow with star ratings appears | Pass | |
+| | Enter text in review box and click Update Review | Updates review on page, redirects to product detail page and toast message | Pass | |
+| | Click Cancel button | Redirects to Product Details page | Pass | |
+| Delete Review Page | | | | |
+| | Click Yes, Delete button | Removes review and redirect to Product Detail page | Pass | |
+| | Click on Cancel button | Redirect to Product Detail page | Pass | |
+| Wholesale Page | | | | |
+| | Click on Contact Us button | Redirect to Contact page | Pass | |
 | Contact Page | | | | |
 | |  Enter name | Redirect to Contact Form | Pass | |
 | |  Enter valid email address | Redirect to Contact Form | Pass | |
 | | Enter message | Redirect to Contact Form | Pass | |
-| | Click on Submit button | Redirect to Contact page | Pass | |
+| | Click on Submit button | Redirect to Contact page and toast message | Pass | |
 | | Click on Google Map | Navigates as it should | Pass | |
-| Login Page | | | | |
-| | Enter valid Username | Field will only accept registered users | Pass | |
+| Sign In Page | | | | |
+| | Enter valid Email Address | Field will only accept registered users | Pass | |
 | | Enter valid password | Field will only accept password format | Pass | |
-| | Click on Log In button | Redirects user to Home Page | Pass |
-| | Click on Sign Up button | Redirects user to Sign Up Page | Pass |
-| Sign Up Page | | | | |
-| | Enter valid Username | Field will only accept username format | Pass | |
+| | Click on Sign In button | Redirects user to Home page with toast message | Pass |
+| | Click on Forgot Password button | Redirects user to Password Reset page | Pass |
+| Password Reset Page | | | | |
+| | Enter valid Email Address | Field will only accept registered users | Pass | |
+| | Click on Back to Login button | Redirects user to Sign In page | Pass |
+| | Click on Reset My Password button | Redirects user to Password Reset Submitted page | Pass |
+| Password Change Page | | | | |
+| | Enter Password | 2 boxes and the passwords need to match | Pass | |
+| | Click on Back to Login button | Redirects user to Sign In page | Pass |
+| | Click on Change Password button | Redirects user to Password Reset Done page | Pass |
+| Password Reset Done Page | | | | |
+| | Click on Back To Login button | Redirects user to Sign In page | Pass |
+| Register Page | | | | |
+| | Enter valid Email Address | Field will only accept email format | Pass | |
 | | Enter valid password (twice) | Field will only accept password format | Pass | |
-| | Click Register button | Redirects user to home page | Pass | |
+| | Click Sign Up button | Redirects user to Verify Your Email page with toast message | Pass | |
+| Confirm Email Address Page | | | | |
+| | Click Confirm button | Redirects to Sign In page with toast message | Pass | |
 | Log Out Page | | | | |
-| | Click Logout button | Logs out user, Redirects user to Home page | Pass |
+| | Click Yes, Log Me Out button | Logs out user, Redirects user to Home page | Pass |
 | | Click Cancel button | Keeps user logged in, redirects to Home page | Pass |
 | Profile Page | | | | |
-| | Click on the Edit Profile button | Redirects to Edit Profile page | Pass | |
-| | Click on the Delete Account button | Redirects to Delete Account Confirmation page | Pass | |
-| | Click on the Cancel booking button | Redirects to Delete Booking Confirmation page | Pass | |
+| | Click on the Update Profile button | Redirects to Edit Profile page | Pass | |
+| | Click on the Delete My Account button | Redirects to Delete Account Confirmation page | Pass | |
+| | Click on the View button on an order | Redirects to Order Details page | Pass | |
 | Edit Profile Page | | | | |
 | | Enter user details | Field will only accept email format | Pass | |
 | | Click on the Save Changes button | Redirects to Profile page | Pass | |
@@ -269,10 +302,19 @@ Defensive programming was manually tested with the below user acceptance testing
 | Delete Account Confirmation Page | | | | |
 | | Click on the Delete My Account button | Deletes account and redirects to Home page | Pass | |
 | | Click on the Cancel button | Redirects to Profile page without deleting account | Pass | |
-| Delete Booking Confirmation Page | | | | |
-| | Click on the Yes, Cancel button | Deletes booking and redirects to Profile page | Pass | |
-| | Click on the No, Go Back button | Keeps booking and redirects to Profile page | Pass | |
-| | Click on the Cancel booking button | Redirects to Delete Booking Confirmation page | Pass | |
+| Order Details Page | | | | |
+| | Click on the Back To Profile button | Redirects to Profile page | Pass | |
+| Cart Page | | | | |
+| | (With product in added to cart) change number in quantity box and click Update button | Updates quantity | Pass | |
+| | (With product in added to cart) click Remove button | Removes product from cart | Pass | |
+| | Click on Proceed To Checkout button | Redirects to Checkout page | Pass | |
+| Checkout Page | | | | |
+| | Enter user details | Field will only accept email format | Pass | |
+| | Click on Product Image | Redirects to Products details page | Pass | |
+| | Click on the Adjust Cart button | Redirects to Cart page | Pass | |
+| | Click on the Complete Order button | Redirects to Checkout Success page with toast message | Pass | |
+| Checkout Success Page | | | | |
+| | Click Continue Shopping button | Redirects to Shop page | Pass | |
 | Site Navigations - Logged Out User | | | | |
 | | Navigate to any login required URL | Give option to Login or Sign Up | Pass | |
 
@@ -281,14 +323,25 @@ Defensive programming was manually tested with the below user acceptance testing
 
 | User Story | Screenshot |
 | --- | --- |
-| As a user I want to log into my account so that I can access my saved trips and profile settings. | ![screenshot](documentation/features/site-pages/profilewithbooking.png) |
-|As a user I want to recover my account if I forget my password, so that I can regain access without creating a new account. | ![screenshot](documentation/features/site-pages/contactpage.png) |
-| As a user I want to sign up for an account so that I can access the website's features. | ![screenshot](documentation/features/site-pages/signup.png) |
-| As a user I want to log out of my account so that my session is securely ended. | ![screenshot](documentation/features/site-pages/logout.png) |
-| As a user I want to book a trip from the itinerary page so that I can reserve my spot. | ![screenshot](documentation/features/site-pages/itin2.png) |
-| As a user I want to update my account information so that I can keep my details accurate. | ![screenshot](documentation/features/site-pages/editprofile.png) |
-| As an admin I want to create, update, or delete itineraries, so that I can keep the trip offerings up-to-date. | ![screenshot](documentation/features/site-pages/itinadmin.png) |
-| As an admin I want to view and manage user bookings so that I can handle any issues or changes efficiently. | ![screenshot](documentation/features/site-pages/bookingadmin.png) |
+| As a user, I want to browse products by category so that I can easily find items of interest. | ![screenshot](documentation/features/site-pages/) |
+| As a user,  I want to search for products using keywords so that I can quickly find specific items. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to view detailed product information so that I can make informed purchase decisions. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to add products to my shopping cart so that I can review them before purchasing. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to register an account so that I can save my details for future purchases. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to log in and log out securely so that my account remains private. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to update my profile information so that I can keep my account details current. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to leave reviews on products so that I can share my feedback with others. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want a secure and streamlined checkout process so that I can complete my purchase with confidence. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to receive an order confirmation email so that I have a record of my purchase. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to contact customer support directly through the website so that I can resolve any issues promptly. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to view my order history so that I can review past purchases. | ![screenshot](documentation/features/site-pages/) |
+| As an admin, I want to log in to the admin dashboard so that I can manage the site securely. | ![screenshot](documentation/features/site-pages/) |
+| As a user, | ![screenshot](documentation/features/site-pages/) |
+| As an admin, I want to perform CRUD operations on products so that I can manage the catalog effectively. | ![screenshot](documentation/features/site-pages/) |
+| As an admin, I want to manage user accounts so that I can control access and maintain security. | ![screenshot](documentation/features/site-pages/) |
+| As an admin, I want to manage orders so that I can oversee the entire order lifecycle. | ![screenshot](documentation/features/site-pages/) |
+| As an admin, I want to manage inventory so that I can keep product stock up to date. | ![screenshot](documentation/features/site-pages/) |
+| As an admin, I want to respond to customer inquiries so that issues are resolved quickly. | ![screenshot](documentation/features/site-pages/) |
 
 
 ## Bugs
