@@ -99,18 +99,6 @@ main {
 }
 
 
-/* Shop Page */
-.shop-page .card {
-  transition: transform 0.3s ease;
-}
-.shop-page .card:hover {
-  transform: scale(1.03);
-}
-
-.shop-page .card-img-top {
-  max-height: 250px;
-  object-fit: cover;
-}
 
 /* Footer */
 .footer {
@@ -162,6 +150,7 @@ main {
 }
 
 
+/* Shop Page */
 .shop-page .card {
   transition: transform 0.3s ease;
 }
@@ -169,11 +158,11 @@ main {
   transform: scale(1.03);
 }
 
-
 .shop-page .card-img-top {
   max-height: 250px;
   object-fit: cover;
 }
+
 
 .shop-bar {
   background-color: #d5a29d;
