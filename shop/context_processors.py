@@ -27,7 +27,7 @@ def cart_total(request):
                     'image': (
                         product.image.url
                         if product.image
-                        else '/static/images/placeholder.jpg'
+                        else '/static/images/placeholder.webp'
                     ),
                 })
                 total += subtotal

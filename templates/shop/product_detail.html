@@ -7,7 +7,7 @@
     {% if object.image %}
         <img src="{{ object.image.url }}" alt="{{ object.name }}">
     {% else %}
-        <img src="{% static 'images/placeholder.jpg' %}" alt="Placeholder">
+        <img src="{% static 'images/placeholder.webp' %}" alt="Placeholder">
     {% endif %}
 
     <p class="price"><strong>Price:</strong> £{{ object.price }}</p>

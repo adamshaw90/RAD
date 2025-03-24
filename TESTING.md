@@ -107,7 +107,7 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | shop_tags.py | ![screenshot](documentation/validation/python/python-val-shop-shoptags.png) | Pass: No Errors |
 | admin.py | ![screenshot](documentation/validation/python/python-val-shop-admin.png) | Pass: No Errors |
 | apps.py | ![screenshot](documentation/validation/python/python-val-shop-apps.png) | Pass: No Errors |
-| context_processors.py | ![screenshot](documentation/validation/python/) | Pass: No Errors |
+| context_processors.py | ![screenshot](documentation/validation/python/python-val-shop-context.png) | Pass: No Errors |
 | forms.py | ![screenshot](documentation/validation/python/python-val-shop-forms.png) | Pass: No Errors |
 | models.py | ![screenshot](documentation/validation/python/python-val-shop-models.png) | Pass: No Errors |
 | urls.py | ![screenshot](documentation/validation/python/python-val-shop-urls.png) | Pass: No Errors |
@@ -323,64 +323,72 @@ Defensive programming was manually tested with the below user acceptance testing
 
 | User Story | Screenshot |
 | --- | --- |
-| As a user, I want to browse products by category so that I can easily find items of interest. | ![screenshot](documentation/features/site-pages/) |
-| As a user,  I want to search for products using keywords so that I can quickly find specific items. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to view detailed product information so that I can make informed purchase decisions. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to add products to my shopping cart so that I can review them before purchasing. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to register an account so that I can save my details for future purchases. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to log in and log out securely so that my account remains private. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to update my profile information so that I can keep my account details current. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to leave reviews on products so that I can share my feedback with others. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want a secure and streamlined checkout process so that I can complete my purchase with confidence. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to receive an order confirmation email so that I have a record of my purchase. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to contact customer support directly through the website so that I can resolve any issues promptly. | ![screenshot](documentation/features/site-pages/) |
-| As a user, I want to view my order history so that I can review past purchases. | ![screenshot](documentation/features/site-pages/) |
-| As an admin, I want to log in to the admin dashboard so that I can manage the site securely. | ![screenshot](documentation/features/site-pages/) |
-| As a user, | ![screenshot](documentation/features/site-pages/) |
-| As an admin, I want to perform CRUD operations on products so that I can manage the catalog effectively. | ![screenshot](documentation/features/site-pages/) |
-| As an admin, I want to manage user accounts so that I can control access and maintain security. | ![screenshot](documentation/features/site-pages/) |
-| As an admin, I want to manage orders so that I can oversee the entire order lifecycle. | ![screenshot](documentation/features/site-pages/) |
-| As an admin, I want to manage inventory so that I can keep product stock up to date. | ![screenshot](documentation/features/site-pages/) |
-| As an admin, I want to respond to customer inquiries so that issues are resolved quickly. | ![screenshot](documentation/features/site-pages/) |
+| As a user, I want to browse products by category so that I can easily find items of interest. | ![screenshot](documentation/userstories/stories-browse.png) |
+| As a user,  I want to search for products using keywords so that I can quickly find specific items. | ![screenshot](documentation/userstories/stories-keywordsearch.png) |
+| As a user, I want to view detailed product information so that I can make informed purchase decisions. | ![screenshot](documentation/userstories/stories-details.png) |
+| As a user, I want to add products to my shopping cart so that I can review them before purchasing. | ![screenshot](documentation/userstories/stories-cart.png) |
+| As a user, I want to register an account so that I can save my details for future purchases. | ![screenshot](documentation/userstories/stories-register.png) |
+| As a user, I want to log in and log out securely so that my account remains private. | ![screenshot](documentation/userstories/stories-login.png) |
+| As a user, I want to update my profile information so that I can keep my account details current. | ![screenshot](documentation/userstories/stories-editprofile.png) |
+| As a user, I want to leave reviews on products so that I can share my feedback with others. | ![screenshot](documentation/userstories/stories-review.png) |
+| As a user, I want a secure and streamlined checkout process so that I can complete my purchase with confidence. | ![screenshot](documentation/userstories/stories-checkout.png) |
+| As a user, I want to receive an order confirmation email so that I have a record of my purchase. | ![screenshot](documentation/userstories/stories-orderemail.png) |
+| As a user, I want to contact customer support directly through the website so that I can resolve any issues promptly. | ![screenshot](documentation/userstories/stories-contact.png) |
+| As a user, I want to view my order history so that I can review past purchases. | ![screenshot](documentation/userstories/stories-orderhistory.png) |
+| As an admin, I want to log in to the admin dashboard so that I can manage the site securely. | ![screenshot](documentation/userstories/stories-adminlogin.png) |
+| As an admin, I want to perform CRUD operations on products so that I can manage the catalog effectively. | ![screenshot](documentation/userstories/stories-admincrud.png) |
+| As an admin, I want to manage user accounts so that I can control access and maintain security. | ![screenshot](documentation/userstories/stories-adminuser.png) |
+| As an admin, I want to manage orders so that I can oversee the entire order lifecycle. | ![screenshot](documentation/userstories/stories-adminorders.png) |
+| As an admin, I want to manage inventory so that I can keep product stock up to date. | ![screenshot](documentation/userstories/stories-admininventories.png) |
+| As an admin, I want to respond to customer inquiries so that issues are resolved quickly. | ![screenshot](documentation/userstories/stories-admincontact.png) |
 
 
 ## Bugs
 
-- Navbar items wouldn't align on right.
+- Messages not being sent from contact form to the admin panel.
 
-    - To fix this, I had to remove css for header display:flex for them to align to the right.
+    - Updated the views.py file to contain: from .models import ContactMessage. As it was missing.
 
-- Raw html showing on homepage cards.
+- Navbar toggle menu button not working.
 
-    ![screenshot](documentation/bugs/rawhtmlbug.png)
+    - Bootstrap 4 uses data-toggle="collapse" instead of data-bs-toggle="collapse". Changed and worked.
 
-    - To fix this, I had to add 'safe' to base home.html
+- Cart quantity was adding quantities together rather than updating them as a whole number.
 
-- Card buttons not staying at the bottom.
+    - To fix this I had to replace the form action in cart.html to update_cart rather than add_to_cart.
 
-    ![screenshot](documentation/bugs/buttonsbug.png)
+- Cart total briefly displays too many decimal places when the cart is updating.
 
-    - To fix this, I wrapped the card contents in a separate div and added css to the button : margin-top: auto;
+    - To fix this I had to update the return in the context_processors.py cart_total to inclue '2', this makes sure when loading, the total always displays to 2 decimal places.
 
-- Logo not showing.
+- Product orders not showing on Django admin page.
 
-    ![screenshot](documentation/bugs/logobug.png)
+    - Error was showing no sku was set on the product model, added this line:  sku = models.CharField(max_length=32, blank=True, null=True) and made migrated the changes to fix the problem.
 
-    - To fix this, I had to resize the logo image as the file size was too large.
+- Footer appearing in the toast.
 
-- Footer not staying fixed to the bottom of the page on soame pages.
+    ![screenshot](documentation/bugs/toast-footer.png)
 
-    ![screenshot](documentation/bugs/footerbug.png)
+    - To fix this I had to relocate the toast code in base.html beneath the footer as the footer was inheriting code from the toast.
 
-    - To fix this I had to set the .homepage height to 100vh.
+- Cart total (under the cart icon) was showing too many decimal places, even though all of the views were correct.
 
-- Extra zeros being displayed on prices.
+    ![screenshot](documentation/bugs/cart-total-error.png)
 
-    - To fix this, I had to add a float format so new code is: <p><strong>Price:</strong> £{{ itinerary.price|floatformat:"0" }}pp</p> anywhere there was a price.
+    - To fix this, I had to import: from django.http import JsonResponse as it was not there.
 
-- Too many itineraries showing in the features section.
+- Footer not at the bottom of the page on pages that only have a little bit of content.
 
-    - To fix this, I had to add 'slice' to {% for itinerary in itineraries|slice:":6" %} in the home.html file so that it will now only display 6.
+    ![screenshot](documentation/bugs/footer-not-fixed.png)
+
+    - To fix this I had to add a class to the body tag in base.html, this wrapped everything is a flexbox container, which I then styled in style.css and ensured a height of 100%.
+
+- Navbar breaking in the wrong place due to bootstrap styling.
+
+    ![screenshot](documentation/bugs/navbartoggleissue.png)
+
+    - Add custom breakpoint at 896px.
+ 
 
 ## Unfixed Bugs
 
