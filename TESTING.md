@@ -140,76 +140,61 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 ### RAD Templates - Mobile Testing
 | Page | Size | Screenshot | Notes |
 | --- | --- | --- | --- |
-| 404 | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Home | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Shop | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Wholesale | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| About | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Contact | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Profile | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Register | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Login | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Product Details | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Edit Review | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Delete Review | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Edit Profile | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Delete Profile | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Order Details | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Logout | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Cart | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Checkout | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Checkout Success | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Base | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Account Base | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Email confirm | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Password Change | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Password Reset Done | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Password Reset From Key Done | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Password Reset From Key | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Password Reset | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Verification Sent | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Verified Email Required | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Toast Error | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Toast Info | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Toast Success | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
-| Toast Warning | mobile | ![screenshot](documentation/lighthouse/mobile) |  |
+| 404 | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-404.png) |  |
+| Home/Base | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-home.png) |  |
+| Shop | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-shop.png) |  |
+| Wholesale | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-whole.png) |  |
+| About | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-about.png) |  |
+| Contact | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-contact.png) |  |
+| Profile | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-profile.png) |  |
+| Register | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-register.png) |  |
+| Login | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-signin.png) |  |
+| Product Details | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-product.png) |  |
+| Edit Review | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-reviewedit.png) |  |
+| Delete Review | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-reviewdel.png) |  |
+| Edit Profile | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-profileedit.png) |  |
+| Delete Profile | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-profiledel.png) |  |
+| Order Details | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-order.png) |  |
+| Logout | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-logout.png) |  |
+| Cart | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-cart.png) |  |
+| Checkout | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-checkout.png) |  |
+| Checkout Success | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-checkoutsuc.png) |  |
+| Email confirm | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-password1.png) |  |
+| Password Change | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-password2.png) |  |
+| Password Reset Done | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-password3.png) |  |
+| Password Reset Done | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-password4.png) |  |
+| Verification Sent | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-verifyemail.png) |  |
+| Verified Email Required | mobile | ![screenshot](documentation/lighthouse/mobile/light-mob-emailconfirm.png) |  |
+
 
 ### RAD Templates - Desktop Testing
 | Page | Size | Screenshot | Notes |
 | --- | --- | --- | --- |
-| 404 | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Home | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Shop | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Wholesale | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| About | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Contact | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Profile | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Register | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Login | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Product Details | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Edit Review | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Delete Review | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Edit Profile | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Delete Profile | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Order Details | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Logout | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Cart | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Checkout | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Checkout Success | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Base | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Account Base | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Email confirm | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Password Change | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Password Reset Done | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Password Reset From Key Done | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Password Reset From Key | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Password Reset | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Verification Sent | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Verified Email Required | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Toast Error | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Toast Info | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Toast Success | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
-| Toast Warning | desktop | ![screenshot](documentation/lighthouse/desktop) |  |
+| 404 | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-404.png) |  |
+| Home/Base | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-home.png) |  |
+| Shop | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-shop.png) |  |
+| Wholesale | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-whole.png) |  |
+| About | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-about.png) |  |
+| Contact | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-contact.png) |  |
+| Profile | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-profile.png) |  |
+| Register | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-register.png) |  |
+| Login | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-signin.png) |  |
+| Product Details | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-product.png) |  |
+| Edit Review | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-reviewedit.png) |  |
+| Delete Review | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-reviewdel.png) |  |
+| Edit Profile | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-profileedit.png) |  |
+| Delete Profile | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-profiledel.png) |  |
+| Order Details | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-order.png) |  |
+| Logout | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-logout.png) |  |
+| Cart | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-cart.png) |  |
+| Checkout | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-checkout.png) |  |
+| Checkout Success | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-checkoutsuc.png) |  |
+| Email confirm | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-password1.png) |  |
+| Password Change | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-password2.png) |  |
+| Password Reset Done | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-password3.png) |  |
+| Password Reset Done | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-password4.png) |  |
+| Verification Sent | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-emailconfirm.png) |  |
+| Verified Email Required | desktop | ![screenshot](documentation/lighthouse/desktop/light-desk-verifyemail.png) |  |
 
 
 ## Defensive Programming
