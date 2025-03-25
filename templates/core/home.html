@@ -19,7 +19,7 @@
     <div class="row align-items-center">
       <!-- Image on right -->
       <div class="col-md-6 order-md-2">
-        <img src="{% static 'images/ufocoffee.webp' %}" alt="New Arrivals" class="img-fluid">
+        <img src="{% static 'images/ufocoffee.webp' %}" alt="New Arrivals" class="img-fluid" loading="lazy">
       </div>
       <div class="col-md-6 order-md-1">
         <div class="p-4">
@@ -49,9 +49,9 @@
                     {% endif %}
 
                     {% if product.image %}
-                      <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                      <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" loading="lazy">
                     {% else %}
-                      <img src="{% static 'images/placeholder.webp' %}" class="card-img-top" alt="Placeholder">
+                      <img src="{% static 'images/placeholder.webp' %}" class="card-img-top" alt="Placeholder" loading="lazy">
                     {% endif %}
                     <div class="card-body text-center">
                       <h5 class="card-title">{{ product.name }}</h5>
@@ -75,7 +75,7 @@
     <div class="row align-items-center">
       <!-- Image on left -->
       <div class="col-md-6">
-        <img src="{% static 'images/coffeebag.webp' %}" alt="Wholesale Sacks" class="img-fluid custom-img">
+        <img src="{% static 'images/coffeebag.webp' %}" alt="Wholesale Sacks" class="img-fluid custom-img" loading="lazy">
       </div>
       <div class="col-md-6">
         <div class="p-4">
