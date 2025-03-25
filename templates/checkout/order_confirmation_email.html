@@ -39,6 +39,7 @@
         <div class="content">
             <p>Hi {{ order.full_name }},</p>
             <p>Your order <strong>#{{ order.order_number }}</strong> has been successfully placed.</p>
+            <p><strong>Address:</strong> {{ order.street_address1 }}, {{ order.street_address2 }}, {{ order.town_or_city }}, {{ order.county }}, {{ order.postcode }}</p>
             <p>Order total: <strong>£{{ order.grand_total }}</strong></p>
             <p>We are processing your order and will update you once it's shipped.</p>
             <p>Thank you for shopping with us!</p>

@@ -11,5 +11,5 @@ def chunker(seq, size):
     try:
         size = int(size)
     except ValueError:
-        return seq  # If the size isn't an integer, return the sequence as is
+        return seq
     return [seq[i:i + size] for i in range(0, len(seq), size)]

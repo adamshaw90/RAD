@@ -17,7 +17,6 @@ def profile(request):
     else:
         form = ProfileForm(instance=request.user)
 
-    # Fetch orders for the logged-in user, sorted by most recent
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
 
     return render(request, 'account/profile.html',
