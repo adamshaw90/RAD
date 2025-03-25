@@ -9,7 +9,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon.ico/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'favicon.ico/site.webmanifest' %}">
 
-    <link rel="preload" as="image" href="{% static 'images/hero.webp' %}" type="image/webp">
+    <link rel="preload" as="image" href="{% static 'images/hero.webp' %}" type="image/webp" fetchpriority="high">
+
 
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
